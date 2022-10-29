@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="static/css/styles.css"/>
+    <link rel="stylesheet" href="static/css/pairs.css"/>
+    <link rel="stylesheet" href="static/css/tabs.css"/>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <!--Script for Graph-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <title>PAIRS_Demonstrator</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand"
+           href="https://www.dfki.de/web/forschung/projekte-publikationen/projekte-uebersicht/projekt/pairs/">
+            PAIRS Smart Crisis Management Service</a>
+    </div>
+</nav><br>
+
+<div class="fix">
+    <a class="navbar-brand js-scroll-trigger" href="https://www.pairs-projekt.de/" style="display:inline;">
+        <img src="static/img/dfki_logo.jpg" style="width: 160px; height:70px;" alt=""/>
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 style="display:inline;">Power Outage Prediction for Process Industry</h2>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand js-scroll-trigger" href="https://www.pairs-projekt.de/" style="display:inline;">
+        <img src="static/img/pairs-logo.jpg" style="width: 160px; height:100px;" alt=""/>
+        <img src="static/img/Bundesmini.png" style="width: 180px; height:100px;" alt=""/>
+
+    </a>
+
+
+</div>
+
+<!-- Page content-->
+<div class="container" style="padding-top: 5%">
+    <div class="row">
+        <div class="col" style="padding-right: 7px"><br>
+
+            <section class="fieldset">
+                <h1>Selection of location</h1>
+                <p>I want to know about potential outages for my production line: </p>
+
+                <form id="forme" style=" position:absolute" >
+                    <select name="site" id="site" >
+                        <option value="Location" id="ct1" >Location</option>
+                        <option value="Raubling" id="ct2">Raubling</option>
+                        <option value="Trostberg" id="ct3">Trostberg</option>
+                        <option value="Augsburg" id="ct4">Augsburg</option>
+                        <option value="Schrobenhausen" id="ct5" >Schrobenhausen</option>
+                        <option value="Fürth" id="ct6">Fürth</option>
+                        <option value="Teisnach" id="ct7" >Teisnach</option>
+                        <option value="Plattling" id="ct8" >Plattling</option>
+                        <option value="Gmund" id="ct9" >Gmund</option>
+                        <option value="Ettringen" id="ct10" >Ettringen</option>
+                        <option value="Schongau" id="ct11" >Schongau</option>
+                        <option value="Kaufbeuren" id="ct12" >Kaufbeuren</option>
+                        <option value="Günzach" id="ct13" >Günzach</option>
+                        <option value="Ehingen" id="ct14" >Ehingen</option>
+                    </select>
+
+                    <input id="ok" style="display:inline;" type="submit" onclick="onClick()" value="Ok">
+
+                </form>
+            </section>
+        </div>
+
+        <div class="col" style="text-align: center">
+            <div class="btn pe-none"  id="btn1" style="height: 40px;width: 40px;line-height: 40px;font-size: 2em;border-radius: 50%;border: solid;background-color: #cecdcd;color: black;text-align: center; cursor: pointer;z-index: 1;bottom: 10%;right: 4%;box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);"></div>
+            <br><br>
+
+            <a class="navbar-brand js-scroll-trigger" id="disruption" href="#" style="display:inline;">
+                <img src="static/img/ChubbyShallowBobcat-size_restricted.gif" style="width: 150px; height:120px;"
+                     alt=""/>
+            </a>
+
+
+            <a class="navbar-brand js-scroll-trigger" id="no_disruption" href="#" style="display:inline;">
+                <img src="static/img/Electro.gif" style="width: 150px; height:120px;" alt=""/>
+            </a>
+
+            <a class="navbar-brand js-scroll-trigger" id="load" href="#" style="display:inline;">
+                <img src="static/img/loading_effect.gif" style="width: 150px; height:120px;" alt=""/>
+            </a>
+
+        </div>
+
+        <div class="col-5"></br>
+            <img src="static/img/Papiermaschine.jpg" style=" position: relative; left:-5%; padding-left:7px; height:160px; width:550px "
+                 alt=""/>
+            <a style="position:relative; left:80%; color: black; font-size:60%" href=" https://www.papierindustrie.de/presse/mediathek/bilder/altpapier/grafiken">[Source: VDP]</a>
+        </div>
+
+    </div>
+
+
+    <script>
+        /*JQuery for The Gif statement*/
+        $(document).ready(function() {
+
+            /*Initial state*/
+            $("#disruption").hide();
+            $("#no_disruption").hide();
+        });
+
+    </script>
+
+
+</div>
+
+
+
+<div class="container" style="padding-top: 5%; padding-bottom: 5%">
+    <div id="welcome">
+        <h5>This service provides an anticipation of energy-driven crises in the process industry.
+            After selecting a time horizon, a disruption prediction is given.
+            A Scenario Pattern represents a knowledge graph illustrating input information and data that were used for the prediction.
+            The according JSON-LD code serves as explanation for the prediction.
+            A second graph shows potential future outages for the selected time horizon.</h5>
+    </div>
+    <script>
+        $(document).ready(function() {
+
+            /*Initial state*/
+            $("#statements").hide();
+
+            $("#ok").on("click", function(e){
+                e.preventDefault();
+                const location = document.getElementById('site').value;
+                    if (location == 'Location') {
+                         window.alert("Please select a location");
+                          $("#sen0").hide();
+                    }else{
+                        $("#sen0").show();
+                        $("#welcome").hide();
+                        $("#statements").show();
+                    }
+
+
+                console.log("testtest");
+            });
+
+        });
+
+
+    </script>
+
+    <div id="statements">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Disruption prediction</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Data streams</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Behind the Scenes</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent" style="border:solid; border-radius: 5px">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <p style="padding-top:20px; text-align: center">Prediction of energy-driven disruptions in upcoming <strong>7 days</strong> at <strong>site: </strong><strong id="place"> </strong> <br> <br></p>
+                </div>
+                <div class="row">
+
+                        <div class="col" style="text-align: center">
+
+                            <!--Scenario Pattern-->
+                            <div id="sen0">
+                                <div id="scenarioPatternGraph" style="width: 100%; height: 415px;  max-width:600px">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--Graph Forecasting  -->
+                        <div class="col">
+
+                            <div id="canv" style="width: 100%; height: 390px;  max-width:400px; padding-top: 100px position:absolute;" >
+                                <canvas id="popChart" style="height: 310px !important;" ></canvas><br>
+                                <!--Legend: description of the graph-->
+                                <ul class="legend">
+                                <li><span class="disruption"></span> Possible outages</li>
+                                <li><span class="no_outage"></span> No outage</li>
+                                <li><span class="confidence_break_point"></span> Confidence level threshold</li>
+                            </ul>
+                            </div>
+
+                        </div>
+
+                    <div id="resu" style="text-align: center">
+                        <br><p id="marker_text"></p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="colu">
+                    <!--for Explatation-->
+                    <div class="colu_50">
+                        <section class="fieldset_tabss">
+                            <h1>Historical outages</h1>
+                            <button class="btne" id="btn9"
+                                    style="display:inline ; background-color:green;"></button>
+                            <p style="display:inline"> Source: Bundesnetzagentur; </br>
+                                URL:
+                                <b> <a href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/Versorgungsunterbrechungen/Auswertung_Strom/start.html">Link</a></b> ;
+                                #Data points: 1,5 Mio. 17k after taking unplanned outages that are influenced by weather conditions. </p>
+
+                        </section>
+                        </br>
+                        <section class="fieldset_tabss">
+                            <h1>Historical weather data</h1>
+                            <button class="btne" id="btn4"
+                                    style="display:inline ; background-color:green;"></button>
+                            <p style="display:inline"> Source: NCEI database;<br>
+                                URL: <b><a href="https://www.noaa.gov/">Link</a></b>
+                                #DataPoints: 211k records from 112 weather stations</p>
+
+                        </section>
+                    </div>
+                    <div class="colu_50">
+                        <section class="fieldset_tabss">
+                            <h1>Actual weather data</h1>
+                            <button class="btne" id="btn6"
+                                    style="display:inline; background-color: green;"></button>
+                            <p style="display:inline"> This data is obtained via a weather service API that provides weather forecasts for a location.
+                                URLs: <b><a href="https://open-meteo.com/en/features">Open Meteo API</a></b>
+                            </p>
+                        </section>
+                        <br>
+
+                        <section class="fieldset_tabss">
+                            <h1>Actual Twitter data</h1>
+                            <button class="btne" id="btn?"
+                                    style="display:inline; background-color: green;"></button>
+                            <!--<p style="display:inline"> <spam id="atd">Data streams by active sensors: 80%</spam> </p>-->
+                            <p style="display:inline"> <spam id="atd">The data is obtained via the Tweepy API to scrape the tweets based on keywords. Around 2 Mio. tweets records are used</spam> </p>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row" style="padding:10px">
+                    <div class="col">
+                        <section class="fieldset_tabs">
+                            <h5>Motivation</h5>
+                            <ul>
+                                <li>Power disruptions represent crisis situations for industrial plants: fluctuations in power grid</li>
+                                <li>Leads to machine downtimes, costly restarting of production lines; damage of machine parts</li>
+                                <li>Reasons are e.g. weather dependency</li>
+                                <li>Measures taken today:  Commissioning of expensive proprietary power plants to protect
+                                    against power outages (manufacturing side) ; Adjusting the power input of power plants
+                                    to avoid regional overloads (network operator side)</li>
+                            </ul>
+
+                        </section>
+                    </div>
+
+                    <div class="col">
+                        <section class="fieldset_tabs">
+                            <h5>Approach</h5>
+                            <ul>
+                                <li>Anticipation of energy-driven crises in process industry by AI-based scenario planning (AISOP) is used to improve resilience in manufacturing</li>
+                                <li>Proactive adjustment of production planning, controlled shutdowns of production lines, rescheduling of maintenance times </li>
+                            </ul>
+                            <img src="static/img/AISOS.png" style="width: 380px; height:172px; position: relative; right:3%" alt=""/>
+                            <ul>
+                                <li><b>Learning Component:</b> Fills empty scenario patterns with data and input information</li>
+                                <li>JSON-LD file generated semi-automatically and transformed into a Knowledge Graph (KG)</li>
+                                <li>KG is forwarded as lessons learned to <b>Anticipating Component:</b>  Applies predictive analytics to determine forecasting model</li>
+                                <li><b>Monitoring Component:</b> Monitors actual weather data; Forecasting model is applied on actual weather data</li>
+                                <li><b>Responding Component</b> If potential outage is predicted, results are given as response to user who can give further feedback on potential measures</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col">
+                        <section class="fieldset_tabs">
+                            <h5>Implementation</h5>
+
+                            <ul>
+                                <li>Semantically enhanced scenario patterns to capture entities of crisis situations in history and future</li>
+                                <li>Scenario patterns operationalized in JSON-LD leading to a knowledge graph of crisis scenarios</li>
+                                <li>Data streams mapped onto the scenario pattern structure fusing NLP or determining historic crisis scenarios</li>
+                                <li>Predicting future crisis scenarios by using inductive knowledge and machine learning</li>
+                            </ul>
+
+                            </br></br>
+                        </section>
+                    </div>
+                    <div class="col">
+                        <section class="fieldset_tabs"><h5>Evaluation</h5>
+                            <ul>
+                                <li>Exemplified within a PoC for energy-driven disruption prediction in 15 paper process industries in Bavaria</li>
+                            </ul>
+                            </br></br>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+-->
+
+
+<!-- Core theme JS-->
+
+<script src="static/js/graph.js"></script>
+<script src="static/js/script1.js"></script>
+<script src="static/js/scenario_pattern_2.js"></script>
+
+<!-- Copyright footer-->
+<footer class="bg-light text-center text-lg-start">
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-dark"
+           href="https://www.dfki.de/web/forschung/projekte-publikationen/projekte-uebersicht/projekt/pairs/">DFKI_PAIRS</a>
+    </div>
+
+</footer>
+</body>
+</html>
