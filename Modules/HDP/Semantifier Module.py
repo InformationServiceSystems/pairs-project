@@ -21,7 +21,7 @@ import pandas as pd
 import glob
 path = 'octopart_data'
 file_path = glob.glob(path + "/octopart_data.xlsx")
-dataframe = pd.read_excel(file_path[0])
+dataframe = pd.read_excel(file_path[0], index_col = 0)
 print(dataframe)
 
 
@@ -43,7 +43,7 @@ import sys
 graph = db.Graph('bolt://localhost:7687', 'neo4j', 'password')
 graph.enable_log(logging.INFO, sys.stdout)
 
-for row in dataframe[['mpn','median_price_100','total_avail']].iterrows():
+for row in dataframe[['mpn','median_price_1000','total_avail']].iterrows():
 
         component_id = row[0]
         mpn = row[1][0]
@@ -56,12 +56,12 @@ for row in dataframe[['mpn','median_price_100','total_avail']].iterrows():
         graph.update_componentNode(component_id, mpn, median_price, total_avail, 'HDP')
 
 
-## 2.2 Add manufacturer to the graph
+## 2.2 Add new manufacturer nodes to the graph or update already existing manufacturer nodes with information
 ## Similar to adding manufacturer in the mapper moduel
 
-for row in dataframe[['Manufacturer','estimated_factory_lead_days','manufacturer_country']].iterrows():
+for row in dataframe[['manufacturer_name','estimated_factory_lead_days','manufacturer_country']].iterrows():
     component_id = row[0]
-    manufacturer = row[1][0].upper()
+    manufacturer = row[1][0]
     lead_time = row[1][1]
     country = row[1][2]
     
@@ -76,7 +76,7 @@ for row in dataframe[['Manufacturer','estimated_factory_lead_days','manufacturer
 
 ## 2.3 Add seller to the graph
 
-for row in dataframe[['Seller']].iterrows():
+for row in dataframe[['sellers']].iterrows():
 
     component_id = row[0]
     sellers = row[1][0]
@@ -92,7 +92,7 @@ for row in dataframe[['Seller']].iterrows():
 
 ## 2.4 Add category to the graph
 
-for row in dataframe[['Category']].iterrows():
+for row in dataframe[['category']].iterrows():
     
     component_id = row[0]
     category = row[1][0]

@@ -9,12 +9,14 @@ class Data_Preparation():
     def create_relation_list(self, df):
         
         relation_dict = dict()
+        df = df[['IdentNr','Ebene']]
+        
         for row in df.iterrows():
             relation_dict[row[1][1]] = row[1][0]
         
         source_target_list = []
                      
-        df = df.iloc[1:]
+        df = df[['IdentNr','Ebene']].iloc[1:]
         
         for row in df.iterrows():
             source = row[1][1]
@@ -27,5 +29,4 @@ class Data_Preparation():
             source_target_list.append([source_id,target_id])
                 
         return source_target_list
-
     

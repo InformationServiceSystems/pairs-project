@@ -34,7 +34,7 @@ import pandas as pd
 import glob
 path = 'octopart_data'
 file_path = glob.glob(path + "/historical_data.xlsx")
-historical_data = pd.read_excel(file_path[0])
+historical_data = pd.read_excel(file_path[0], index_col = 0)
 print(historical_data)
 
 ## 2. Get the most cricital components
@@ -44,8 +44,8 @@ print(historical_data)
 ## information about the median_price, the total availability and the lead-time. Only those compoents are consideres, 
 ## which has an database.
 
-result = graph.get_mostImportant_Nodes('neo4j')
-most_critical = pd.DataFrame(result, columns = ['Component ID', 'Single-Source Property', 'Criticality', 'Strength', 'Out-Degree(components)', 'Betweeness', 'In-Degree(Substitute)'])
+result = graph.get_mostImportant_Nodes('HDP')
+most_critical = pd.DataFrame(result, columns = ['Component ID', 'Criticality', 'Strength', 'Out-Degree(components)', 'Betweeness', 'In-Degree(Substitute)','In-Degree(Components)'])
 print(most_critical)
 
 ## 3. Create the user report

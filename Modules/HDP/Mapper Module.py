@@ -97,8 +97,7 @@ graph.enable_log(logging.INFO, sys.stdout)
 #The edges will now created
 for filename in dataframe_collection:
     dataframe = dataframe_collection[filename]
-    edges = dataframe[['Ebene']]
-    edge_list = prepare.create_relation_list(edges)
+    edge_list = prepare.create_relation_list(dataframe)
     for element in edge_list:
         source = element[0]
         target = element[1]
@@ -135,10 +134,10 @@ graph.enable_log(logging.INFO, sys.stdout)
 for filename in dataframe_collection:
     dataframe = dataframe_collection[filename]
     #The nodes dataframe is a dataframe which contains the component ID's and the corresponding manufacturer information
-    nodes = dataframe[['IdentNR','HERSTELLER']]
+    nodes = dataframe[['IdentNr','HERSTELLER']]
     for row in nodes.iterrows():
         component_id = row[1][0]
-        manufacturer = row[1][1].upper()
+        manufacturer = row[1][1]
         # The sub-function create-manufacturer takes a Component-ID, a manufacturer name and the database name as input
         # I assume that in the DBMS with bolt 7687 there exists a database named 'HDP'.
         graph.create_manufacturer(component_id, manufacturer,'HDP')
@@ -147,6 +146,6 @@ for filename in dataframe_collection:
 ## -------------------- Result after the Mapper Module has finished -------------------------------------------------- ##
 
 # 1. The BOM-Data are processed so that we create component nodes in the graph
-# 2. The BOM-Data are processed so that we create "isComponent" and "isSubsitue" edges
+# 2. The BOM-Data are processed so that we create "isComponent" and "isSubsitute" edges
 # 3. The BOM-Data are processed so that we create manufacturer-nodes and "produce" edges
 

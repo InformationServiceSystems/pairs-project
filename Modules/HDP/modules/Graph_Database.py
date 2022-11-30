@@ -8,13 +8,38 @@ from operator import itemgetter
 
 class Graph:
 
+    def __init__(self, uri, user, password):
+        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+
+    def close(self):
+        self.driver.close()
+
+    @staticmethod
+    def enable_log(level, output_stream):
+        handler = logging.StreamHandler(output_stream)
+        handler.setLevel(level)
+        logging.getLogger("neo4j").addHandler(handler)
+        logging.getLogger("neo4j").setLevel(level)
+
+    def delete_all(self, dbname):
+        with self.driver.session(database=dbname) as session:
+            result = session.write_transaction(self._delete_all)
+
+    @staticmethod
+    def _delete_all(tx):
+        query = ("MATCH (n) DETACH DELETE n")
+        result = tx.run(query)
+
     def create_component_node(self, node_id , dbname):
         with self.driver.session(database=dbname) as session:
             result = session.write_transaction(self._create_component_node, node_id)
             return result
 
+    def create_component_node(self, node_id , dbname):
+        with self.driver.session(database=dbname) as session:
+            result = session.write_transaction(self._create_component_node, node_id)
+            return result
 
-    
     @staticmethod
     def _create_component_node(tx,node_id):
 
@@ -34,7 +59,7 @@ class Graph:
             "ON CREATE "
             "SET n.strength = 1 "
             "ON MATCH "
-            "SET n.strenght = n.strenght + 1"
+            "SET n.strength = n.strength + 1"
         )
 
         result = tx.run(query, node_id = node_id)
@@ -62,7 +87,7 @@ class Graph:
 
             "MATCH (s:component), (t:component) "
             "WHERE s.ident = $source_id AND t.ident = $target_id "
-            "MERGE (s)-[r:isSubstitue]->(t) "
+            "MERGE (s)-[r:isSubstitute]->(t) "
         )
 
 
@@ -84,6 +109,8 @@ class Graph:
     def _create_manufacturer(tx,node_id,manufacturer):
 
         if (manufacturer==manufacturer and manufacturer != None):
+
+            manufacturer = manufacturer.upper()
             query = (
                 
                 "MATCH (n:component) "
@@ -150,37 +177,41 @@ class Graph:
 
         if (
                 manufacturer == manufacturer and manufacturer != None and estimated_lead_time == estimated_lead_time and estimated_lead_time != None):
-            query1 = (
 
-                "MERGE (m:manufacturer {name: $manufacturer}) "
-                
-            )
+                manufacturer = manufacturer.upper()
 
-            result= tx.run(query1, manufacturer=manufacturer)
+                query1 = (
 
-            query2 = (
+                    "MERGE (m:manufacturer {name: $manufacturer}) "
+                    
+                )
 
-                "MATCH (m:manufacturer), (n:component) "
-                "WHERE n.ident = $node_id AND m.name = $manufacturer "
-                "MERGE (m)-[r:produce {label: 'produce'}]->(n) "
-                "SET r.manufacturer_lead_days = $estimated_lead_time "
+                result= tx.run(query1, manufacturer=manufacturer)
 
-            )
+                query2 = (
 
-            
-            result = tx.run(query2, node_id=node_id, manufacturer=manufacturer, estimated_lead_time=estimated_lead_time, location=location)
-            
-            if(location==location and location != None):
-
-                query3 = (
-
-                    "MATCH (m:manufacturer) "
-                    "WHERE m.name = $manufacturer "
-                    "SET m.location = $location "
+                    "MATCH (m:manufacturer), (n:component) "
+                    "WHERE n.ident = $node_id AND m.name = $manufacturer "
+                    "MERGE (m)-[r:produce]->(n) "
+                    "SET r.manufacturer_lead_days = $estimated_lead_time "
 
                 )
 
-                result = tx.run(query3, manufacturer=manufacturer, location=location)
+            
+                result = tx.run(query2, node_id=node_id, manufacturer=manufacturer, estimated_lead_time=estimated_lead_time, location=location)
+            
+        if(location==location and location != None):
+
+
+            query3 = (
+
+                "MATCH (m:manufacturer) "
+                "WHERE m.name = $manufacturer "
+                "SET m.location = $location "
+
+            )
+
+            result = tx.run(query3, manufacturer=manufacturer, location=location)
 
 
     def create_seller(self, node_id, seller, dbname):
@@ -196,7 +227,7 @@ class Graph:
                 "MATCH (n:component) "
                 "WHERE n.ident = $node_id "
                 "MERGE (s:seller {name: $seller}) "
-                "MERGE (s)-[r:sells { label: 'sells' }]->(n)"
+                "MERGE (s)-[r:sells]->(n)"
             )
 
             result = tx.run(query, node_id=node_id, seller=seller)
@@ -215,7 +246,7 @@ class Graph:
                 "MATCH (n:component) "
                 "WHERE n.ident = $node_id "
                 "MERGE (c:category {name: $category}) "
-                "MERGE (n)-[r:is_category { label: 'is_category' }]->(c)"
+                "MERGE (n)-[r:is_category]->(c)"
             )
 
             result = tx.run(query, node_id=node_id, category=category)
@@ -231,7 +262,7 @@ class Graph:
 
             query = (
 
-                'MATCH (c:component) WHERE c.substitute = False WITH c , '
+                'MATCH (c:component) WITH c , '
                 'CASE WHEN c.in_degree_substitute <> 0 THEN (((c.strength + c.out_degree_components + c.betweeness)/c.in_degree_substitute) + c.in_degree_components) '
                 'WHEN c.in_degree_substitute = 0 THEN (c.strength + c.out_degree_components + c.in_degree_components + c.betweeness) '
                 'END AS criticality '
@@ -252,7 +283,7 @@ class Graph:
 
             query = (
 
-                'MATCH (s:component)-[r:isSubstitute]->(c:component) WHERE s.substitute = True '
+                'MATCH (s:component)-[r:isSubstitute]->(c:component) '
                 'SET s.strength = c.strength '
                 'SET s.out_degree_components = c.out_degree_components '
                 'SET s.in_degree_components = c.in_degree_components '
@@ -276,7 +307,7 @@ class Graph:
         query = (
 
             "MATCH (n:component) WHERE n.mpn is not null AND n.criticality > 4.14 "
-            "RETURN n.ident, n.strength, n.out_degree_components, n.betweeness, n.in_degree_substitute, n.in_degree_components, n.is_SingleSource, n.criticality"
+            "RETURN n.ident, n.strength, n.out_degree_components, n.betweeness, n.in_degree_substitute, n.in_degree_components, n.criticality"
 
         )
         result = tx.run(query)
@@ -290,9 +321,8 @@ class Graph:
             betweeness = row[3]
             in_degree_substitute = row[4]
             in_degree_components = row[5]
-            single_source = row[6]
-            criticality = row[7]
-            element = [ident, single_source, criticality, strength, out_degree_components, betweeness, in_degree_substitute, in_degree_components]
+            criticality = row[6]
+            element = [ident, criticality, strength, out_degree_components, betweeness, in_degree_substitute, in_degree_components]
             ergebniss.append(element)
 
         return sorted(ergebniss, key=itemgetter(2), reverse=True)
@@ -314,6 +344,27 @@ class Graph:
 
         result = tx.run(query, ident=ident)
         liste = [record['c.name'] for record in result.data()]
+        return liste
+
+    
+    def get_manufacturer(self,dbname,ident):
+        with self.driver.session(database =dbname) as session:
+            result = session.read_transaction(self._get_manufacturer,ident)
+            return result
+        
+     
+    @staticmethod
+    def _get_manufacturer(tx,ident):
+        
+        query = (
+            
+            'MATCH (p:manufacturer)-[r:produce]->(n:component) WHERE n.ident = $ident '
+            'RETURN p.name '
+            
+            )
+        
+        result = tx.run(query, ident = ident)
+        liste = [record['p.name'] for record in result.data()]
         return liste
 
 
