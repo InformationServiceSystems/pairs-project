@@ -35,14 +35,14 @@ Data is linked and transformed into a knowledge graph creating such a pattern of
 
 	- Open a terminal (Linux) or cmd (Windows) and run the following command to clone the repository:
 	```
-	git clone https://github.com/InformationServiceSystems/pairs-scms.git
+	git clone https://github.com/InformationServiceSystems/pairs-project.git
 	```
 
 - Intsall the dependencies 
 
-	- In the terminal, run the following command to go to demo directory. 
+	- In the terminal, run the following command to go to OutagePredictor directory. 
 	```
-	cd pairs-scms/POC/OutagePredictor/Demo
+	cd pairs-project/Modules/OutagePredictor/
 	```
 	- Then run this command to install the dependencies
 	```
@@ -53,7 +53,7 @@ Data is linked and transformed into a knowledge graph creating such a pattern of
 
 	- Go back to the directory where you downloaded the repo and run this command to go to backend directory:
 	```
-	cd pairs-scms/POC/OutagePredictor/Demo/backend/forecast/
+	cd pairs-project/Modules/OutagePredictor/backend/forecast/
 	```
 	- Run server
 	```
@@ -64,7 +64,7 @@ Data is linked and transformed into a knowledge graph creating such a pattern of
 - Start the frontend server:
 	- Open a new terminal and Go to demo directory again:
 	```
-	cd pairs-scms/POC/OutagePredictor/Demo/
+	cd pairs-project/Modules/OutagePredictor/
 	```
 	- Run server
 	```
