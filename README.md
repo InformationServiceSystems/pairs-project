@@ -10,4 +10,5 @@ Repo for AI modules for Smart Crisis Management Services in PAIRS project
     ├── Modules         
     │   ├── OutagePredictor 
     |   ├── HiddenProblemDetector (HDP)    
+    |   ├── NewspaperSignaling
     └── ...
