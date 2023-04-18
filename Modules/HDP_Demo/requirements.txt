@@ -1,0 +1,5 @@
+Flask
+neo4j
+graphdatascience
+openpyxl
+plotly
