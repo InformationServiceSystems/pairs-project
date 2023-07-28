@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+help/
+Lib/
+Scripts/
+thw_test/
+pyvenv.cfg
+backend/thw/__pycache__
+backend/prediction/__pycache__
+backend/prediction/migrations/__pycache__
