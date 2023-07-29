@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div class="bk-root" id="d90199c4-efed-4df4-b5cc-71983460e224" data-root-id="8662"></div>
+  
+    <script type="application/json" id="9400">
+      {"322b009d-9845-4fe8-a216-c39e6dfe9703":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"8671"}],"center":[{"id":"8674"},{"id":"8678"}],"height":500,"left":[{"id":"8675"}],"renderers":[{"id":"7101"},{"id":"8707"}],"title":{"id":"8663"},"toolbar":{"id":"8684"},"toolbar_location":null,"width":1000,"x_range":{"id":"8660"},"x_scale":{"id":"8667"},"y_range":{"id":"8661"},"y_scale":{"id":"8669"}},"id":"8662","subtype":"Figure","type":"Plot"},{"attributes":{"coordinates":null,"data_source":{"id":"7107"},"glyph":{"id":"8697"},"group":null,"hover_glyph":null,"view":{"id":"7109"}},"id":"7108","type":"GlyphRenderer"},{"attributes":{"fill_color":{"field":"tag","transform":{"id":"8691"}},"size":{"value":70}},"id":"8692","type":"Circle"},{"attributes":{"source":{"id":"7107"}},"id":"7109","type":"CDSView"},{"attributes":{"data":{"end":["Scope-Index Personal","Scope-Index Produktion","Redundanz","Time-to-Fill","Mitarbeiterbindung","Toleranz der Maschinen","Abh\u00e4ngigkeit von Lieferanten","Regionale Verteilung der Lieferanten"],"start":["Resilienz-Index","Resilienz-Index","Scope-Index Personal","Scope-Index Personal","Scope-Index Personal","Scope-Index Produktion","Scope-Index Produktion","Scope-Index Produktion"],"weight":[0.4,0.6,0.5,0.33,0.17,0.33,0.25,0.42]},"selected":{"id":"8961"},"selection_policy":{"id":"8960"}},"id":"7107","type":"ColumnDataSource"},{"attributes":{},"id":"8960","type":"UnionRenderers"},{"attributes":{"factors":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"],"palette":["#3288bd","#66c2a5","#abdda4","#e6f598","#ffffbf","#fee08b","#fdae61","#f46d43","#d53e4f"]},"id":"8691","type":"CategoricalColorMapper"},{"attributes":{"source":{"id":"7103"}},"id":"7105","type":"CDSView"},{"attributes":{"graph_layout":{"Abh\u00e4ngigkeit von Lieferanten":[-4.7604289193283815,8.535466716866406],"Mitarbeiterbindung":[10.0,-7.242903001414665],"Redundanz":[4.372444144971103,-6.905358824998716],"Regionale Verteilung der Lieferanten":[-8.577178569695363,0.9333533101865314],"Resilienz-Index":[-0.5398122281066898,0.28646822354439677],"Scope-Index Personal":[4.660170405662615,-3.143362713448375],"Scope-Index Produktion":[-4.890339109573525,3.081798716186982],"Time-to-Fill":[8.889904915517958,-1.2029767430919363],"Toleranz der Maschinen":[-9.154760639447721,5.657514316169378]}},"id":"7110","type":"StaticLayoutProvider"},{"attributes":{"coordinates":null,"group":null,"source":{"id":"8706"},"text":{"field":"name"},"x":{"field":"x"},"y":{"field":"y"}},"id":"8707","type":"LabelSet"},{"attributes":{"line_alpha":{"value":0.5},"line_width":{"value":2}},"id":"8697","type":"MultiLine"},{"attributes":{},"id":"8954","type":"BasicTickFormatter"},{"attributes":{},"id":"8682","type":"ResetTool"},{"attributes":{},"id":"8955","type":"AllLabels"},{"attributes":{},"id":"8957","type":"Selection"},{"attributes":{},"id":"8956","type":"UnionRenderers"},{"attributes":{},"id":"8959","type":"Selection"},{"attributes":{},"id":"8669","type":"LinearScale"},{"attributes":{"coordinates":null,"formatter":{"id":"8951"},"group":null,"major_label_policy":{"id":"8952"},"ticker":{"id":"8676"},"visible":false},"id":"8675","type":"LinearAxis"},{"attributes":{},"id":"8951","type":"BasicTickFormatter"},{"attributes":{},"id":"8676","type":"BasicTicker"},{"attributes":{"axis":{"id":"8671"},"coordinates":null,"group":null,"ticker":null,"visible":false},"id":"8674","type":"Grid"},{"attributes":{},"id":"8680","type":"WheelZoomTool"},{"attributes":{"callback":null,"tooltips":[["Name","@index"],["Typ","@tag"],["Score","@score"]]},"id":"8683","type":"HoverTool"},{"attributes":{"active_scroll":{"id":"8680"},"logo":null,"tools":[{"id":"8679"},{"id":"8680"},{"id":"8681"},{"id":"8682"},{"id":"8683"}]},"id":"8684","type":"Toolbar"},{"attributes":{},"id":"8681","type":"SaveTool"},{"attributes":{},"id":"8672","type":"BasicTicker"},{"attributes":{},"id":"8679","type":"PanTool"},{"attributes":{"data":{"name":["Resilienz-Index","Scope-Index Personal","Scope-Index Produktion","Redundanz","Time-to-Fill","Mitarbeiterbindung","Toleranz der Maschinen","Abh\u00e4ngigkeit von Lieferanten","Regionale Verteilung der Lieferanten"],"x":[-0.5398122281066898,4.660170405662615,-4.890339109573525,4.372444144971103,8.889904915517958,10.0,-9.154760639447721,-4.7604289193283815,-8.577178569695363],"y":[0.28646822354439677,-3.143362713448375,3.081798716186982,-6.905358824998716,-1.2029767430919363,-7.242903001414665,5.657514316169378,8.535466716866406,0.9333533101865314]},"selected":{"id":"8957"},"selection_policy":{"id":"8956"}},"id":"8706","type":"ColumnDataSource"},{"attributes":{},"id":"8961","type":"Selection"},{"attributes":{"axis":{"id":"8675"},"coordinates":null,"dimension":1,"group":null,"ticker":null,"visible":false},"id":"8678","type":"Grid"},{"attributes":{"coordinates":null,"group":null,"text":"Resilienzgraph GU post produktion"},"id":"8663","type":"Title"},{"attributes":{},"id":"8949","type":"NodesOnly"},{"attributes":{},"id":"8948","type":"NodesOnly"},{"attributes":{"coordinates":null,"data_source":{"id":"7103"},"glyph":{"id":"8692"},"group":null,"hover_glyph":null,"view":{"id":"7105"}},"id":"7104","type":"GlyphRenderer"},{"attributes":{"coordinates":null,"edge_renderer":{"id":"7108"},"group":null,"inspection_policy":{"id":"8949"},"layout_provider":{"id":"7110"},"node_renderer":{"id":"7104"},"selection_policy":{"id":"8948"}},"id":"7101","type":"GraphRenderer"},{"attributes":{"coordinates":null,"formatter":{"id":"8954"},"group":null,"major_label_policy":{"id":"8955"},"ticker":{"id":"8672"},"visible":false},"id":"8671","type":"LinearAxis"},{"attributes":{},"id":"8952","type":"AllLabels"},{"attributes":{},"id":"8958","type":"UnionRenderers"},{"attributes":{},"id":"8667","type":"LinearScale"},{"attributes":{"end":10.1,"start":-10.1},"id":"8660","type":"Range1d"},{"attributes":{"end":10.1,"start":-10.1},"id":"8661","type":"Range1d"},{"attributes":{"data":{"index":["Resilienz-Index","Scope-Index Personal","Scope-Index Produktion","Redundanz","Time-to-Fill","Mitarbeiterbindung","Toleranz der Maschinen","Abh\u00e4ngigkeit von Lieferanten","Regionale Verteilung der Lieferanten"],"linearTag":[0,1,1,2,2,2,2,2,2],"name":["Resilienz-Index","Scope-Index Personal","Scope-Index Produktion","Redundanz","Time-to-Fill","Mitarbeiterbindung","Toleranz der Maschinen","Abh\u00e4ngigkeit von Lieferanten","Regionale Verteilung der Lieferanten"],"score":[0.5202,0.5223,0.5188,0.64,0.34,0.53,0.66,0.6,0.45],"tag":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"]},"selected":{"id":"8959"},"selection_policy":{"id":"8958"}},"id":"7103","type":"ColumnDataSource"}],"root_ids":["8662"]},"title":"Bokeh Application","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('9400').textContent;
+              const render_items = [{"docid":"322b009d-9845-4fe8-a216-c39e6dfe9703","root_ids":["8662"],"roots":{"8662":"d90199c4-efed-4df4-b5cc-71983460e224"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
