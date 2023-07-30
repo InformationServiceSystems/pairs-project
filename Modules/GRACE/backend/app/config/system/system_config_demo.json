@@ -1,0 +1,146 @@
+{
+  "scopes": [
+    {
+      "id": 1,
+      "name": "Produktionsscope"
+    },
+    {
+      "id": 2,
+      "name": "Personalscope"
+    }
+  ],
+  "kpis": [
+    {
+      "id": 1,
+      "name": "Toleranz der Maschinen",
+      "weight": 0.2
+    },
+    {
+      "id": 2,
+      "name": "Abhängigkeit von Lieferanten",
+      "weight": 0.15
+    },
+    {
+      "id": 3,
+      "name": "Regionale Verteilung der Lieferanten",
+      "weight": 0.25
+    },
+    {
+      "id": 4,
+      "name": "Redundanz im Personal",
+      "weight": 0.2
+    },
+    {
+      "id": 5,
+      "name": "Time-to-Fill beim Personal",
+      "weight": 0.13
+    },
+    {
+      "id": 6,
+      "name": "Mitarbeiterbindung/-fluktuation",
+      "weight": 0.07
+    }
+  ],
+  "disruptions": [
+    {
+      "id": 1,
+      "name": "Rohmaterial aus China mit geringerer Qualität",
+      "probability": 0.5,
+      "time_dimensions": [
+        {
+          "id": 1,
+          "description": "1 Woche",
+          "weight": 0.2
+        },
+        {
+          "id": 2,
+          "description": "2-3 Wochen",
+          "weight": 0.3
+        },
+        {
+          "id": 3,
+          "description": "4-6 Wochen",
+          "weight": 0.5
+        },
+        {
+          "id": 4,
+          "description": "länger als 6 Wochen",
+          "weight": 0.7
+        }
+      ]
+    },
+    {
+        "id": 2,
+        "name": "Krankheitswelle",
+        "probability": 0.6,
+        "time_dimensions": [
+            {
+                "id": 1,
+                "description": "2-3 Tage",
+                "weight": 0.2
+            },
+            {
+                "id": 2,
+                "description": "1-2 Woche(n)",
+                "weight": 0.35
+            },
+            {
+                "id": 3,
+                "description": "2-4 Wochen",
+                "weight": 0.5
+            },
+            {
+              "id": 4,
+              "description": "länger als 4 Wochen",
+              "weight": 0.6
+            }
+        ]
+    }
+  ],
+  "scope_kpi_matching": [
+    {
+      "scope": 1,
+      "kpis": [1,2,3]
+    },
+    {
+      "scope": 2,
+      "kpis": [4,5,6]
+    }
+  ],
+  "disruption_kpi_matching": [
+    {
+      "disruption": 1,
+      "kpis": [1,2,3]
+    },
+    {
+        "disruption": 2,
+        "kpis": [4,5,6]
+    }
+  ],
+  "graph": [
+    {
+      "source": 1,
+      "destinations": []
+    },
+    {
+      "source": 2,
+      "destinations": [3]
+    },
+    {
+      "source": 3,
+      "destinations": []
+    },
+    {
+      "source": 4,
+      "destinations": [5, 6]
+    },
+    {
+      "source": 5,
+      "destinations": []
+    },
+    {
+      "source": 6,
+      "destinations": []
+    }
+  ]
+}
