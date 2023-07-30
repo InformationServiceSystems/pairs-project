@@ -7,7 +7,7 @@ With an increasing number of crises and cascading effects, the pressure on handl
 - Crisis operation prediction for the next 7 days
 - Recommendations for Operations Planning to handle crises events
 
-## Prediction
+## Prediction of Crisis Operations
 We predict rain and snow based events, such as heavy rain and floods for 10 locations in Germany (Göttingen, Aachen, Trier, Augsburg, Biberach, Chemnitz, Regensburg, Neubrandenburg, Schwerin, Kiel): 
 ![MicrosoftTeams-imagec97461883700fae13698badebbd06679cd13df90686356f9bde747b1dbd64983](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/de1564d0-fbb5-402d-8fb5-fcd916f47847)
 
@@ -27,19 +27,21 @@ We used OPS as foundation in order to generate planning recommendations for pred
 
 ![ScenarioPatternTHW drawio (9)](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/0907132e-2058-4368-a541-47dd1486db5f)
 
+## Screencast
+A screencast of the service (including event prediction and generated recommendations) can be viewed here:
 
 ## References
-[1] S. Janzen, N. Gdanitz, L. Abdel Khaliq, T. Munir, C. Franzius, W. Maass. (2023). Anticipating Energy-driven Crises in Process Industry by AI-based Scenario Planning, HICSS (2023)
-[2] S. Leachu, J. Janßen, N. Gdanitz, M. Kirchhöfer, S. Janzen. (2023). Cascading Scenario Technique enabling Automated and Situation-based Crisis Management, CPSL (2023).
-[3] Watahiki, K., & Saeki, M. (2001). Scenario evolution in requirements elicitation processes: scenario pattern and framework approach. In Proceedings of the 4th International Workshop on Principles of Software Evolution (pp. 166-169).
-[4] Watahiki, K., & Saeki, M. (2001). Scenario patterns based on case grammar approach. Proc. of Fifth IEEE Int. Symposium on Requirements Engineering, 300–301.
-[5] Alspaugh, T. A., Anto ́n, A. I., Barnes, T., & Mott, B. W. (1999). An integrated scenario management strategy. Proc. of IEEE Int. Symposium on Requirements Engineering (Cat. No. PR00188), 142–149.
-[6] Do Prado Leite, J. C. S., Hadad, G. D., Doorn, J. H., & Kaplan, G. N. (2000). A scenario construction process. Requirements Engineering, 5(1), 38–61.
-[7] Hoekstra, R. (2009). Ontology representation: Design patterns and ontologies that make sense. University of Amsterdam
-[́8] Smiałek,M. (2007). Software development with reusable requirements-based cases. Oficyna Wydawnicza Politechniki Warszawskiej
-[9] Tsai, W.-T., Yu, L., Zhu, F., & Paul, R. (2005). Rapid embedded system testing using verification patterns. IEEE software, 22(4), 68–75.
-[10] Rolland, C., Ben Achour, C., Cauvet, C., Ralyte ́, J., Sutcliffe, A., Maiden, N., Jarke, M., Haumer, P., Pohl, K., Dubois, E., et al. (1998). A proposal for a scenario classification framework. Requirements Engineering, 3(1), 23–47.
-[11] Xie, Z., Jayanth, A., Yadav, K., Ye, G., & Hong, L. (2021). Multi-faceted classification for the identification of informative communications during crises: Case of covid-19. 2021 IEEE 45th Annual Computers, Software, and Applications Conference (COMPSAC), 924–933.
+[1] S. Janzen, N. Gdanitz, L. Abdel Khaliq, T. Munir, C. Franzius, W. Maass. (2023). Anticipating Energy-driven Crises in Process Industry by AI-based Scenario Planning, HICSS (2023). <br>
+[2] S. Leachu, J. Janßen, N. Gdanitz, M. Kirchhöfer, S. Janzen. (2023). Cascading Scenario Technique enabling Automated and Situation-based Crisis Management, CPSL (2023). <br>
+[3] Watahiki, K., & Saeki, M. (2001). Scenario evolution in requirements elicitation processes: scenario pattern and framework approach. In Proceedings of the 4th International Workshop on Principles of Software Evolution (pp. 166-169). <br>
+[4] Watahiki, K., & Saeki, M. (2001). Scenario patterns based on case grammar approach. Proc. of Fifth IEEE Int. Symposium on Requirements Engineering, 300–301. <br>
+[5] Alspaugh, T. A., Anto ́n, A. I., Barnes, T., & Mott, B. W. (1999). An integrated scenario management strategy. Proc. of IEEE Int. Symposium on Requirements Engineering (Cat. No. PR00188), 142–149. <br>
+[6] Do Prado Leite, J. C. S., Hadad, G. D., Doorn, J. H., & Kaplan, G. N. (2000). A scenario construction process. Requirements Engineering, 5(1), 38–61. <br>
+[7] Hoekstra, R. (2009). Ontology representation: Design patterns and ontologies that make sense. University of Amsterdam. <br>
+[́8] Smiałek,M. (2007). Software development with reusable requirements-based cases. Oficyna Wydawnicza Politechniki Warszawskiej. <br>
+[9] Tsai, W.-T., Yu, L., Zhu, F., & Paul, R. (2005). Rapid embedded system testing using verification patterns. IEEE software, 22(4), 68–75. <br>
+[10] Rolland, C., Ben Achour, C., Cauvet, C., Ralyte ́, J., Sutcliffe, A., Maiden, N., Jarke, M., Haumer, P., Pohl, K., Dubois, E., et al. (1998). A proposal for a scenario classification framework. Requirements Engineering, 3(1), 23–47. <br>
+[11] Xie, Z., Jayanth, A., Yadav, K., Ye, G., & Hong, L. (2021). Multi-faceted classification for the identification of informative communications during crises: Case of covid-19. 2021 IEEE 45th Annual Computers, Software, and Applications Conference (COMPSAC), 924–933. <br>
 
 ## Installation
 
