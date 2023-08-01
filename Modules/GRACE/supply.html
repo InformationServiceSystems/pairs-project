@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+    </style>
+    <meta charset="utf-8">
+    <title>GRACE</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  <body>
+
+    <h1>Resilience Graph</h1>
+
+    <div class="bk-root" id="763d538a-5213-4f95-a6f7-c8bff12de9b7" data-root-id="14861"></div>
+  
+    <script type="application/json" id="15737">
+      {"0a464bd0-cc94-44e1-a7c4-3bb4c4030bb5":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"14870"}],"center":[{"id":"14873"},{"id":"14877"}],"left":[{"id":"14874"}],"renderers":[{"id":"10231"},{"id":"14906"}],"title":{"id":"14862"},"toolbar":{"id":"14883"},"toolbar_location":null,"width":1200,"x_range":{"id":"14859"},"x_scale":{"id":"14866"},"y_range":{"id":"14860"},"y_scale":{"id":"14868"}},"id":"14861","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"15298","type":"Selection"},{"attributes":{"source":{"id":"10233"}},"id":"10235","type":"CDSView"},{"attributes":{},"id":"15289","type":"AllLabels"},{"attributes":{"coordinates":null,"formatter":{"id":"15288"},"group":null,"major_label_policy":{"id":"15289"},"ticker":{"id":"14875"},"visible":false},"id":"14874","type":"LinearAxis"},{"attributes":{"coordinates":null,"data_source":{"id":"10237"},"glyph":{"id":"14896"},"group":null,"hover_glyph":null,"view":{"id":"10239"}},"id":"10238","type":"GlyphRenderer"},{"attributes":{"data":{"name":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"x":[0.0175782043558268,0.8712143553630723,-0.6955962820231194,4.397569389480669,1.7547551191249948,-3.588152273665564,-1.5238922276062175,3.3189935720449597,-4.552469857074624],"y":[0.4882642608755936,-5.357970724486137,5.3862819681473635,-6.373065541329818,-9.903022250080314,-9.571076351098476,10.0,8.70988000087566,6.620708637096128]},"selected":{"id":"15294"},"selection_policy":{"id":"15293"}},"id":"14905","type":"ColumnDataSource"},{"attributes":{},"id":"15288","type":"BasicTickFormatter"},{"attributes":{"graph_layout":{"Dependency on suppliers":[3.3189935720449597,8.70988000087566],"Employee retention":[-3.588152273665564,-9.571076351098476],"Redundancy":[4.397569389480669,-6.373065541329818],"Spatial distribution of suppliers":[-4.552469857074624,6.620708637096128],"Resilience Index":[0.0175782043558268,0.4882642608755936],"Scope Index HR":[0.8712143553630723,-5.357970724486137],"Scope Index Production":[-0.6955962820231194,5.3862819681473635],"Time-to-fill":[1.7547551191249948,-9.903022250080314],"Tolerance of machines":[-1.5238922276062175,10.0]}},"id":"10240","type":"StaticLayoutProvider"},{"attributes":{},"id":"15286","type":"NodesOnly"},{"attributes":{"active_scroll":{"id":"14879"},"logo":null,"tools":[{"id":"14878"},{"id":"14879"},{"id":"14880"},{"id":"14881"},{"id":"14882"}]},"id":"14883","type":"Toolbar"},{"attributes":{},"id":"14875","type":"BasicTicker"},{"attributes":{},"id":"15297","type":"UnionRenderers"},{"attributes":{"coordinates":null,"group":null,"text":"Resilience Graph (Disruption: Cutoff of supply from China during 1 month)"},"id":"14862","type":"Title"},{"attributes":{"coordinates":null,"group":null,"source":{"id":"14905"},"text":{"field":"name"},"x":{"field":"x"},"y":{"field":"y"}},"id":"14906","type":"LabelSet"},{"attributes":{"fill_color":{"field":"tag","transform":{"id":"14890"}},"size":{"value":70}},"id":"14891","type":"Circle"},{"attributes":{"axis":{"id":"14874"},"coordinates":null,"dimension":1,"group":null,"ticker":null,"visible":false},"id":"14877","type":"Grid"},{"attributes":{"axis":{"id":"14870"},"coordinates":null,"group":null,"ticker":null,"visible":false},"id":"14873","type":"Grid"},{"attributes":{},"id":"15292","type":"AllLabels"},{"attributes":{"data":{"end":["Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"start":["Resilience Index","Resilience Index","Scope Index HR","Scope Index HR","Scope Index HR","Scope Index Production","Scope Index Production","Scope Index Production"],"weight":[0.4,0.6,0.5,0.33,0.17,0.33,0.25,0.42]},"selected":{"id":"15298"},"selection_policy":{"id":"15297"}},"id":"10237","type":"ColumnDataSource"},{"attributes":{"factors":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"],"palette":["#3288bd","#66c2a5","#abdda4","#e6f598","#ffffbf","#fee08b","#fdae61","#f46d43","#d53e4f"]},"id":"14890","type":"CategoricalColorMapper"},{"attributes":{},"id":"15291","type":"BasicTickFormatter"},{"attributes":{},"id":"15295","type":"UnionRenderers"},{"attributes":{"coordinates":null,"formatter":{"id":"15291"},"group":null,"major_label_policy":{"id":"15292"},"ticker":{"id":"14871"},"visible":false},"id":"14870","type":"LinearAxis"},{"attributes":{},"id":"14871","type":"BasicTicker"},{"attributes":{},"id":"15296","type":"Selection"},{"attributes":{},"id":"14868","type":"LinearScale"},{"attributes":{},"id":"14866","type":"LinearScale"},{"attributes":{"data":{"index":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"linearTag":[0,1,1,2,2,2,2,2,2],"name":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"score":[0.5429999999999999,0.5223,0.5568,0.64,0.34,0.53,0.66,0.6,0.45],"tag":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"]},"selected":{"id":"15296"},"selection_policy":{"id":"15295"}},"id":"10233","type":"ColumnDataSource"},{"attributes":{"callback":null,"tooltips":[["Name","@index"],["Typ","@tag"],["Score","@score"]]},"id":"14882","type":"HoverTool"},{"attributes":{},"id":"15293","type":"UnionRenderers"},{"attributes":{"source":{"id":"10237"}},"id":"10239","type":"CDSView"},{"attributes":{"coordinates":null,"data_source":{"id":"10233"},"glyph":{"id":"14891"},"group":null,"hover_glyph":null,"view":{"id":"10235"}},"id":"10234","type":"GlyphRenderer"},{"attributes":{},"id":"14879","type":"WheelZoomTool"},{"attributes":{},"id":"14878","type":"PanTool"},{"attributes":{"end":10.1,"start":-10.1},"id":"14860","type":"Range1d"},{"attributes":{"coordinates":null,"edge_renderer":{"id":"10238"},"group":null,"inspection_policy":{"id":"15286"},"layout_provider":{"id":"10240"},"node_renderer":{"id":"10234"},"selection_policy":{"id":"15285"}},"id":"10231","type":"GraphRenderer"},{"attributes":{},"id":"14880","type":"SaveTool"},{"attributes":{"end":10.1,"start":-10.1},"id":"14859","type":"Range1d"},{"attributes":{"line_alpha":{"value":0.5},"line_width":{"value":2}},"id":"14896","type":"MultiLine"},{"attributes":{},"id":"14881","type":"ResetTool"},{"attributes":{},"id":"15285","type":"NodesOnly"},{"attributes":{},"id":"15294","type":"Selection"}],"root_ids":["14861"]},"title":"Bokeh Application","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('15737').textContent;
+              const render_items = [{"docid":"0a464bd0-cc94-44e1-a7c4-3bb4c4030bb5","root_ids":["14861"],"roots":{"14861":"763d538a-5213-4f95-a6f7-c8bff12de9b7"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+    <br>
+    <label for="disruptscenario">Select disruption scenario:</label>
+    <select onChange="window.location.href=this.options [this.selectedIndex].value" name="disruptscenario" id="disruptscenario">
+      <option value="supply.html">Total cutoff of supplies from China</option>
+      <option value="influenza.html">Wave of influenza</option>
+      <option value="index.html">No disruption</option>
+    </select>
+
+    <br>
+    <p>KPI changes caused by disruption:</p>
+    <table>
+      <tr>
+        <th>KPI</th>
+        <th>Old value</th>
+        <th>New value</th>
+      </tr>
+      <tr>
+        <td>Resilience Index</td>
+        <td>0.639</td> 
+        <td>0.543</td>
+      </tr>
+      <tr>
+        <td>Scope Index: Production</td>
+        <td>0.717</td> 
+        <td>0.557</td>
+      </tr>
+      <tr>
+        <td>KPI: Fault tolerance of machines</td>
+        <td>0.820</td> 
+        <td>0.660</td>
+      </tr>
+      <tr>
+        <td>KPI: Dependency on suppliers</td>
+        <td>0.760</td> 
+        <td>0.600</td>
+      </tr>
+      <tr>
+        <td>KPI: Spatial distributio of suppliers</td>
+        <td>0.610</td> 
+        <td>0.450</td>
+      </tr>
+    </table>
+
+  </body>
+</html>
