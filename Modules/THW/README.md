@@ -15,38 +15,38 @@ The resulting knowledge graph is used as foundation in order to generate plannin
 ![ScenarioPatternTHW drawio (9)](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/0907132e-2058-4368-a541-47dd1486db5f)
 
 ## German Federal Agency for Technical Relief
-Our model was instantiated as a service in cooperation with the German Federal Agency for Technical Relief (German abbreviation 'THW'), an agency of the German Federal Ministry of the Interior and Community. Operation options include e.g. debris clearance, electricity supply, bridge building, refugee aid or logistics, which serve the general purpose of maintaining public structures and critical infrastructure. Furthermore, THW units can be requested to aid operations of external organizations (e.g., fire departments). Presently, operation plans at THW are compiled manually by planning officers in combination with weather forecasts (i.e., a [German weather service](https://www.dwd.de/DE/Home/home_node.html) to have a rough estimate of incoming crisis events. Although THW collects historical information on conducted operations, reports can differ (i.e., regarding format, details on conducted tasks) and are stored within large data bases. Furthermore, general information on operation options and actions, units and resources are only available within unstructured textual documentations (PDF files). Historical data are therefore only of limited use to planning experts for allocating tasks and human resources to crisis operations and they currently depend on acquired knowledge to make planning decisions.
+Our model was instantiated as a service in cooperation with the German Federal Agency for Technical Relief (German abbreviation 'THW'), an agency of the German Federal Ministry of the Interior and Community. Operation options include e.g. debris clearance, electricity supply, bridge building, refugee aid or logistics, which serve the general purpose of maintaining public structures and critical infrastructure. Furthermore, THW units can be requested to aid operations of external organizations (e.g., fire departments). Presently, operation plans at THW are compiled manually by planning officers in combination with weather forecasts (i.e., a [German weather service](https://www.dwd.de/DE/Home/home_node.html) )to have a rough estimate of incoming crisis events. Although THW collects historical information on conducted operations, reports can differ (i.e., regarding format, details on conducted tasks) and are stored within large data bases. Furthermore, general information on operation options and actions, units and resources are only available within unstructured textual documentations (PDF files). Historical data are therefore only of limited use to planning experts for allocating tasks and human resources to crisis operations and they currently depend on acquired knowledge to make planning decisions.
 
 ## Service Features
 - Explorable knowledge graph representation of historical datasets in the form of OSP
 - Crisis operation prediction for the next 7 days
 - Recommendations for Operations Planning to handle crises events
 
-## Data requirements
-Our service accepts CSV files as initial data input. Data should contain the following information in order to be mapped onto OSP.
+## Data
+Our service accepts CSV files as initial data input and is currently designed based on the structure given by the historical data provided by THW. The data contain the following features: 
 
-Operation data:
+Operation data:  Location, type and date of the crisis event; operation Id; internally assigned service project (precondition in OSP); requesting party; planner; operation duration; a short report (postcondictions in OSP); number of deployed helpers and conducted duty hours; conducted tasks
 
-Data on personnel:
+Data on personnel: Id; age; gender; residence; skills
 
-Data on units:
+Data on units: Unit name and abbreviation; unit descriptions; potential tasks; needed qualifications to be assigned to the unit; roles and required personnel per role; unit strength; required equipment and vehicles for potential tasks
 
 ## Prediction of Crisis Operations
-We predict rain and snow based events (i.e., snowfall, avalanches, frost), such as heavy rain and floods for 10 locations in Germany (Göttingen, Aachen, Trier, Augsburg, Biberach, Chemnitz, Regensburg, Neubrandenburg, Schwerin, Kiel): 
-![MicrosoftTeams-imagec97461883700fae13698badebbd06679cd13df90686356f9bde747b1dbd64983](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/de1564d0-fbb5-402d-8fb5-fcd916f47847)
 
-We tested several forecasting models, while XGBoost outperformed all other models in terms of overall accuracy and F1 scores per event type.
-
-To enable early planning of operations, we included a early prediction of crisis operations focusing on weather-dependent events (e.g., rain, snow, landslides, wild fires), as these almost cover 24\% of the overall historical data set on THW operations. We adapted the approach used in \cite{Janzen2023,Gdanitz2023} for our prediction, using historical weather data \footnote{\url{https://www.kaggle.com/datasets/noaa/gsod?select=gsod2019}} (e.g., coordinates of weather station, temperature, wind speed, gust, precipitation). We calculated the coordinates of each historical operation location using the Geopy library, in order to map operations to the closest weather station using Euclidean distance. The event prediction was treated as a multi-class classification problem. The data set was divided into training, validation and test set with a ratio of 70:10:20. We experimented with different forecasting models, while XGBoost outperformed all other models in terms of overall accuracy (0.92) (see fig. \ref{fig: eventPred2}) and f1-score per event type \footnote{F1 score is an essential metric that combines precision (correct predictions per class) and recall (completeness of correct predictions per class) into a single value, providing a comprehensive evaluation of a model's performance}(see fig. \ref{fig: eventPred}). Based on the amount of available data per weather-dependent crisis event, we needed to cluster similar events in order to increase data quality. We were able to receive best F1-scores for rain based event types (0.9) (i.e., heavy rain and flood events) and snow event types (0.94) (i.e., snowfall, avalanches, frost). All other events within the THW data set (e.g., wildfires, landslides, but also weather-independent events) were furthermore clustered within the class 'other events' (0.86). Based on selected location of the user (see fig. \ref{fig: approach}), the forecasting model is applied to current weather data \footnote{\url{https://openweathermap.org/}} in order to generate an event prediction for the next 7 days.  The event prediction was evaluated for 10 THW locations across Germany (i.e., Göttingen, Aachen, Trier, Augsburg, Biberach, Chemnitz, Regensburg, Neubrandenburg, Schwerin, Kiel) within our service prototype \footnote{TODO Github Link, Link to screencast}
+To enable early planning of operations, we included a prediction of crisis operations focusing on weather-dependent events (e.g., rain, snow, landslides, wild fires), as these almost cover 24\% of the overall historical data set on THW operations. We adapted the approach used in [1,15] for our prediction, using [historical weather data](https://www.kaggle.com/datasets/noaa/gsod?select=gsod2019) and [current weather data](https://openweathermap.org/)(e.g., coordinates of weather station, temperature, wind speed, gust, precipitation). We calculated the coordinates of each historical operation location using the Geopy library, in order to map operations to the closest weather station using Euclidean distance. The event prediction was treated as a multi-class classification problem. The data set was divided into training, validation and test set with a ratio of 70:10:20. We experimented with different forecasting models, while XGBoost outperformed all other models in terms of overall accuracy (0.92) (see Table 1). 
 
 Table1: Comparison of achieved accuracy by diverse forecasting models
 <img width="650" alt="TableEventPred" src="https://github.com/InformationServiceSystems/pairs-project/assets/65232571/39719731-58c4-488d-8c40-9885c1170f04">
 
+XGBoost also outperformed other models based on F1 score (see Table 2), which is an essential metric that combines precision (correct predictions per class) and recall (completeness of correct predictions per class) into a single value, providing a comprehensive evaluation of a model's performance. Based on the amount of available data per weather-dependent crisis event, we needed to cluster similar events in order to increase data quality for the prediction model. We were able to receive best F1-scores for rain based event types (0.9) (i.e., heavy rain and flood events) and snow event types (0.94) (i.e., snowfall, avalanches, frost). We were not able to split the remaining events any further (e.g., wildfires, landslides, blackouts) without loosing accuracy for
+the prediction, which is why we further clustered them as 'other events'.
+
 Table 2: Classification results of different models on predicting crisis events in Germany (P = precision, R = recall, F1 = f1 score)
 <img width="635" alt="TableEventPred2" src="https://github.com/InformationServiceSystems/pairs-project/assets/65232571/e72c5982-e341-4ee3-bb85-e21cb43ab3be">
 
+Based on selected location of the user, events are predicted for the next 7 days.  The event prediction was evaluated for 10 THW locations across Germany (i.e., Göttingen, Aachen, Trier, Augsburg, Biberach, Chemnitz, Regensburg, Neubrandenburg, Schwerin, Kiel) within our service.
 
-
+![MicrosoftTeams-imagec97461883700fae13698badebbd06679cd13df90686356f9bde747b1dbd64983](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/de1564d0-fbb5-402d-8fb5-fcd916f47847)
 
 ## Screencast
 A screencast of the service (including event prediction and generated recommendations) can be viewed here:
@@ -66,10 +66,11 @@ A screencast of the service (including event prediction and generated recommenda
 [12] E. Kontopoulos, P. Mitzias, J. Moßgraber, P. Hertweck, et al., Ontology-based representation of crisis management procedures for climate events., in: ISCRAM, 2018. <br>
 [13] M. Gaur, S. Shekarpour, A. Gyrard, A. Sheth, Empathi: An ontology for emergency managing and planning about hazard crisis, in: ICSC, IEEE, 2019, pp. 396–403. <br>
 [14] S. Chehade, N. Matta, J.-B. Pothin, R. Cogranne, Data interpretation support in rescue operations: Application for french firefighters, in: AICCSA, IEEE, 2018, pp. 1–6 <br>
+[15] N. Gdanitz, L. Abdel Khaliq, A. Ahiagble, S. Janzen, W. Maass, Powop: Weather-based power outage prediction, IntelliSys (2023).
 
 ## Installation
 
-1. Create and run the Neo4J graph database.
+1. [Create and run the local Neo4J graph database](https://neo4j.com/docs/operations-manual/current/installation/)
 2. Create and activate the Python environment
 
 ```sh
