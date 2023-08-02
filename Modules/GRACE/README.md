@@ -1,4 +1,4 @@
-# GRACE
+# GRACE: Graph-based Organizational Resilience Assessment in Manufacturing
 
 !["Demonstrator Prototype"](images/prototype.png)
 
