@@ -50,6 +50,7 @@ Based on selected location of the user, events are predicted for the next 7 days
 
 ## Screencast
 A screencast of the service (including event prediction and generated recommendations) can be viewed here:
+Please note: Since we are dealing with a German data set, generated recommendation (e.g. unit names, unit descriptions etc.) are also presented in German, depending on the German knowledge base.
 
 ## References
 [1] S. Janzen, N. Gdanitz, L. Abdel Khaliq, T. Munir, C. Franzius, W. Maass. (2023). Anticipating Energy-driven Crises in Process Industry by AI-based Scenario Planning, HICSS (2023). <br>
