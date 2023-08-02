@@ -1,0 +1,190 @@
+@startuml
+
+package "model" {
+
+  ActionCategory o-- KPINode
+  
+  class ActionCategory {
+    - actionCatName: String
+    - KPIsLoadingOn: ArrayList<KPINode>
+    - loadingPowerOfActionCat: float
+    - timeDimensionImpactOfActionCat: float
+    - KPIinfluence: float
+    - KPIcorrelation: float
+    
+    + ActionCategory(name: String, timeDimensionImpact: float)
+    + getLoadingPowerOfActionCat(): float 
+    + getTimeDimensionImpactOfActionCat(): float 
+    + getKPIinfluence(): float a
+  }
+
+  ActualImpact o-- DisruptionItem
+
+  class ActualImpact {
+    - disruption: DisruptionItem 
+    - impact: float 
+    
+    + getDisruption(): DisruptionItem 
+    + getImpact(): float 
+    + deriveActualImpact(): void 
+    
+  }
+
+  class BackgroundRisk {
+    - backgroundRisk: float 
+    - timeDimensionImpact: float 
+    - KPIinfluence: float 
+    - KPIcorrelatio: float 
+
+    + getRisk(): float 
+    + getTimeDimensionImpact(): float 
+    + getKPIinfluence(): float 
+    + getKPIcorrelation(): float 
+    
+  }
+
+  DisruptionItem o-- DisruptionScenarioNode
+  DisruptionItem o-- ActualImpact
+
+  class DisruptionItem {
+    - scenarioClass: DisruptionScenarioNode 
+    - probabilityOfDisruption: float 
+    - name : String 
+    - impact: ActualImpact 
+    
+    + DisruptionItem(name: String, f: float )
+    + getScenarioClass(): DisruptionScenarioNode 
+    + getProbabilityOfDisruption(): float 
+    + getImpact(): ActualImpact 
+    
+  }
+
+  DisruptionScenarioNode o-- BackgroundRisk
+  DisruptionScenarioNode o-- TimeDimension
+  DisruptionScenarioNode o-- ActionCategory
+  
+  class DisruptionScenarioNode extends Node {
+    - backgroundRisk: BackgroundRisk 
+    - timeDimension : TimeDimension 
+    - potentialActions: ArrayList<ActionCategory>
+
+    + DisruptionScenarioNode(String name)
+    + getBackgroundRisk(): BackgroundRisk 
+    + getTimeDimension(): TimeDimension 
+    + getPotentialActions(): ArrayList<ActionCategory> 
+  }
+
+  class HistoryItem {
+    - itemValue : float 
+    - itemDate: Date 
+
+    + HistoryItem(float value, Date date)
+    + getItemValue(): float 
+    + getItemDate(): Date 
+  }
+
+  Index o-- HistoryItem
+
+  class Index {
+    - indexHistory: ArrayList<HistoryItem>
+    - score: float 
+    
+    + Index()
+    + getScore(): float 
+  }
+
+  KPINode o-- Scope
+    
+  class KPINode extends Node {
+    - kpiScope: Scope 
+    - kpiValue: float 
+
+    + KPINode(name: String , value: float )
+    + getKpiScope(): Scope 
+    + getKpiValue(): float 
+    + adjustKpiValue(value: float ): void 
+  }
+
+  Node o-- Node
+  
+  class Node {
+    - nodeID: int 
+    - nodeName : String 
+    - adjacentNodes: ArrayList<Node>
+    - numberOfAdjacents : int 
+
+    + getAdjacentNodes(): ArrayList<Node>
+    + getNumberOfAdjacents(): int 
+  }
+
+  ResilienceIndex o-- Scope
+  
+  class ResilienceIndex extends Index {
+    - scopes: ArrayList<Scope>
+
+    + ResilienceIndex()
+
+    + getScopes(): ArrayList<Scope>
+    + addScope (scope: Scope ): void 
+    + deriveResilienceIndex(): float 
+  }
+
+  Scope o-- KPINode
+  Scope o-- ScopeIndex
+
+  class Scope {
+    - scopeName: String 
+    - KPIofScope: ArrayList<KPINode>
+    - scopeIndex: ScopeIndex 
+    
+    + Scope(name: String )
+    + getKPIofScope(): ArrayList<KPINode>
+    + getScopeIndex(): ScopeIndex 
+  }
+
+  ScopeIndex o-- Scope
+
+  class ScopeIndex extends Index {
+    - characterizedScope: Scope 
+    
+    + ScopeIndex()
+    + getCharacterizedScope(): Scope 
+    + deriveScopeIndex(): float 
+      
+  }
+
+  class TimeDimension {
+    - dimensionType: String 
+    - dimensionImpact : float 
+    - dimensions: Map<String, Float> 
+    
+    + addDimension(dimensionType: String , dimensionImpact: float): void 
+    + getDimensions(): Map<String, Float> 
+  }
+
+  UndirectedGraph o-- Node
+
+  class UndirectedGraph {
+    - nodes: ArrayList<Node>
+    - minimumDegree: int 
+    - nodesWithMinimumDegree: ArrayList<Node>
+    - maximumDegree: int 
+    - nodesWithMaximumDegree: ArrayList<Node>
+    - averageDegree : float 
+    
+    + ConnectNodes(node1: Node , node2: Node ): void 
+    + getNodes(): ArrayList<Node>
+    + deriveMinimumAndMaximumDegree(): void 
+    + deriveAverageDegree(): void 
+    + getMinimumDegree(): int 
+    + getNodesWithMinimumDegree(): ArrayList<Node> 
+    + getMaximumDegree(): int 
+    + getNodesWithMaximumDegree(): ArrayList<Node> 
+    + getAverageDegree(): float
+  }
+
+
+
+}
+
+@enduml
