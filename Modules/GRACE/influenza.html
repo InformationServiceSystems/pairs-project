@@ -2,9 +2,29 @@
 <html lang="en">
   <head>
     <style>
-        h1 {text-align: center;}
-        p {text-align: center;}
-        div {text-align: center;}
+        h1 {text-align: center; font-family: arial, sans-serif;}
+        h2 {text-align: center; font-family: arial, sans-serif;}
+        h3 {text-align: center; font-family: arial, sans-serif;}
+        h4 {text-align: center; font-family: arial, sans-serif;}
+        label {font-family: arial, sans-serif;}
+        p {text-align: center; font-family: arial, sans-serif;}
+        div {text-align: center; font-family: arial, sans-serif;}
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
     </style>
     <meta charset="utf-8">
     <title>GRACE</title>
@@ -13,23 +33,6 @@
         Bokeh.set_log_level("info");
     </script>
   </head>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
   <body>
 
     <h1>Resilience Graph</h1>
@@ -37,7 +40,7 @@
     <div class="bk-root" id="016528f0-dce7-4aad-8883-7f55f37e2469" data-root-id="15763"></div>
   
     <script type="application/json" id="16662">
-      {"5aa4b106-61e0-4166-be8b-5ec8bec9064b":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"15772"}],"center":[{"id":"15775"},{"id":"15779"}],"left":[{"id":"15776"}],"renderers":[{"id":"10241"},{"id":"15808"}],"title":{"id":"15764"},"toolbar":{"id":"15785"},"toolbar_location":null,"width":1200,"x_range":{"id":"15761"},"x_scale":{"id":"15768"},"y_range":{"id":"15762"},"y_scale":{"id":"15770"}},"id":"15763","subtype":"Figure","type":"Plot"},{"attributes":{"end":10.1,"start":-10.1},"id":"15761","type":"Range1d"},{"attributes":{"coordinates":null,"group":null,"source":{"id":"15807"},"text":{"field":"name"},"x":{"field":"x"},"y":{"field":"y"}},"id":"15808","type":"LabelSet"},{"attributes":{},"id":"16214","type":"AllLabels"},{"attributes":{"factors":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"],"palette":["#3288bd","#66c2a5","#abdda4","#e6f598","#ffffbf","#fee08b","#fdae61","#f46d43","#d53e4f"]},"id":"15792","type":"CategoricalColorMapper"},{"attributes":{"data":{"name":["Resilience Index","Scope Index HR","Scope Index Manufacturing","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"x":[0.4664548217948722,-5.325737030819315,5.310889374833968,-8.800395736915387,-9.067754081584198,-7.258448167343848,10.0,6.2392064384769546,8.435784381556957],"y":[-0.21987354411535112,2.0002329282969957,-2.0926623286691224,3.502337962398434,-1.0903430439406891,8.328525967284115,-3.7506088357837917,-7.478662971710299,0.8010538662397145]},"selected":{"id":"16219"},"selection_policy":{"id":"16218"}},"id":"15807","type":"ColumnDataSource"},{"attributes":{"data":{"index":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distributio of suppliers"],"linearTag":[0,1,1,2,2,2,2,2,2],"name":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"score":[0.57772,0.3691,0.7168,0.48,0.18,0.41,0.82,0.76,0.61],"tag":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"]},"selected":{"id":"16221"},"selection_policy":{"id":"16220"}},"id":"10243","type":"ColumnDataSource"},{"attributes":{"graph_layout":{"Dependency on suppliers":[6.2392064384769546,-7.478662971710299],"Employee retention":[-7.258448167343848,8.328525967284115],"Redundancy":[-8.800395736915387,3.502337962398434],"Spatial distribution of suppliers":[8.435784381556957,0.8010538662397145],"Resilience Index":[0.4664548217948722,-0.21987354411535112],"Scope Index HR":[-5.325737030819315,2.0002329282969957],"Scope Index Production":[5.310889374833968,-2.0926623286691224],"Time-to-fill":[-9.067754081584198,-1.0903430439406891],"Tolerance of machines":[10.0,-3.7506088357837917]}},"id":"10250","type":"StaticLayoutProvider"},{"attributes":{},"id":"16216","type":"BasicTickFormatter"},{"attributes":{"line_alpha":{"value":0.5},"line_width":{"value":2}},"id":"15798","type":"MultiLine"},{"attributes":{},"id":"16211","type":"NodesOnly"},{"attributes":{"coordinates":null,"group":null,"text":"Resilience Graph (Disruption: wave of influenza)"},"id":"15764","type":"Title"},{"attributes":{},"id":"16219","type":"Selection"},{"attributes":{},"id":"15777","type":"BasicTicker"},{"attributes":{},"id":"16213","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"10243"}},"id":"10245","type":"CDSView"},{"attributes":{},"id":"15773","type":"BasicTicker"},{"attributes":{"coordinates":null,"data_source":{"id":"10247"},"glyph":{"id":"15798"},"group":null,"hover_glyph":null,"view":{"id":"10249"}},"id":"10248","type":"GlyphRenderer"},{"attributes":{},"id":"15783","type":"ResetTool"},{"attributes":{"fill_color":{"field":"tag","transform":{"id":"15792"}},"size":{"value":70}},"id":"15793","type":"Circle"},{"attributes":{},"id":"15782","type":"SaveTool"},{"attributes":{},"id":"15780","type":"PanTool"},{"attributes":{},"id":"16223","type":"Selection"},{"attributes":{},"id":"15781","type":"WheelZoomTool"},{"attributes":{},"id":"16220","type":"UnionRenderers"},{"attributes":{"callback":null,"tooltips":[["Name","@index"],["Typ","@tag"],["Score","@score"]]},"id":"15784","type":"HoverTool"},{"attributes":{},"id":"16221","type":"Selection"},{"attributes":{"axis":{"id":"15776"},"coordinates":null,"dimension":1,"group":null,"ticker":null,"visible":false},"id":"15779","type":"Grid"},{"attributes":{"active_scroll":{"id":"15781"},"logo":null,"tools":[{"id":"15780"},{"id":"15781"},{"id":"15782"},{"id":"15783"},{"id":"15784"}]},"id":"15785","type":"Toolbar"},{"attributes":{},"id":"15770","type":"LinearScale"},{"attributes":{"axis":{"id":"15772"},"coordinates":null,"group":null,"ticker":null,"visible":false},"id":"15775","type":"Grid"},{"attributes":{},"id":"16210","type":"NodesOnly"},{"attributes":{"coordinates":null,"formatter":{"id":"16216"},"group":null,"major_label_policy":{"id":"16217"},"ticker":{"id":"15773"},"visible":false},"id":"15772","type":"LinearAxis"},{"attributes":{"coordinates":null,"formatter":{"id":"16213"},"group":null,"major_label_policy":{"id":"16214"},"ticker":{"id":"15777"},"visible":false},"id":"15776","type":"LinearAxis"},{"attributes":{},"id":"15768","type":"LinearScale"},{"attributes":{},"id":"16222","type":"UnionRenderers"},{"attributes":{},"id":"16217","type":"AllLabels"},{"attributes":{"data":{"end":["Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"start":["Resilience Index","Resilience Index","Scope Index HR","Scope Index HR","Scope Index HR","Scope Index Production","Scope Index Production","Scope Index Production"],"weight":[0.4,0.6,0.5,0.33,0.17,0.33,0.25,0.42]},"selected":{"id":"16223"},"selection_policy":{"id":"16222"}},"id":"10247","type":"ColumnDataSource"},{"attributes":{"source":{"id":"10247"}},"id":"10249","type":"CDSView"},{"attributes":{"end":10.1,"start":-10.1},"id":"15762","type":"Range1d"},{"attributes":{"coordinates":null,"edge_renderer":{"id":"10248"},"group":null,"inspection_policy":{"id":"16211"},"layout_provider":{"id":"10250"},"node_renderer":{"id":"10244"},"selection_policy":{"id":"16210"}},"id":"10241","type":"GraphRenderer"},{"attributes":{},"id":"16218","type":"UnionRenderers"},{"attributes":{"coordinates":null,"data_source":{"id":"10243"},"glyph":{"id":"15793"},"group":null,"hover_glyph":null,"view":{"id":"10245"}},"id":"10244","type":"GlyphRenderer"}],"root_ids":["15763"]},"title":"Bokeh Application","version":"2.4.3"}}
+      {"5aa4b106-61e0-4166-be8b-5ec8bec9064b":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"15772"}],"center":[{"id":"15775"},{"id":"15779"}],"left":[{"id":"15776"}],"renderers":[{"id":"10241"},{"id":"15808"}],"title":{"id":"15764"},"toolbar":{"id":"15785"},"toolbar_location":null,"width":1200,"x_range":{"id":"15761"},"x_scale":{"id":"15768"},"y_range":{"id":"15762"},"y_scale":{"id":"15770"}},"id":"15763","subtype":"Figure","type":"Plot"},{"attributes":{"end":10.1,"start":-10.1},"id":"15761","type":"Range1d"},{"attributes":{"coordinates":null,"group":null,"source":{"id":"15807"},"text":{"field":"name"},"x":{"field":"x"},"y":{"field":"y"}},"id":"15808","type":"LabelSet"},{"attributes":{},"id":"16214","type":"AllLabels"},{"attributes":{"factors":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"],"palette":["#3288bd","#66c2a5","#abdda4","#e6f598","#ffffbf","#fee08b","#fdae61","#f46d43","#d53e4f"]},"id":"15792","type":"CategoricalColorMapper"},{"attributes":{"data":{"name":["Resilience Index","Scope Index HR","Scope Index Manufacturing","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"x":[0.4664548217948722,-5.325737030819315,5.310889374833968,-8.800395736915387,-9.067754081584198,-7.258448167343848,10.0,6.2392064384769546,8.435784381556957],"y":[-0.21987354411535112,2.0002329282969957,-2.0926623286691224,3.502337962398434,-1.0903430439406891,8.328525967284115,-3.7506088357837917,-7.478662971710299,0.8010538662397145]},"selected":{"id":"16219"},"selection_policy":{"id":"16218"}},"id":"15807","type":"ColumnDataSource"},{"attributes":{"data":{"index":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distributio of suppliers"],"linearTag":[0,1,1,2,2,2,2,2,2],"name":["Resilience Index","Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"score":[0.57772,0.3691,0.7168,0.48,0.18,0.41,0.82,0.76,0.61],"tag":["RI","Scope","Scope","KPI","KPI","KPI","KPI","KPI","KPI"]},"selected":{"id":"16221"},"selection_policy":{"id":"16220"}},"id":"10243","type":"ColumnDataSource"},{"attributes":{"graph_layout":{"Dependency on suppliers":[6.2392064384769546,-7.478662971710299],"Employee retention":[-7.258448167343848,8.328525967284115],"Redundancy":[-8.800395736915387,3.502337962398434],"Spatial distribution of suppliers":[8.435784381556957,0.8010538662397145],"Resilience Index":[0.4664548217948722,-0.21987354411535112],"Scope Index HR":[-5.325737030819315,2.0002329282969957],"Scope Index Production":[5.310889374833968,-2.0926623286691224],"Time-to-fill":[-9.067754081584198,-1.0903430439406891],"Tolerance of machines":[10.0,-3.7506088357837917]}},"id":"10250","type":"StaticLayoutProvider"},{"attributes":{},"id":"16216","type":"BasicTickFormatter"},{"attributes":{"line_alpha":{"value":0.5},"line_width":{"value":2}},"id":"15798","type":"MultiLine"},{"attributes":{},"id":"16211","type":"NodesOnly"},{"attributes":{"coordinates":null,"group":null,"text":"Resilience Graph (Disruption: wave of influenza)"},"id":"15764","type":"Title"},{"attributes":{},"id":"16219","type":"Selection"},{"attributes":{},"id":"15777","type":"BasicTicker"},{"attributes":{},"id":"16213","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"10243"}},"id":"10245","type":"CDSView"},{"attributes":{},"id":"15773","type":"BasicTicker"},{"attributes":{"coordinates":null,"data_source":{"id":"10247"},"glyph":{"id":"15798"},"group":null,"hover_glyph":null,"view":{"id":"10249"}},"id":"10248","type":"GlyphRenderer"},{"attributes":{},"id":"15783","type":"ResetTool"},{"attributes":{"fill_color":{"field":"tag","transform":{"id":"15792"}},"size":{"value":70}},"id":"15793","type":"Circle"},{"attributes":{},"id":"15782","type":"SaveTool"},{"attributes":{},"id":"15780","type":"PanTool"},{"attributes":{},"id":"16223","type":"Selection"},{"attributes":{},"id":"15781","type":"WheelZoomTool"},{"attributes":{},"id":"16220","type":"UnionRenderers"},{"attributes":{"callback":null,"tooltips":[["Name","@index"],["Type","@tag"],["Score","@score"]]},"id":"15784","type":"HoverTool"},{"attributes":{},"id":"16221","type":"Selection"},{"attributes":{"axis":{"id":"15776"},"coordinates":null,"dimension":1,"group":null,"ticker":null,"visible":false},"id":"15779","type":"Grid"},{"attributes":{"active_scroll":{"id":"15781"},"logo":null,"tools":[{"id":"15780"},{"id":"15781"},{"id":"15782"},{"id":"15783"},{"id":"15784"}]},"id":"15785","type":"Toolbar"},{"attributes":{},"id":"15770","type":"LinearScale"},{"attributes":{"axis":{"id":"15772"},"coordinates":null,"group":null,"ticker":null,"visible":false},"id":"15775","type":"Grid"},{"attributes":{},"id":"16210","type":"NodesOnly"},{"attributes":{"coordinates":null,"formatter":{"id":"16216"},"group":null,"major_label_policy":{"id":"16217"},"ticker":{"id":"15773"},"visible":false},"id":"15772","type":"LinearAxis"},{"attributes":{"coordinates":null,"formatter":{"id":"16213"},"group":null,"major_label_policy":{"id":"16214"},"ticker":{"id":"15777"},"visible":false},"id":"15776","type":"LinearAxis"},{"attributes":{},"id":"15768","type":"LinearScale"},{"attributes":{},"id":"16222","type":"UnionRenderers"},{"attributes":{},"id":"16217","type":"AllLabels"},{"attributes":{"data":{"end":["Scope Index HR","Scope Index Production","Redundancy","Time-to-fill","Employee retention","Tolerance of machines","Dependency on suppliers","Spatial distribution of suppliers"],"start":["Resilience Index","Resilience Index","Scope Index HR","Scope Index HR","Scope Index HR","Scope Index Production","Scope Index Production","Scope Index Production"],"weight":[0.4,0.6,0.5,0.33,0.17,0.33,0.25,0.42]},"selected":{"id":"16223"},"selection_policy":{"id":"16222"}},"id":"10247","type":"ColumnDataSource"},{"attributes":{"source":{"id":"10247"}},"id":"10249","type":"CDSView"},{"attributes":{"end":10.1,"start":-10.1},"id":"15762","type":"Range1d"},{"attributes":{"coordinates":null,"edge_renderer":{"id":"10248"},"group":null,"inspection_policy":{"id":"16211"},"layout_provider":{"id":"10250"},"node_renderer":{"id":"10244"},"selection_policy":{"id":"16210"}},"id":"10241","type":"GraphRenderer"},{"attributes":{},"id":"16218","type":"UnionRenderers"},{"attributes":{"coordinates":null,"data_source":{"id":"10243"},"glyph":{"id":"15793"},"group":null,"hover_glyph":null,"view":{"id":"10245"}},"id":"10244","type":"GlyphRenderer"}],"root_ids":["15763"]},"title":"Bokeh Application","version":"2.4.3"}}
     </script>
     <script type="text/javascript">
       (function() {
@@ -100,7 +103,7 @@
         <td>0.369</td>
       </tr>
       <tr>
-        <td>KPI: Redundancy</td>
+        <td>KPI: Skill redundancy</td>
         <td>0.640</td> 
         <td>0.480</td>
       </tr>
@@ -115,5 +118,24 @@
         <td>0.410</td>
       </tr>
     </table>
+
+    <br>
+    <h4>Recommended actions:</h4>
+    <table>
+      <tr>
+        <th>Action description</th>
+        <th>Affected KPIs</th>
+      </tr>
+      <tr>
+        <td>Hire employees with temporary contracts to cushion shortcomings in staff numbers</td>
+        <td>Time-to-fill; Skill redundancy</td> 
+      </tr>
+      <tr>
+        <td>Deploy an internal knowledge transfer management system</td>
+        <td>Skill redundancy; Time-to-fill</td> 
+      </tr>
+    </table>
+    <br>
+
   </body>
 </html>
