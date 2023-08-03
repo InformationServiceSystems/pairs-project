@@ -50,7 +50,7 @@ Based on selected location of the user, events are predicted for the next 7 days
 ![MicrosoftTeams-imagec97461883700fae13698badebbd06679cd13df90686356f9bde747b1dbd64983](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/de1564d0-fbb5-402d-8fb5-fcd916f47847)
 
 ## Screencast
-A screencast of the service (including event prediction and generated recommendations) can be viewed here:
+A screencast of the service (including event prediction and generated recommendations) can be viewed [here](\url) <br>
 Please note: Since we are dealing with a German data set, generated recommendation (e.g. unit names, unit descriptions etc.) are also presented in German, depending on the German knowledge base.
 
 ## References
