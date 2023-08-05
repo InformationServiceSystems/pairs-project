@@ -1,0 +1,32 @@
+{
+    "kpis": [
+        {
+            "id": 1,
+            "value": 0.51
+        },
+        {
+            "id": 2,
+            "value": 0.19
+        },
+        {
+            "id": 3,
+            "value": 0.37
+        },
+        {
+            "id": 4,
+            "value": 0.21
+        },
+        {
+            "id": 5,
+            "value": 0.77
+        },
+        {
+            "id": 6,
+            "value": 0.81
+        }
+    ],
+    "disruption": {
+        "disruption_id": 1,
+        "time_dimension_id": 3
+    }
+}

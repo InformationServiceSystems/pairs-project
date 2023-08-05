@@ -1,0 +1,151 @@
+{
+  "scopes": [
+    {
+      "id": 1,
+      "name": "scope 1"
+    },
+    {
+      "id": 2,
+      "name": "scope 2"
+    }
+  ],
+  "kpis": [
+    {
+      "id": 1,
+      "name": "kpi 1",
+      "weight": 0.15
+    },
+    {
+      "id": 2,
+      "name": "kpi 2",
+      "weight": 0.15
+    },
+    {
+      "id": 3,
+      "name": "kpi 3",
+      "weight": 0.05
+    },
+    {
+      "id": 4,
+      "name": "kpi 4",
+      "weight": 0.35
+    },
+    {
+      "id": 5,
+      "name": "kpi 5",
+      "weight": 0.05
+    },
+    {
+      "id": 6,
+      "name": "kpi 6",
+      "weight": 0.05
+    },
+    {
+      "id": 7,
+      "name": "kpi 7",
+      "weight": 0.05
+    },
+    {
+      "id": 8,
+      "name": "kpi 8",
+      "weight": 0.05
+    },
+    {
+      "id": 9,
+      "name": "kpi 9",
+      "weight": 0.05
+    },
+    {
+      "id": 10,
+      "name": "kpi 10",
+      "weight": 0.05
+    },
+  ],
+  "disruptions": [
+    {
+      "id": 1,
+      "name": "disruption 1",
+      "probability": 0.5,
+      "time_dimensions": [
+        {
+          "id": 1,
+          "description": "3 hours",
+          "weight": 0.1
+        },
+        {
+          "id": 2,
+          "description": "8 hours",
+          "weight": 0.2
+        },
+        {
+          "id": 3,
+          "description": "2-3 days",
+          "weight": 0.3
+        },
+        {
+          "id": 4,
+          "description": "longer than 1 week",
+          "weight": 0.4
+        },
+      ]
+    }
+  ],
+  "scope_kpi_matching": [
+    {
+      "scope": 1,
+      "kpis": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "scope": 2,
+      "kpis": [8, 9, 10]
+    }
+  ],
+  "disruption_kpi_matching": [
+    {
+      "disruption": 1,
+      "kpis": [1, 4, 7]
+    },
+  ],
+  "graph": [
+    {
+      "source": 1,
+      "destinations": [2]
+    },
+    {
+      "source": 2,
+      "destinations": [3]
+    },
+    {
+      "source": 3,
+      "destinations": []
+    },
+    {
+      "source": 4,
+      "destinations": [5, 6]
+    },
+    {
+      "source": 5,
+      "destinations": []
+    },
+    {
+      "source": 6,
+      "destinations": []
+    },
+    {
+      "source": 7,
+      "destinations": []
+    },
+    {
+      "source": 8,
+      "destinations": []
+    },
+    {
+      "source": 9,
+      "destinations": []
+    },
+    {
+      "source": 10,
+      "destinations": []
+    }
+  ]
+}

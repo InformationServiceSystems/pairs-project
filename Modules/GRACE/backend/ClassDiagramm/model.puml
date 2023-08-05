@@ -1,0 +1,241 @@
+@startuml
+
+package "model" {
+
+  ActionCategory o-- KPINode
+  
+  class ActionCategory {
+    - actionCatName: String
+    - KPIsLoadingOn: ArrayList<KPINode>
+    - loadingPowerOfActionCat: float
+    - timeDimensionImpactOfActionCat: float
+    - KPIinfluence: float
+    - KPIcorrelation: float
+    
+    + ActionCategory(name: String, timeDimensionImpact: float)
+    + getActionCatName(): String
+    + setActionCatName(actionCatName: String ): void
+    +  getKPIsLoadingOn(): ArrayList<KPINode>
+    + setKPIsLoadingOn(kPIsLoadingOn: ArrayList<KPINode>): void 
+    + getLoadingPowerOfActionCat(): float 
+    + setLoadingPowerOfActionCat(loadingPowerOfActionCat: float): void 
+    + getTimeDimensionImpactOfActionCat(): float 
+    + setTimeDimensionImpactOfActionCat(): void 
+    + getKPIinfluence(): float 
+    + setKPIinfluence(kPIinfluence: float): void 
+    + getKPIcorrelation(): float 
+    + setKPIcorrelation(kPIcorrelation: float): void 
+    
+  }
+
+  ActualImpact o-- DisruptionItem
+
+  class ActualImpact {
+    - disruption: DisruptionItem 
+    - impact: float 
+    
+    + getDisruption(): DisruptionItem 
+    + setDisruption(disruption: DisruptionItem): void 
+    + getImpact(): float 
+    + setImpact(impact: float): void 
+    + deriveActualImpact(): void 
+    
+  }
+
+  class BackgroundRisk {
+    - backgroundRisk: float 
+    - timeDimensionImpact: float 
+    - KPIinfluence: float 
+    - KPIcorrelatio: float 
+
+    + getRisk(): float 
+    + setRisk(backgroundRisk: float ): void 
+    + getTimeDimensionImpact(): float 
+    + setTimeDimensionImpact(timeDimensionImpact: float ): void 
+    + getKPIinfluence(): float 
+    + setKPIinfluence(kPIinfluence: float ): void 
+    + getKPIcorrelation(): float 
+    + setKPIcorrelation(kPIcorrelation: float ): void 
+    
+  }
+
+  DisruptionItem o-- DisruptionScenarioNode
+  DisruptionItem o-- ActualImpact
+
+  class DisruptionItem {
+    - scenarioClass: DisruptionScenarioNode 
+    - probabilityOfDisruption: float 
+    - name : String 
+    - impact: ActualImpact 
+    
+    + DisruptionItem(name: String, f: float )
+    + getScenarioClass(): DisruptionScenarioNode 
+    + setScenarioClass(scenarioClass: DisruptionScenarioNode ): void 
+    + getProbabilityOfDisruption(): float 
+    + setProbabilityOfDisruption(probabilityOfDisruption: float ): void 
+    + getName(): String 
+    + setName(name: String ): void 
+    + getImpact(): ActualImpact 
+    + setImpact(impact: ActualImpact ): void 
+    
+  }
+
+  DisruptionScenarioNode o-- BackgroundRisk
+  DisruptionScenarioNode o-- TimeDimension
+  DisruptionScenarioNode o-- ActionCategory
+  
+  class DisruptionScenarioNode extends Node {
+    - backgroundRisk: BackgroundRisk 
+    - timeDimension : TimeDimension 
+    - potentialActions: ArrayList<ActionCategory>
+
+    + DisruptionScenarioNode(String name)
+    + getBackgroundRisk(): BackgroundRisk 
+    + setBackgroundRisk(BackgroundRisk backgroundRisk): void 
+    + getTimeDimension(): TimeDimension 
+    + setTimeDimension(TimeDimension timeDimension): void 
+    + getPotentialActions(): ArrayList<ActionCategory>
+    + setPotentialActions(ArrayList<ActionCategory> potentialActions): void 
+  }
+
+  class HistoryItem {
+    - itemValue : float 
+    - itemDate: Date 
+
+    + HistoryItem(float value, Date date)
+    + getItemValue(): float 
+    + setItemValue(float itemValue): void 
+    + getItemDate(): Date 
+    + setItemDate(itemDate: Date): void 
+  }
+
+  Index o-- HistoryItem
+
+  class Index {
+    - indexHistory: ArrayList<HistoryItem>
+    - score: float 
+    
+    + Index()
+    + getScore(): float 
+    + setScore(score: float ): void 
+    
+  }
+
+  KPINode o-- Scope
+    
+  class KPINode extends Node {
+    - kpiScope: Scope 
+    - kpiValue: float 
+
+    + KPINode(name: String , value: float )
+    + getKpiScope(): Scope 
+    + setKpiScope(kpiScope: Scope ): void 
+    + getKpiValue(): float 
+    + setKpiValue(kpiValue: float ): void 
+    + adjustKpiValue(value: float ): void 
+  }
+
+  Node o-- Node
+  
+  class Node {
+    - nodeID: int 
+    - nodeName : String 
+    - adjacentNodes: ArrayList<Node>
+    - numberOfAdjacents : int 
+
+    + getNodeID(): int 
+    + setNodeID(nodeID: int ): void 
+    + getNodeName(): String 
+    + setNodeName(nodeName: String ): void 
+    + getAdjacentNodes(): ArrayList<Node>
+    + setAdjacentNodes(adjacentNodes: ArrayList<Node>): void 
+    + getNumberOfAdjacents(): int 
+    + setNumberOfAdjacents(): void 
+  }
+
+  ResilienceIndex o-- Scope
+  
+  class ResilienceIndex extends Index {
+    - scopes: ArrayList<Scope>
+
+    + ResilienceIndex()
+
+    + getScopes(): ArrayList<Scope>
+    + setScopes(scopes: ArrayList<Scope>): void 
+    + addScope (scope: Scope ): void 
+    
+    + deriveResilienceIndex(): float 
+  }
+
+  Scope o-- KPINode
+  Scope o-- ScopeIndex
+
+  class Scope {
+    - scopeName: String 
+    - KPIofScope: ArrayList<KPINode>
+    - scopeIndex: ScopeIndex 
+    
+    + Scope(name: String )
+    + getScopeName(): String 
+    + setScopeName(scopeName: String ): void 
+    + getKPIofScope(): ArrayList<KPINode>
+    + setKPIofScope(kPIofScope: ArrayList<KPINode>): void 
+    + getScopeIndex(): ScopeIndex 
+    + setScopeIndex(scopeIndex: ScopeIndex ): void 
+  }
+
+  ScopeIndex o-- Scope
+
+  class ScopeIndex extends Index {
+    - characterizedScope: Scope 
+    
+    + ScopeIndex()
+    + getCharacterizedScope(): Scope 
+    + setCharacterizedScope(characterizedScope: Scope ): void 
+    + deriveScopeIndex(): float 
+      
+  }
+
+  class TimeDimension {
+    - dimensionType: String 
+    - dimensionImpact : float 
+    - dimensions: Map<String, Float> 
+    
+    + addDimension(dimensionType: String , dimensionImpact: float): void 
+    + getDimensions(): Map<String, Float> 
+    + setDimensions(Map<String, Float> dimensions): void 
+  }
+
+  UndirectedGraph o-- Node
+
+  class UndirectedGraph {
+    - nodes: ArrayList<Node>
+    - minimumDegree: int 
+    - nodesWithMinimumDegree: ArrayList<Node>
+    - maximumDegree: int 
+    - nodesWithMaximumDegree: ArrayList<Node>
+    - averageDegree : float 
+    
+      
+    + ConnectNodes(node1: Node , node2: Node ): void 
+    + getNodes(): ArrayList<Node>
+    + setNodes(ArrayList<Node> nodes): void 
+    + deriveMinimumAndMaximumDegree(): void 
+    + deriveAverageDegree(): void 
+    + getMinimumDegree(): int 
+    + setMinimumDegree(minimumDegree: int): void 
+    + getNodesWithMinimumDegree(): ArrayList<Node>
+    + setNodesWithMinimumDegree(nodesWithMinimumDegree: ArrayList<Node>): void 
+    + getMaximumDegree(): int 
+    + setMaximumDegree(maximumDegree: int ): void 
+    + getNodesWithMaximumDegree(): ArrayList<Node>
+    + setNodesWithMaximumDegree(nodesWithMaximumDegree: ArrayList<Node>): void 
+    + getAverageDegree(): float 
+    + setAverageDegree(averageDegree: float ): void 
+  }
+
+
+
+}
+
+@enduml
