@@ -1,0 +1,14 @@
+Django==4.2
+# create data visualizations
+openpyxl
+matplotlib
+pandas
+
+# graph
+neo4j==4.3.1
+xgboost>=1.7.5
+
+requests
+joblib
+geopy
+scikit-learn
