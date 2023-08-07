@@ -26,7 +26,7 @@ For real-time analysis of the newspaper articles for any use-case related to cri
 
 <p> 
 
-!["Demo"](images/demo.png)
+!["Demo"](images/MENDEL_UI.png)
 
 ## 4. Installation 
 
