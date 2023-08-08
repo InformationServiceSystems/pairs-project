@@ -1,4 +1,4 @@
-# Outage Predictor
+# Newspaper Signaling
 
 ## 1. Description
 
