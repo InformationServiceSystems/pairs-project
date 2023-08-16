@@ -9,3 +9,4 @@ feedparser==6.0.10
 stanza==1.4.2
 protobuf==3.19.3
 Flask
+eventregistry
