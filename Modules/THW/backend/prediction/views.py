@@ -16,8 +16,8 @@ from django.shortcuts import render
 from neo4j import GraphDatabase
 
 # GET DATA
-df = pd.read_excel("missiontask_with_units.xlsx")
-df_withonout_nan=df.dropna()
+# df = pd.read_excel("missiontask_with_units.xlsx")
+# df_withonout_nan=df.dropna()
 
 
 # Create views here
@@ -43,7 +43,7 @@ def home_view(request, *args, **kwargs):
                                         # 'plot_helpers_typeOfService': plot_helpers_typeOfService(),
                                         
                                         # TABLE in OVERVIEW
-                                        'df_withonout_nan_custom':get_data(),
+                                        # 'df_withonout_nan_custom':get_data(),
                                         
                                         # KNOWLADGE GRAPH
                                         'graph_template': show_graph_database("Complete"),
