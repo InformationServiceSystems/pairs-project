@@ -73,6 +73,12 @@ Please note: Since we are dealing with a German data set, generated recommendati
 ## Installation
 
 1. [Create and run the local Neo4J graph database](https://neo4j.com/docs/operations-manual/current/installation/)
+<br> Password currently set to 'password' but can be changed in
+```sh
+Modules/THW/backend/prediction/view.py
+driver = GraphDatabase.driver("bolt://localhost:7687/neo4j", auth=("neo4j", "password"))
+```
+
 2. Create and activate the Python environment
 
 ```sh
