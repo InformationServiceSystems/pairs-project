@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: Annotator Module
+  description: 'Provides an annotation of data in order to create a data product description object (DPDO). This object can be used to describe your data for data users without the need to give access to it. The DPDO can be loaded into a knowledge graph afterwards '
+  version: 2.2.2
+components:
+  securitySchemes:
+    BasicUser:
+      type: http
+      scheme: basic
+paths:
+  /annotator:
+        '401':
+          description: Verification via password did not match credentials
+        '403':
+          description: Not authorized to access the annotator
+        '500':
+          description: Unexpected internal server error

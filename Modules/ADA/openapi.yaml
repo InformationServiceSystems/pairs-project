@@ -1,0 +1,14 @@
+openapi: 3.0.3
+info:
+  title: SPAICER Annotator Module Container
+  description: SPAICER module generating DPDO's (Data Product Description Objects) for data objects.
+  version: 0.1
+components:
+  securitySchemes:
+    BasicUser:
+      type: http
+      scheme: basic
+
+paths:
+  /annotator:
+    $ref: ./api/operations/annotator.yaml

@@ -1,0 +1,17 @@
+{
+  "name": "local",
+  "version": "1.0.0",
+  "description": "",
+  "main": "BabelnetAdapter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "neo4j-driver": "^4.3.3",
+    "neo4js": "0.0.4",
+    "w3c-xmlhttprequest": "^3.0.3",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

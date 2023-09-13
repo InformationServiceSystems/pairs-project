@@ -1,0 +1,34 @@
+post:
+  description: Execute anomaly detection on measured value
+  #security:     # Enable security check to add authentication
+  #  - BasicUser: []
+  tags:
+    - anomaly
+    - srs
+  requestBody:
+    required: true
+    content: 
+      "application/json":
+        schema:
+          type: object
+          required:
+          - temperature
+          properties:
+            temperature:
+              type: number
+              minimum: -250
+              maximum: 500
+  responses:
+    "200": 
+      description: Analyzed temperature
+      content: 
+        "application/json":
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/anomaly'
+    "401":
+      description: Verification via password did not match credentials
+    "403":
+      description: Not authorized to access the anomaly detection
+    "500":
+      description: Unexpected internal server error
+

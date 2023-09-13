@@ -1,0 +1,36 @@
+post:
+  description: Semi-automatic data annotation
+  #security:     # Enable security check to add authentication
+  #  - BasicUser: []
+  tags:
+    - data
+    - annotation
+    - description
+    - automation
+    - dpdo
+    - srs
+  requestBody:
+    required: true
+    content: 
+      "application/json":
+        schema:
+          type: object
+          required:
+          - dataPath
+          properties:
+            dataPath:
+              type: string
+  responses:
+    "200": 
+      description: Annotated Data Product Description Object
+      content: 
+        "application/json":
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/annotation'
+    "401":
+      description: Verification via password did not match credentials
+    "403":
+      description: Not authorized to access the annotator
+    "500":
+      description: Unexpected internal server error
+

@@ -1,0 +1,13 @@
+{
+    "accrual_periodicity":"e.g. weekly,daily,monthly",
+    "description":"Insert description of the content of your data here. E.g. The dataset covers information about production plant data of fine cutting machines.",
+    "conformsToStandard": "Insert Standard your data conforms to e.g. ISO_10303-242:201",
+    "StandardReference": "Insert reference to the data standard e.g. https://www.iso.org/standard/57620.html",
+    "localURL":"Endpoint that is used during the publishing process",
+    "temporal_startdate":"2023-07-01T21:32:52",
+    "temporal_enddate":"2023-12-31T21:32:52",
+    "version_description":"Version 1.0",
+    "dataAccuracy":"The plain score represents the data accuracy that was assessed by using a certain formula.",
+    "dataQualityScore":"The plain score represents a data quality dimension score that was assessed by using a certain formula.",
+    "scoreUnit":"Indicates the unit of measurement, e.g. of data quality scores. It is recommended to use UN/CEFACT common codes to specify the unit of measurement, e.g. P1 stands for percent."
+  }

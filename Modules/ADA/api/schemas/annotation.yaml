@@ -1,0 +1,139 @@
+type: object
+# TODO required
+properties:
+  context:
+    type: object
+    # TODO required
+    properties:
+      schema:
+        type: string
+      dcat:
+        type: string
+      dct:
+        type: string
+      dqv:
+        type: string
+      prov:
+        type: string
+      ov:
+        type: string
+      dpdo:
+        type: string
+  ProductDescriptionFacet:
+    type: object
+    # TODO required
+    properties:
+      id:
+        type: string
+      dct-title:
+        type: string
+      dcat-theme:
+        type: string
+      dpdo-subcategory:
+        type: string
+      schema-class:
+        type: string
+      dct-temporal:
+        type: object
+        # TODO required
+        properties:
+          dcat-startDate:
+            type: string 
+            format: date-time
+          dcat-endDate:
+            type: string
+            format: date-time
+          dct-accrualPeriodicity:
+            type: string
+            # TODO enum
+          schema-fileSize:
+            type: string
+            # TODO shouldn't this better simply be a number?
+          ov-csvcol:
+            type: string
+          schema-dataType:
+            type: string
+          dct-provenance:
+            type: object
+            # TODO required
+            properties:
+              dct-publisher:
+                type: object
+                # TODO required
+                properties:
+                  schema-url:
+                    type: string
+                  schema-legalName:
+                    type: string
+  UsageDescriptionFacet:
+    type: object
+    # TODO required
+    properties:
+      dct-hasVersion:
+        type: object
+        # TODO required
+        properties:
+          dct-isVersionOf:
+            type: object
+            properties:
+              schema-description:
+                type: string
+              dpdo-type:
+                type: string
+                # TODO enum
+              schema-dateTime:
+                type: string
+                format: date-time
+              dct-references:
+                type: object
+      dcat-distribution:
+        type: object
+        properties:
+          dct-periodOfTime:
+            type: object
+            properties:
+              dcat-startDate:
+                type: string
+                format: date-time
+              dcat-endDate:
+                type: string
+                format: date-time
+  BusinessDescriptionFacet:
+    type: object
+    # TODO required
+    properties:
+      schema-priceSpecification:
+        type: string # could also be a number
+      proton-contract:
+        type: object
+        properties:
+          dcat-startDate:
+            type: string
+            format: date-time
+          dcat-endDate:
+            type: string
+            format: date-time
+          schema-description:
+            type: string
+      dpdo-negotiationProtocol:
+        type: object
+        properties:
+          schema-description:
+            type: string
+  TrustAndSecurityDescriptionFacet:
+    type: object
+    properties:
+      dpv-qualityCertificate:
+        type: string # URL
+      dpdo-reputation:
+        type: object
+        properties:
+          tyype:
+            type: string
+          schema-value:
+            type: number
+      dct-modified:
+        type: string
+        format: date-time
+      dct-rights:
+        type: string

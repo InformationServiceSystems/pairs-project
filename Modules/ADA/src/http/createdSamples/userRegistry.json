@@ -1,0 +1,16 @@
+{
+    "provider_name": "Musterunternehmen",
+    "provider_url": "www.muster.de",
+    "provider_street": "Musterstraße 1",
+    "provider_locality": "Musterstadt",
+    "provider_country": "Germany",
+    "provider_jurisdiction": "Germany",
+    "provider_SalesTaxID": "DE 129515865",
+    "provider_legalResgistrationNumber":"HRB 12",
+    "legalContactName":"Max Mustermann",
+    "legalContactMail":"mustermann@muster.de",
+    "technicalContactName":" Mina Musterfrau",
+    "technicalContactMail":"musterfrau@muster.de",
+    "gaxAcronym": "Insert your company's assigned GAIA-X Acronym"
+  }
+  

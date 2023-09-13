@@ -1,0 +1,15 @@
+{
+  "distribution_startdate":"2023-07-01T21:32:52",
+  "distribution_enddate":"2024-12-31T21:32:52",
+  "price_specification":"Insert Price or pricing scheme",
+  "license":"Right to use the Service within the scope permitted under the Agreement",
+  "contract_enddate":"2023-12-31T21:32:52",
+  "contract_startdate":"2023-07-01T21:32:52",
+  "contract_description":"Insert contract details here. E.g. deontic (requirements/obligations of a fulfilled contract) or operational aspects (in which way the contractual obligations are to be fulfilled)",
+  "permissions": "Insert permission statements associated with your data here.",
+  "sanctions": "Insert sanctions in case of breach of contract.",
+  "negotiation_protocol":"Insert negotiation details here. E.g. Contract variables preventing side effects brought on by outside processes that are not subject to contractual descriptions",
+  "copyrightHolder_name": "Minus Mustermann",
+  "copyrightHolder_mail": "mustermann@muster.de",
+  "rights":"Insert rights associated with your data that the user needs to be aware of here. E.g. DSGVO Conformance, Intellectual property rights..."
+}

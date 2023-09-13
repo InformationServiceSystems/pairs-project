@@ -1,0 +1,40 @@
+
+
+version: '3.6'
+
+services:
+  redoc:
+    restart: on-failure
+    image: redocly/redoc
+    ports:
+     - 8080:80
+    environment:
+      - SPEC_URL=https://raw.githubusercontent.com/spaicer/example-container/main/node/example/docs/openapi.yaml
+  spaicer:
+    restart: on-failure
+    build: .
+    ports:
+     - 8081:8080
+  neo:
+  # The image to use
+    image: neo4j:latest
+    # map the ports so we can check the db server is up
+    ports: 
+        - 7474:7474
+        - 7687:7687
+    environment: 
+       # - NEO4J_AUTH=neo4j/j4oen
+        - NEO4J_AUTH=none
+        - NEO4JLABS_PLUGINS=["apoc"]
+        - NEO4J_dbms_security_procedures_whitelist=apoc.*
+        - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+        - NEO4J_apoc_import_file_enabled=true
+        - NEO4J_apoc_import_file_use_neo4j_config=true
+    # mounting a named volume to the container to track db data
+    volumes:
+        - neo4j_data:/data/
+
+## volumes to be generated, these are saved somewhere for repeated use by docker
+volumes:
+  neo4j_data:
+    

@@ -1,0 +1,27 @@
+{
+    "name": "core",
+    "version": "2.5.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "DEBUG=*,-express:*,-body-parser:*,-follow-redirects node app.js",
+        "docs": "./node_modules/swagger-cli/swagger-cli.js bundle ./openapi.yaml --outfile docs/openapi.yaml --type yaml --dereference"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.2.1",
+        "express-openapi-validator": "^4.12.10",
+        "fs-extra": "^10.0.1",
+        "neo4j-driver": "^5.9.0",
+        "swagger-cli": "^4.0.4"
+    },
+    "devDependencies": {
+        "chai": "^4.3.4",
+        "mocha": "^6.1.4",
+        "nodemon": "^1.11.0"
+    }
+}
