@@ -268,5 +268,40 @@ function generateView(event){
             operation_plan_div.append(table_personal);
                 
         }
+
+        // ---------------RESOURCES ---------------
+        var values_title = $('<div>').addClass('values-table').css('margin', '20px auto').css('text-align', 'center' ).css('font-weight', '700');
+        values_title.text('Resources');
+        operation_plan_div.append(values_title);
+
+        var resources_all = jsonData.scenarioPattern[0]['pairs:Resource']
+        var table_resource = $('<table>').addClass('responder-table-resource').css('margin', '10px 5px').css('width','99%');
+
+        for (var key in resources_all) {
+            if (resources_all.hasOwnProperty(key)) {
+                
+                var parts = key.split(':');
+
+                if (parts.length > 1) {
+                    var wordAfterColon = parts[1];
+                    var capitalizedWord = wordAfterColon.charAt(0).toUpperCase() + wordAfterColon.slice(1);
+                }
+
+                var values = String(resources_all[key]);
+                console.log("Key: " + key + ", Value: " + values);
+
+                //Content
+                if(key.length > 3){
+
+                    var resource_i = $('<tr>');
+                    resource_i.append($('<th style="font-weight: 400; width: 15%;">').text(capitalizedWord));
+                    resource_i.append($('<th style="font-weight: 400;">').text(values));
+                    table_resource.append(resource_i);
+
+                    operation_plan_div.append(table_resource);
+                }
+        
+            }
+        }
     }
 }
