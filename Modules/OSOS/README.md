@@ -6,7 +6,7 @@
 <p> 
 
 Crises send out early warning signals; mostly weak and difficult to detect amidst the noise of everyday life. These signals are readily available nowadays with the rise of social media, for instance, Twitter. A Major challenge in using tweets for crisis prediction is the handling of noise and irrelevant tweets. Most approaches tackle this challenge by applying natural language processing techniques, such as sentiment analyses, and content analyses, showing disadvantages due to the limited scope of
-training data and thus, low performance in terms of accuracy (high percentage of False Positives). We present OSOS – a method for open-domain social signal detection of crisis-related indicators in tweets. Our method works with multi-lingual Twitter data and combines multiple state-of-the-art models for data pre-processing and data filtration. It supports most of the spoken languages in the world. The method is able to detect social signals in tweets for open domains, e.g., energy, finances, and supply chains, that can be directly adjusted by the user in terms of keywords and crisis data obtained by Twitter.**
+training data and thus, low performance in terms of accuracy (high percentage of False Positives). We present OSOS – a method for open-domain social signal detection of crisis-related indicators in tweets. Our method works with multi-lingual Twitter data and combines multiple state-of-the-art models for data pre-processing and data filtration. It supports most of the spoken languages in the world. The method can detect social signals in tweets for open domains, e.g., energy, finances, and supply chains, that can be directly adjusted by the user in terms of keywords and crisis data obtained by Twitter.**
     
 </p>
 
@@ -22,7 +22,7 @@ analyses using burst detection. That means the frequency of relevant tweets is m
 
 <p> 
 
-!["Demo"](images/Methodology.png)
+!["Demo"](Images/Methodology.png)
 
 ## 4. Installation 
 
@@ -37,31 +37,17 @@ analyses using burst detection. That means the frequency of relevant tweets is m
 	git clone https://github.com/InformationServiceSystems/pairs-project.git
 	```
 
-- Intsall the dependencies 
+- Install the dependencies 
 
-	- In the terminal, run the following command to go to OutagePredictor directory. 
+	- In the terminal, run the following command to go to OSOS directory. 
 	```
-	cd pairs-project/Modules/NewspaperSignaling/
+	cd pairs-project/Modules/OSOS/
 	```
 	- Then run this command to install the dependencies
 	```
 	pip install -r requirements.txt
 	```
 
-- Start the flask server.
-
-	- Go back to the directory where you downloaded the repo and run this command to go to backend directory:
-	```
-	cd pairs-project/Modules/NewspaperSignaling/
-	```
-	- Run server
-	```
-	python app.py
-	```
-	- Leave this terminal running. 
-
-
-
-- Finally, go the internet browser (e.g. Chrome) and type in the url <http://127.0.0.1:5000>
+- Run the Python file Full_Pipeline.py
 
 
