@@ -22,7 +22,7 @@ analyses using burst detection. That means the frequency of relevant tweets is m
 
 <p> 
 
-!["Demo"](Images/Methodology.png)
+!["Demo"](Modules/OSOS/Images/Methodology.PNG)
 
 ## 4. Installation 
 
