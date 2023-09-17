@@ -22,8 +22,8 @@ analyses using burst detection. That means the frequency of relevant tweets is m
 
 <p> 
 
-!["Methodology"](Modules/OSOS/Images/Methodology.PNG)
-![Image](Modules/OSOS/Images/Methodology.png)
+![Methodology](https://github.com/m-gigaton/pairs-project/assets/60354660/e472fa67-0144-485c-831a-dd79cc5c8167)
+
 
 ## 4. Installation 
 
