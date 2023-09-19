@@ -46,8 +46,13 @@ To switch been company sizes, select the corresponding item from the dropdown me
 ## References
 
 [1] Lopes, J. M., Gomes, S., & Mané, L. (2022). Developing knowledge of supply chain resilience in less-developed countries in the pandemic age. Logistics, 6(1), 3.
+
 [2] https://www.spaicer.de/en/
+
 [3] Moosavi, J., Fathollahi-Fard, A. M., & Dulebenets, M. A. (2022). Supply chain disruption during the COVID-19 pandemic: Recognizing potential disruption management strategies. International Journal of Disaster Risk Reduction, 75, 102983.
+
 [4] Chakraborty, T., Mishra, N., Ganguly, M., & Chatterjee, B. (Eds.). (2023). Human Resource Management in a Post-epidemic Global Environment: Roles, Strategies, and Implementation. CRC Press.
+
 [5] Johnstone, S. (2023). Human resource management in recession: Restructuring and alternatives to downsizing in times of crisis. Human Resource Management Journal.
+
 [6] Aloisi, A., & De Stefano, V. (2022). Essential jobs, remote work and digital surveillance: Addressing the COVID‐19 pandemic panopticon. International Labour Review, 161(2), 289-314.
