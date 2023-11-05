@@ -16,94 +16,94 @@ from django.shortcuts import render
 from neo4j import GraphDatabase
 
 # GET DATA
-# df = pd.read_excel("missiontask_with_units.xlsx")
-# df_withonout_nan=df.dropna()
+df = pd.read_excel("missiontask_with_units.xlsx")
+df_withonout_nan=df.dropna()
 
 
 # Create views here
 def home_view(request, *args, **kwargs):
-    
-    get_weather_biberach, plot_flood_prediction_biberach, plot_heavy_rain_prediction_biberach, plot_others_prediction_biberach, plot_snow_prediction_biberach = event_prediction('Biberach','Baden-Württemberg')
-    get_weather_goettingen, plot_flood_prediction_goettingen, plot_heavy_rain_prediction_goettingen, plot_others_prediction_goettingen, plot_snow_prediction_goettingen = event_prediction('Göttingen', 'Niedersachsen')
-    get_weather_trier, plot_flood_prediction_trier, plot_heavy_rain_prediction_trier, plot_others_prediction_trier, plot_snow_prediction_trier = event_prediction('Trier', 'Rheinland-Pfalz')
-    get_weather_augsburg, plot_flood_prediction_augsburg, plot_heavy_rain_prediction_augsburg, plot_others_prediction_augsburg, plot_snow_prediction_augsburg = event_prediction('Augsburg', 'Bavaria')
-    get_weather_regensburg, plot_flood_prediction_regensburg, plot_heavy_rain_prediction_regensburg, plot_others_prediction_regensburg, plot_snow_prediction_regensburg = event_prediction('Regensburg', 'Bavaria')
-    get_weather_chemnitz, plot_flood_prediction_chemnitz, plot_heavy_rain_prediction_chemnitz, plot_others_prediction_chemnitz, plot_snow_prediction_chemnitz = event_prediction('Chemnitz', 'Sachsen')
-    get_weather_neubrandenburg, plot_flood_prediction_neubrandenburg, plot_heavy_rain_prediction_neubrandenburg, plot_others_prediction_neubrandenburg, plot_snow_prediction_neubrandenburg = event_prediction('Neubrandenburg', 'Mecklenburg-Vorpommern')
-    get_weather_schwerin, plot_flood_prediction_schwerin, plot_heavy_rain_prediction_schwerin, plot_others_prediction_schwerin, plot_snow_prediction_schwerin = event_prediction('Schwerin', 'Mecklenburg-Vorpommern')
+
+    # get_weather_biberach, plot_flood_prediction_biberach, plot_heavy_rain_prediction_biberach, plot_others_prediction_biberach, plot_snow_prediction_biberach = event_prediction('Biberach','Baden-Württemberg')
+    # get_weather_goettingen, plot_flood_prediction_goettingen, plot_heavy_rain_prediction_goettingen, plot_others_prediction_goettingen, plot_snow_prediction_goettingen = event_prediction('Göttingen', 'Niedersachsen')
+    # get_weather_trier, plot_flood_prediction_trier, plot_heavy_rain_prediction_trier, plot_others_prediction_trier, plot_snow_prediction_trier = event_prediction('Trier', 'Rheinland-Pfalz')
+    # get_weather_augsburg, plot_flood_prediction_augsburg, plot_heavy_rain_prediction_augsburg, plot_others_prediction_augsburg, plot_snow_prediction_augsburg = event_prediction('Augsburg', 'Bavaria')
+    # get_weather_regensburg, plot_flood_prediction_regensburg, plot_heavy_rain_prediction_regensburg, plot_others_prediction_regensburg, plot_snow_prediction_regensburg = event_prediction('Regensburg', 'Bavaria')
+    # get_weather_chemnitz, plot_flood_prediction_chemnitz, plot_heavy_rain_prediction_chemnitz, plot_others_prediction_chemnitz, plot_snow_prediction_chemnitz = event_prediction('Chemnitz', 'Sachsen')
+    # get_weather_neubrandenburg, plot_flood_prediction_neubrandenburg, plot_heavy_rain_prediction_neubrandenburg, plot_others_prediction_neubrandenburg, plot_snow_prediction_neubrandenburg = event_prediction('Neubrandenburg', 'Mecklenburg-Vorpommern')
+    # get_weather_schwerin, plot_flood_prediction_schwerin, plot_heavy_rain_prediction_schwerin, plot_others_prediction_schwerin, plot_snow_prediction_schwerin = event_prediction('Schwerin', 'Mecklenburg-Vorpommern')
     get_weather_kiel, plot_flood_prediction_kiel, plot_heavy_rain_prediction_kiel, plot_others_prediction_kiel, plot_snow_prediction_kiel = event_prediction('Kiel', 'Schleswig-Holstein')
 
     return render(request, 'home.html', {
                                         # PLOTS in OVERVIEW
-                                        # 'plot_requester_dutyHours': plot_requester_dutyHours(), 
+                                        # 'plot_requester_dutyHours': plot_requester_dutyHours(),
                                         # 'plot_requester_helperss': plot_requester_helperss(),
                                         # 'plot_dutyHours_missionTask': plot_dutyHours_missionTask(),
                                         # 'plot_helpers_missionTask': plot_helpers_missionTask(),
                                         # 'plot_dutyHours_typeOfService': plot_dutyHours_typeOfService(),
                                         # 'plot_helpers_typeOfService': plot_helpers_typeOfService(),
-                                        
+
                                         # TABLE in OVERVIEW
-                                        # 'df_withonout_nan_custom':get_data(),
-                                        
+                                        'df_withonout_nan_custom':get_data(),
+
                                         # KNOWLADGE GRAPH
                                         'graph_template': show_graph_database("Complete"),
-                                        
+
                                         # PLOTS for PREDICTIONS of FLOOD
-                                        'plot_flood_prediction_goettingen': plot_flood_prediction_goettingen,
-                                        'plot_flood_prediction_biberach': plot_flood_prediction_biberach,
-                                        'plot_flood_prediction_trier': plot_flood_prediction_trier,
-                                        'plot_flood_prediction_augsburg': plot_flood_prediction_augsburg,
-                                        'plot_flood_prediction_regensburg': plot_flood_prediction_regensburg,
-                                        'plot_flood_prediction_chemnitz': plot_flood_prediction_chemnitz,
-                                        'plot_flood_prediction_neubrandenburg': plot_flood_prediction_neubrandenburg,
-                                        'plot_flood_prediction_schwerin': plot_flood_prediction_schwerin,
+                                        # 'plot_flood_prediction_goettingen': plot_flood_prediction_goettingen,
+                                        # 'plot_flood_prediction_biberach': plot_flood_prediction_biberach,
+                                        # 'plot_flood_prediction_trier': plot_flood_prediction_trier,
+                                        # 'plot_flood_prediction_augsburg': plot_flood_prediction_augsburg,
+                                        # 'plot_flood_prediction_regensburg': plot_flood_prediction_regensburg,
+                                        #'plot_flood_prediction_chemnitz': plot_flood_prediction_chemnitz,
+                                        # 'plot_flood_prediction_neubrandenburg': plot_flood_prediction_neubrandenburg,
+                                        # 'plot_flood_prediction_schwerin': plot_flood_prediction_schwerin,
                                         'plot_flood_prediction_kiel': plot_flood_prediction_kiel,
                                         # PLOTS for PREDICTIONS of HEAVY RAIN
-                                        'plot_heavy_rain_prediction_goettingen': plot_heavy_rain_prediction_goettingen,
-                                        'plot_heavy_rain_prediction_biberach':plot_heavy_rain_prediction_biberach,
-                                        'plot_heavy_rain_prediction_trier':plot_heavy_rain_prediction_trier,
-                                        'plot_heavy_rain_prediction_augsburg':plot_heavy_rain_prediction_augsburg,
-                                        'plot_heavy_rain_prediction_regensburg':plot_heavy_rain_prediction_regensburg,
-                                        'plot_heavy_rain_prediction_chemnitz':plot_heavy_rain_prediction_chemnitz,
-                                        'plot_heavy_rain_prediction_neubrandenburg':plot_heavy_rain_prediction_neubrandenburg,
-                                        'plot_heavy_rain_prediction_schwerin':plot_heavy_rain_prediction_schwerin,
+                                        # 'plot_heavy_rain_prediction_goettingen': plot_heavy_rain_prediction_goettingen,
+                                        # 'plot_heavy_rain_prediction_biberach':plot_heavy_rain_prediction_biberach,
+                                        # 'plot_heavy_rain_prediction_trier':plot_heavy_rain_prediction_trier,
+                                        # 'plot_heavy_rain_prediction_augsburg':plot_heavy_rain_prediction_augsburg,
+                                        # 'plot_heavy_rain_prediction_regensburg':plot_heavy_rain_prediction_regensburg,
+                                        # 'plot_heavy_rain_prediction_chemnitz':plot_heavy_rain_prediction_chemnitz,
+                                        # 'plot_heavy_rain_prediction_neubrandenburg':plot_heavy_rain_prediction_neubrandenburg,
+                                        # 'plot_heavy_rain_prediction_schwerin':plot_heavy_rain_prediction_schwerin,
                                         'plot_heavy_rain_prediction_kiel':plot_heavy_rain_prediction_kiel,
                                         # PLOTS for PREDICTIONS of OTHER
-                                        'plot_others_prediction_goettingen': plot_others_prediction_goettingen,
-                                        'plot_others_prediction_biberach': plot_others_prediction_biberach,
-                                        'plot_others_prediction_trier': plot_others_prediction_trier,
-                                        'plot_others_prediction_augsburg': plot_others_prediction_augsburg,
-                                        'plot_others_prediction_regensburg': plot_others_prediction_regensburg,
-                                        'plot_others_prediction_chemnitz': plot_others_prediction_chemnitz,
-                                        'plot_others_prediction_neubrandenburg': plot_others_prediction_neubrandenburg,
-                                        'plot_others_prediction_schwerin': plot_others_prediction_schwerin,
+                                        # 'plot_others_prediction_goettingen': plot_others_prediction_goettingen,
+                                        # 'plot_others_prediction_biberach': plot_others_prediction_biberach,
+                                        # 'plot_others_prediction_trier': plot_others_prediction_trier,
+                                        # 'plot_others_prediction_augsburg': plot_others_prediction_augsburg,
+                                        # 'plot_others_prediction_regensburg': plot_others_prediction_regensburg,
+                                        # 'plot_others_prediction_chemnitz': plot_others_prediction_chemnitz,
+                                        # 'plot_others_prediction_neubrandenburg': plot_others_prediction_neubrandenburg,
+                                        # 'plot_others_prediction_schwerin': plot_others_prediction_schwerin,
                                         'plot_others_prediction_kiel': plot_others_prediction_kiel,
                                         # PLOTS for PREDICTIONS of SNOW
-                                        'plot_snow_prediction_goettingen': plot_snow_prediction_goettingen,
-                                        'plot_snow_prediction_biberach': plot_snow_prediction_biberach,
-                                        'plot_snow_prediction_trier': plot_snow_prediction_trier,
-                                        'plot_snow_prediction_augsburg': plot_snow_prediction_augsburg,
-                                        'plot_snow_prediction_regensburg': plot_snow_prediction_regensburg,
-                                        'plot_snow_prediction_chemnitz': plot_snow_prediction_chemnitz,
-                                        'plot_snow_prediction_neubrandenburg': plot_snow_prediction_neubrandenburg,
-                                        'plot_snow_prediction_schwerin': plot_snow_prediction_schwerin,
+                                        # 'plot_snow_prediction_goettingen': plot_snow_prediction_goettingen,
+                                        # 'plot_snow_prediction_biberach': plot_snow_prediction_biberach,
+                                        # 'plot_snow_prediction_trier': plot_snow_prediction_trier,
+                                        # 'plot_snow_prediction_augsburg': plot_snow_prediction_augsburg,
+                                        # 'plot_snow_prediction_regensburg': plot_snow_prediction_regensburg,
+                                        # 'plot_snow_prediction_chemnitz': plot_snow_prediction_chemnitz,
+                                        # 'plot_snow_prediction_neubrandenburg': plot_snow_prediction_neubrandenburg,
+                                        # 'plot_snow_prediction_schwerin': plot_snow_prediction_schwerin,
                                         'plot_snow_prediction_kiel': plot_snow_prediction_kiel,
 
                                         #EMPTY PLOT
-                                        'empty_plot': empty_plot(),  
+                                        'empty_plot': empty_plot(),
 
                                         # POPUP TABLES with WEATHER DATA
-                                        'get_weather_biberach':get_weather_biberach,
-                                        'get_weather_goettingen': get_weather_goettingen, 
-                                        'get_weather_trier': get_weather_trier,
-                                        'get_weather_augsburg': get_weather_augsburg,
-                                        'get_weather_regensburg': get_weather_regensburg,
-                                        'get_weather_chemnitz': get_weather_chemnitz,
-                                        'get_weather_neubrandenburg': get_weather_neubrandenburg,
-                                        'get_weather_schwerin': get_weather_schwerin,
+                                        # 'get_weather_biberach':get_weather_biberach,
+                                        # 'get_weather_goettingen': get_weather_goettingen,
+                                        # 'get_weather_trier': get_weather_trier,
+                                        # 'get_weather_augsburg': get_weather_augsburg,
+                                        # 'get_weather_regensburg': get_weather_regensburg,
+                                        # 'get_weather_chemnitz': get_weather_chemnitz,
+                                        # 'get_weather_neubrandenburg': get_weather_neubrandenburg,
+                                        # 'get_weather_schwerin': get_weather_schwerin,
                                         'get_weather_kiel': get_weather_kiel,
 
-                                        #RECOMMENDATIONS   
+                                        #RECOMMENDATIONS
                                         'graph_strong_rain': show_graph_database("Starkregen"),
                                         'graph_flood': show_graph_database("Hochwasser"),
                                         'getFloodBekJson': getFloodBekJson(),
@@ -111,7 +111,7 @@ def home_view(request, *args, **kwargs):
                                         'getFloodOrdJson': getFloodOrdJson(),
                                         'getStarkregenBekJson': getStarkregenBekJson(),
                                         })
-    
+
 def event_prediction(city, state):
     import requests
     import numpy as np
@@ -121,26 +121,26 @@ def event_prediction(city, state):
     from geopy.geocoders import Nominatim
     import json
     import datetime
-    
+
     states = {
         'Federal State_Baden-Württemberg': 0,
         'Federal State_Bayern': 0,
         'Federal State_Berlin': 0,
         'Federal State_Brandenburg': 0,
         'Federal State_Bremen': 0,
-        'Federal State_Hamburg': 0, 
+        'Federal State_Hamburg': 0,
         'Federal State_Hessen': 0,
-        'Federal State_Mecklenburg-Vorpommern': 0, 
+        'Federal State_Mecklenburg-Vorpommern': 0,
         'Federal State_Niedersachsen': 0,
-        'Federal State_Nordrhein-Westfalen': 0, 
+        'Federal State_Nordrhein-Westfalen': 0,
         'Federal State_Rheinland-Pfalz': 0,
-        'Federal State_Saarland': 0, 
+        'Federal State_Saarland': 0,
         'Federal State_Sachsen': 0,
         'Federal State_Sachsen-Anhalt': 0,
         'Federal State_Schleswig-Holstein': 0,
         'Federal State_Thüringen': 0
     }
-    
+
     if state == 'Baden-Württemberg':
         states['Federal State_Baden-Württemberg'] = 1
     elif state == 'Bayern':
@@ -176,7 +176,7 @@ def event_prediction(city, state):
     #
 
     my_list = list(states.values())
-    
+
     # if city == 'Biberach' and state == 'Baden-Württemberg':
     #     lat, long = (48.339971, 8.032849)
     #     print("city:", city)
@@ -189,14 +189,14 @@ def event_prediction(city, state):
     lat, long = location.latitude, location.longitude
     print(lat, long)
 
-    #  Weather API 
+    #  Weather API
     url11 = 'https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=cloudcover_low,weathercode,windspeed_10m,temperature_2m,pressure_msl,dewpoint_2m&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,weathercode,windspeed_10m_max,windgusts_10m_max&temperature_unit=fahrenheit&current_weather=true&windspeed_unit=kn&precipitation_unit=inch&timezone=CET'.format(lat, long)
     res = requests.get(url11)
     res = res.json()
-    
+
     # Pressure
     press = (res["hourly"]["pressure_msl"])
-    daily_slp = [] 
+    daily_slp = []
 
     num = 7
     try:
@@ -207,25 +207,25 @@ def event_prediction(city, state):
 
     #  Temprature!!!!!!!!!!
     temp = res["hourly"]["temperature_2m"]
-    daily_temp = [] 
+    daily_temp = []
     for i in range(num):
         daily_temp.append(np.array(temp[24*(i):24*(i+1)]).mean())
 
     # Dewpoint
     dewp = res["hourly"]["dewpoint_2m"]
-    daily_dewp = [] 
+    daily_dewp = []
     for i in range(num):
         daily_dewp.append(np.array(dewp[24*(i):24*(i+1)]).mean())
 
     # Windspeed!!!!!!!!!!!
     wspd = res["hourly"]["windspeed_10m"]
-    daily_wspd = [] 
+    daily_wspd = []
     for i in range(num):
         daily_wspd.append(np.array(wspd[24*(i):24*(i+1)]).mean())
 
     # Cloudcover!!!!!!!!!!!!!!
     cldcover = res["hourly"]["cloudcover_low"]
-    daily_visibility = [] 
+    daily_visibility = []
     vals = []
     for i in range(num):
         val = 100 - (np.array(cldcover[24*(i):24*(i+1)]).mean())
@@ -253,7 +253,7 @@ def event_prediction(city, state):
     daily_snow_indicator = []
     for i in range(num):
         daily_snow_indicator.append(any(item in snow_codes for item in np.array(wcode[24*(i):24*(i+1)])))
-    
+
     # Thunder!!!!!!!!!!!!!!
     thunder_codes = [95, 96, 99]
     daily_thunder_indicator = []
@@ -270,7 +270,7 @@ def event_prediction(city, state):
     daily_min_temp = res["daily"]["temperature_2m_min"]
 
     daily_prcp = res["daily"]["precipitation_sum"]
-    
+
     # SEASONS
     # Define the mapping of months to seasons in Germany
     season_mapping = {
@@ -287,7 +287,7 @@ def event_prediction(city, state):
         11: 'Autumn',
         12: 'Winter'
     }
-    
+
     # Get the current date
     current_date = datetime.datetime.now().date()
 
@@ -308,17 +308,17 @@ def event_prediction(city, state):
         'Summer': 3,
         'Autumn': 4
     }
-    
+
     forecast_numerical = [season_mapping_numerical[season] for season in forecast_seasons]
-    
-    
+
+
     season_forecast = []
-    
+
     for i in forecast_numerical:
         season_dict = {
-            'season_Autumn' : 0, 
+            'season_Autumn' : 0,
             'season_Spring' : 0,
-            'season_Summer' : 0, 
+            'season_Summer' : 0,
             'season_Winter' : 0
         }
         if i == 1:
@@ -329,21 +329,21 @@ def event_prediction(city, state):
             season_dict['season_Summer'] = 1
         else:
             season_dict['season_Autumn'] = 1
-            
+
         my_list_seasons = list(season_dict.values())
         season_forecast.append(my_list_seasons)
-        
-    
+
+
     season_list = season_forecast
 
     # All days weather
     days_weather = []
     for i in range (num):
         days_weather.append(np.array([daily_temp[i], daily_dewp[i], daily_slp[i], 996.125888, daily_visibility[i], daily_wspd[i], daily_max_wspd[i], daily_max_wgust[i], daily_max_temp[i], daily_min_temp[i], daily_prcp[i], int(daily_fog_indicator[i]), int(daily_drizzle_indicator[i]), int(daily_snow_indicator[i]), int(daily_thunder_indicator[i])] + season_list[i] + my_list))
-    
+
     if num == 6:
         days_weather.append(days_weather[5])
-    
+
     data = days_weather
     print('--------------------=======================------------------')
 
@@ -351,27 +351,27 @@ def event_prediction(city, state):
     url2 = 'https://api.openweathermap.org/data/2.5/forecast/daily?lat='+str(lat)+'&lon='+str(long)+'&appid=088271b7435257185a8ccf9522df10ab&units=imperial'
     res12 = requests.get(url2)
     res2 = res12.json()
-    
+
     pressure = []
     temperature = []
     for i in range(len(res2['list'])):
         pressure.append(res2['list'][i]['pressure'])
-        
+
         temperature.append((res2['list'][i]['temp']['day'] + res2['list'][i]['temp']['min'] + res2['list'][i]['temp']['max'] + res2['list'][i]['temp']['night'] +  res2['list'][i]['temp']['eve'] + res2['list'][i]['temp']['morn'])/6)
 
     features_names = ['temp', 'dewp','slp', 'stp', 'visib', 'wdsp', 'mxpsd', 'gust', 'max', 'min', 'prcp','fog', 'rain_drizzle', 'snow_ice_pellets', 'thunder', 'season_Autumn', 'season_Spring','season_Summer', 'season_Winter', 'Federal State_Baden-Württemberg','Federal State_Bayern', 'Federal State_Berlin','Federal State_Brandenburg', 'Federal State_Bremen','Federal State_Hamburg', 'Federal State_Hessen','Federal State_Mecklenburg-Vorpommern', 'Federal State_Niedersachsen', 'Federal State_Nordrhein-Westfalen', 'Federal State_Rheinland-Pfalz','Federal State_Saarland', 'Federal State_Sachsen','Federal State_Sachsen-Anhalt', 'Federal State_Schleswig-Holstein','Federal State_Thüringen']
-    
+
     # Load model
     model = xgb.XGBClassifier()
     model.load_model("model_option2_rfso.json")
-    
+
     X_valid = pd.DataFrame(data, columns=features_names)
     X_valid['temp'] = temperature
-    
+
     prob = model.predict_proba(X_valid)
     rounded_prob = np.round(prob, decimals=3)
     print(rounded_prob)
-    
+
     target_value = 0.85
 
     found_array_indices = []
@@ -394,11 +394,11 @@ def event_prediction(city, state):
         else:
             event.append('-')
 
-    print("City:", city)   
+    print("City:", city)
     print("Found Event:", event)
     print("Found Day Indices:", found_array_indices)
     print("Found Event Indices:", found_value_indices)
-    
+
     # OUTPUT
     X_valid['Event'] = event
     json_data = X_valid.to_json(orient='records')
@@ -412,26 +412,26 @@ def event_prediction(city, state):
     #rounded_prob_json = json.dumps(rounded_prob.tolist())
     return json_data, plot_flood_prediction, plot_heavy_rain_prediction, plot_others_prediction,plot_snow_prediction
 
-#############################MODEL############################### 
+#############################MODEL###############################
 def getFloodBekJson():
     with open('static/js/FloodRecommendationBek.json', encoding='utf-8') as f:
         json_data = json.load(f)
-    return json.dumps(json_data, ensure_ascii=False) 
+    return json.dumps(json_data, ensure_ascii=False)
 
 def getStarkregenFiehrJson():
     with open('static/js/RainRecommendationFuehr.json', encoding='utf-8') as f:
         json_data = json.load(f)
-    return json.dumps(json_data, ensure_ascii=False) 
+    return json.dumps(json_data, ensure_ascii=False)
 
 def getFloodOrdJson():
     with open('static/js/FloodRecommendationOrd.json', encoding='utf-8') as f:
         json_data = json.load(f)
-    return json.dumps(json_data, ensure_ascii=False) 
+    return json.dumps(json_data, ensure_ascii=False)
 
 def getStarkregenBekJson():
     with open('static/js/RainRecommendationBek.json', encoding='utf-8') as f:
         json_data = json.load(f)
-    return json.dumps(json_data, ensure_ascii=False) 
+    return json.dumps(json_data, ensure_ascii=False)
 
 def flood_predinction(predictions):
     from matplotlib.figure import Figure
@@ -505,7 +505,7 @@ def flood_predinction(predictions):
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save plot as image file
     # if(city == 'Aachen'):
     #     filename = 'plot_flood_prediction_aachen.svg'  # Specify the filename and extension
@@ -520,7 +520,7 @@ def flood_predinction(predictions):
     plt.close()  # Close the plot to avoid memory leaks
 
     return plot_flood_prediction
-# 
+#
 
 def empty_plot():
     from matplotlib.figure import Figure
@@ -616,7 +616,7 @@ def heavy_rain_predinction(predictions):
             pred_flood_x.append(num)
             pred_flood_y.append(predictions[i][1]*100)
         #
-    
+
 
     threshold = 85
 
@@ -656,7 +656,7 @@ def heavy_rain_predinction(predictions):
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
      # Save plot as image file
     # if(city == 'Aachen'):
     #     filename = 'plot_heavy_rain_prediction_aachen.svg'  # Specify the filename and extension
@@ -704,7 +704,7 @@ def snow_predinction(predictions):
             pred_flood_x.append(num)
             pred_flood_y.append(predictions[i][3]*100)
         #
-    
+
     threshold = 85
 
     image_width_px = 1000
@@ -742,7 +742,7 @@ def snow_predinction(predictions):
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
      # Save plot as image file
     # if(city == 'Aachen'):
     #     filename = 'plot_snow_prediction_aachen.svg'  # Specify the filename and extension
@@ -827,7 +827,7 @@ def others_predinction(predictions_others):
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
      # Save plot as image file
     # if(city == 'Aachen'):
     #     filename = 'plot_other_prediction_aachen.svg'  # Specify the filename and extension
@@ -853,7 +853,7 @@ def show_graph_database(type):
             cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Starkregen/Hagel' RETURN a,r,b"
         elif type == 'Hochwasser':
             cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Hochwasser' RETURN a,r,b"
-            
+
         result = session.run(cypher_query)
         graph_data = result.data()
         # print(graph_data)
@@ -865,7 +865,7 @@ def show_graph_database(type):
 
     return graph_json
 
-    
+
 
 # METHODS used for creating the webpage #
 def plot_requester_dutyHours():
@@ -893,7 +893,7 @@ def plot_requester_dutyHours():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -903,10 +903,10 @@ def plot_requester_dutyHours():
 
     # Add legend
     ax.legend(['duty hours'])
-    
+
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_requester_dutyHours.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')
@@ -947,7 +947,7 @@ def plot_requester_helperss():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -957,10 +957,10 @@ def plot_requester_helperss():
 
     # Add legend
     ax.legend(['number of helpers'])
-    
+
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_requester_helperss.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')
@@ -985,7 +985,7 @@ def get_data():
     return df_withonout_nan_custom
 
 def plot_dutyHours_missionTask():
-    
+
     # Read CSV into pandas
     price = df_withonout_nan['duty hours']
     name = df_withonout_nan['mission task']
@@ -1010,7 +1010,7 @@ def plot_dutyHours_missionTask():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -1029,10 +1029,10 @@ def plot_dutyHours_missionTask():
 
     # Add legend
     ax.legend(['duty hours'])
-    
+
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_dutyHours_missionTask.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')
@@ -1048,7 +1048,7 @@ def plot_dutyHours_missionTask():
     return plot_dutyHours_missionTask
 
 def plot_helpers_missionTask():
-    
+
     # Read CSV into pandas
     price = df_withonout_nan['number of helpers']
     name = df_withonout_nan['mission task']
@@ -1073,7 +1073,7 @@ def plot_helpers_missionTask():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -1092,10 +1092,10 @@ def plot_helpers_missionTask():
 
     # Add legend
     ax.legend(['number of helpers'])
-    
+
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_helpers_missionTask.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')
@@ -1111,7 +1111,7 @@ def plot_helpers_missionTask():
     return plot_helpers_missionTask
 
 def plot_dutyHours_typeOfService():
-    
+
     # Read CSV into pandas
     hours = df_withonout_nan['duty hours']
     service = df_withonout_nan['type of service']
@@ -1136,7 +1136,7 @@ def plot_dutyHours_typeOfService():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -1149,7 +1149,7 @@ def plot_dutyHours_typeOfService():
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_dutyHours_typeOfService.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')
@@ -1165,7 +1165,7 @@ def plot_dutyHours_typeOfService():
     return plot_dutyHours_typeOfService
 
 def plot_helpers_typeOfService():
-    
+
     # Read CSV into pandas
     helpers = df_withonout_nan['number of helpers']
     service = df_withonout_nan['type of service']
@@ -1190,7 +1190,7 @@ def plot_helpers_typeOfService():
 
     # Show top values
     ax.invert_yaxis()
-    
+
     y_labels = ax.get_yticklabels()  # Get the existing tick labels
     for label in y_labels:
         label.set_fontsize(12)  # Adjust the font size of each label
@@ -1203,7 +1203,7 @@ def plot_helpers_typeOfService():
 
     # Tight layout to prevent label overlap
     plt.tight_layout()
-    
+
     # Save
     # filename = 'plot_helpers_typeOfService.svg'  # Specify the filename and extension
     # plt.savefig(filename, format='svg')

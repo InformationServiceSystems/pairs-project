@@ -288,7 +288,6 @@ function generateView(event){
                 }
 
                 var values = String(resources_all[key]);
-                console.log("Key: " + key + ", Value: " + values);
 
                 //Content
                 if(key.length > 3){
@@ -303,5 +302,6 @@ function generateView(event){
         
             }
         }
+        
     }
 }

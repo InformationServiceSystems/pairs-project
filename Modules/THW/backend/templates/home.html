@@ -21,7 +21,7 @@
 
         <title>THW DEMO</title>
 
-        
+
 
         <!-- Add Leaflet CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -45,7 +45,8 @@
         <!--custom CSS-->
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}">
-
+        <!--New library vis.js-->
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.js"></script>
 
     </head>
 
@@ -64,7 +65,7 @@
                 </a>
             </div>
 
-            <div class="header-right">      
+            <div class="header-right">
                 <img src="{% static 'img/dfki_logo.jpg' %}" alt="Image DFKI" style="height:70px;">
                 <img src="{% static 'img/Bundesmini.png' %}" alt="Image Bindes Mini" style="height:70px;">
             </div>
@@ -100,19 +101,20 @@
                         <div class="row" id="operation-planing">
 
                             <p class="inside-tab" style="font-weight:bold;">Operations Planning</p>
-                            <p class="inside-tab" style=" padding-top:0px;">The increasing number of crises and cascading effects over the past years raises the complexity of operation planning procedures of crisis responders. 
-                                Planning factors like e.g. a proper allocation of personnel and resources are critical for the success of an operation, which is why resilient planning procedures are needed. 
+                            <p class="inside-tab" style=" padding-top:0px;">
+                                During occurring crisis events, time of response, allocation of resources, tasks and personnel pose critical success factors to crisis operations conducted by responders.
+                                Respective operation plans are currently compiled manually by planning officers based on their expertise.
                                 In cooperation with the German Federal Agency for Technical Relief (German abbr. THW), we aim to support operation planning within the domain of civil defense to increase resource efficiency, save time and costs.
-                                We provide a unified structure for the documentation of operations using Scenario Patterns, the prediction of potential future operations and automated planning recommendations on personnel deployments, resources and tasks. 
+                                Our module supports proactive operation planning by means of an early event prediction and semantically enhanced historical knowledge using so called operational scenario patterns (see Scenario Patterns tab).
                             </p>
-                        
+
                             <p class="inside-tab" style="font-weight:bold;">Historical Operations Data</p>
                             <div class="col">
-                                <p class="inside-tab">Historical operation data collected by THW (2012-2021) serve as initial data basis and input for our service. 
-                                    The dataset includes information about the requesting party of the operation, date, event type of the operation, concrete mission tasks and a description, number of deployed helpers and their conducted duty hours. 
-                                    The table serves as data sample for used input data. We further used similar (anonymized) datasets on helpers and personnel (including their qualifications, location, gender, age), data on units (including characteristic devices, potential tasks, needed qualifications) and data on operation options (including event type, subevents, tasks). 
+                                <p class="inside-tab">Historical operation data collected by THW (2012-2021) serve as initial data basis and input for our service.
+                                    The dataset includes information about the requesting party of the operation, date, event type of the operation, concrete mission tasks and a description, number of deployed helpers and their conducted duty hours.
+                                    The table serves as data sample. We further used similar datasets on helpers and personnel (including qualifications, location, gender, age), data on units  (name, abbreviation, strength, tasks, roles, qualifications, equipment) and data on operation options (event type, subevents, tasks).
                                 </p>
-                                <p  class="inside-tab">By analyzing the historical dataset valuable patterns, trends and insights can be derived to gain additional information on THW’s operations. 
+                                <p  class="inside-tab">By analyzing the historical dataset valuable patterns, trends and insights can be derived to gain additional information on THW’s operations.
                                 </p>
                             </div>
                             <div class="col">
@@ -125,9 +127,9 @@
                                         <th>Mission Task</th>
                                         <th>Description</th>
                                         <th>Service Project</th>
-                                        <th>Number of Helpers</th>
+<!--                                        <th>Number of Helpers</th>
                                         <th>Duty Hours</th>
-                                        <th>ID</th>
+                                        <th>ID</th>-->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -138,58 +140,58 @@
                                         <td>{{ row.2 }}</td>
                                         <td>{{ row.3 }}</td>
                                         <td>{{ row.4 }}</td>
-                                        <td>{{ row.5 }}</td>
+<!--                                        <td>{{ row.5 }}</td>
                                         <td>{{ row.6 }}</td>
-                                        <td>{{ row.7 }}</td>
+                                        <td>{{ row.7 }}</td>-->
                                         </tr>
                                     {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
 
-                            <p class="inside-tab" style="font-weight:bold;">Data evaluation</p>
+                            <p class="inside-tab" style="font-weight:bold;">Analysis of Historical Operations</p>
                             {% comment %} Slide 10 {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
-                                The chart in Figure 1 illustrates the correlation between the duration of duty hours and the individuals making the requests.
+                                The chart in Figure 1 illustrates the correlation between the duration of duty hours and the requesting party.
                                 It can be seen that state authorities (<i>Landesbehörden</i>) have requested approximately 1200 duty hours, followed by municipalities (<i>Gemeinden</i>) and fire departments (<i>Feuerwehr</i>).
                             ​</p>
-                            
+
 
                             <img id="plot_requester_dutyHours" alt="plot_requester_dutyHours" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 1. Relationship between duty hours and requester.​</p>
 
                             {% comment %} SLide 11  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Figure 2 depicts the association between quantity of helpers and the individual making the requests. Fire departments (<i>Feuerwehr</i>) have the highest demand, requesting approximately 90 workers in total. On the other hand,
+                                Figure 2 depicts the association between quantity of helpers and the requesting party. Fire departments (<i>Feuerwehr</i>) have the highest demand, requesting 90 workers on average. On the other hand,
                                 ​<i>Zoll</i> has the least demand, requesting approximately 5 workers. The figure showcases the contrasting levels of worker requirements among these organizations.
                             </p>
 
-                            <img id="plot_requester_helperss" alt="plot_requester_helperss" style="width: 50%;">   
+                            <img id="plot_requester_helperss" alt="plot_requester_helperss" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 2. Relationship between number of helpers and requester.​​</p>
 
                             {% comment %} SLide 12  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;"
-                                >Figure 3  showcases the duty hours spent on different tasks. Infrastructure tasks <i>Infrastruktur, Temporärer Aufbau</i> required approximately 1200 duty hours.
+                                >Figure 3  showcases the duty hours spent on different tasks. Infrastructure tasks (<i>Infrastruktur, Temporärer Aufbau</i>) required approximately 12000 duty hours.
                                 This visual depiction contributes to a deeper understanding of the allocation and distribution of work hours concerning different mission tasks.
                             </p>
 
-                            <img id="plot_dutyHours_missionTask" alt="plot_dutyHours_missionTask" style="width: 50%;"> 
+                            <img id="plot_dutyHours_missionTask" alt="plot_dutyHours_missionTask" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 3. Relationship between duty hours and mission task.​​​</p>
 
                             {% comment %} SLide 13  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Figure 4  showcases which mission tasks required the highest numbers of helpers. Technical help (<i>Technische Hilfe im Rahmen sonstiger Hilfeleistungen</i>) requires approximately 90 helpers.
+                                Figure 4  showcases which mission tasks required the highest numbers of helpers. Technical help (<i>Technische Hilfe im Rahmen sonstiger Hilfeleistungen</i>) requires 90 helpers on average.
                             </p>
 
-                            <img id="plot_helpers_missionTask" alt="plot_helpers_missionTask" style="width: 50%;"> 
+                            <img id="plot_helpers_missionTask" alt="plot_helpers_missionTask" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 4. Relationship between number of helpers and mission task.​​​​</p>
 
                             {% comment %} SLide 14  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Figure 5 and Figure 6 highlight how many helpers and duty hours are required for technical help operations in contrast to all other operations.​
+                                Figure 5 and Figure 6 highlight how many helpers and duty hours are required for technical help in contrast to all other operations.​
                             </p>
 
-                            <img id="plot_dutyHours_typeOfService" alt="plot_dutyHours_typeOfService" style="width: 50%;"> 
+                            <img id="plot_dutyHours_typeOfService" alt="plot_dutyHours_typeOfService" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 5. Relationship between duty hours and type of service.​​​​​</p>
                             <img id="plot_helpers_typeOfService" alt="plot_helpers_typeOfService" style="width: 50%;">
                             <p class="inside-tab" id="caption">Figure 6. Relationship between number of helpers and type of service.​​​​​​</p>
@@ -219,79 +221,81 @@
                     <div class="tab-pane fade" id="scenar-pattern" role="tabpanel" aria-labelledby="scenar-pattern-tab" style="width: 100%;">
                         <div class="row">
                             <!--INSIDE OF OPENNED TAB-->
-                            <p class="inside-tab" style="font-weight:bold; text-align: left">What are Scenario Patterns?</p>
-                            <p class="inside-tab" style=" padding-top:0px;">Scenario Patterns provide descriptive information about the conceptual structure of crisis situations by highlighting and interlinking information sources. 
-                                Scenario Patterns serve as blueprint to describe historical operations semantically in a story-telling way. Main entities (orange) include contextual information of a crisis, reason, impact and location, involved actors, measures, resources involved within these measures, the provenance and interlinked historical events.
-                                Each Entitiy has individual attributes as presented in the following figure 
+                            <p class="inside-tab" style="font-weight:bold; text-align: left">What are Operational Scenario Patterns?</p>
+                            <p class="inside-tab" style=" padding-top:0px;">Operational Scenario Patterns provide descriptive information about the conceptual structure of crisis situations by highlighting and interlinking information sources.
+                                Scenario Patterns serve as blueprint to describe historical operations semantically in a story-telling way. Main entities (orange) include contextual information of a crisis, reason, impact and location, involved actors, measures, resources involved within these measures, the provenance of the information and interlinked historical events.
+                                Each Entitiy has individual attributes as presented in the following figure
                             </p>
 
                             <center><img src="{% static 'img/scenario.svg' %}" alt="duty_hours_and_requesters" style="width:38%">
-                            <p  id="caption">Figure 1. Example of a scenario pattern </p>
+                            <p  id="caption">Figure 1. Overview of perational scenario pattern entities </p>
 
                             <p class="inside-tab" style=" padding-top:0px;">
-                                We implemented Scenario Patterns within a semantic description using JSON-LD as a human understandable and easy-to-read format.
-                                All entities were mapped onto semantic web standards such as the vocabularies and ontologies FOAF, beAware , LODE , Empathi , DCAT and schema.org. Resulting descriptions form a network that can further be transferred into a knowledge graph by using a Cypher Script and a knowledge graph database such as Neo4j. 
+                                We implemented Operational Scenario Patterns within a semantic description using JSON-LD as a human understandable and easy-to-read format.
+                                All entities were mapped onto semantic web standards such as the vocabularies and ontologies FOAF, beAware , LODE , Empathi and schema.org. Resulting descriptions form a knowledge network that can further be transferred into a knowledge graph database Neo4j by using cypher script (see Knowledge Graph tab for an example).
                             </p>
                             <p class="inside-tab" style=" padding-top:0px;">
-                                The historical operations of THW are mapped onto the Scenario Pattern structure. 
-                                Generated recommendations can be mapped onto the scenario pattern as well, serving as operation plan that can easily be shared with unit leaders and other helpers and responders. 
+                                The historical operations data by THW are mapped onto the operational scenario patterns structure.
+                                Generated recommendations are mapped onto the structure as well, serving as operation plans to be shared with unit leaders and other helpers and responders (see Recommendation tab).
                             </p>
                         </div>
-                        
-                    
+
+
                     </div>
                     <div class="tab-pane fade" id="knowledge-graph" role="tabpanel" aria-labelledby="knowledge-graph-tab">
                         <!--INSIDE OF OPENNED TAB-->
                         <div class="row">
                             <img src="{% static 'img/info_icon.png' %}" alt="duty_hours_and_requesters" style="height: 15px;width: 40px; margin-left: 20px;">
                             <span class="inside-tab" style=" padding-top:0px;padding-bottom: 10px; ">
-                                Within this tab, we provide an explorable knowledge graph of the historical datasets. 
-                                The historical data on operations, personnel and units were mapped onto the scenario pattern’s structure. We further conducted inferencing algorithms to connect the dataset with additional data on helpers, units and operations in order to derive non-evident knowledge from the database.
-                                The knowledge graph therefore serves as basis for the event prediction, as well as for the generated planning recommendations.
+                                Within this tab, we provide an excerpt of the historical knowledge on operations as an explorable knowledge graph, generated by mapping THW's operation data onto the scenario pattern structure.
+                                We conducted inferencing algorithms to connect these data nodes with the additional data on personnel, units and operation options in order to derive non-evident knowledge that was not stored in the original database by THW before.
+                                The knowledge graph then serves as basis for the generated planning recommendations (Recommendation tab) for predicted events (Event Prediction tab).
                             </span>
 
                             {% comment %} GRAPH {% endcomment %}
                             <div id="graph-container"></div>
+                            <div id="graph-container-popup" style="position: relative; top: -190px; left: 930px;"></div>
 
                             <script>
                                 var graphData = {{ graph_template | safe }}
                             </script>
                             <!--Generate Graph-->
-                            <script src="{% static 'js/knowladge-graph-tab.js'%}"></script>
+                            {% comment %} <script src="{% static 'js/knowladge-graph-tab.js'%}"></script> {% endcomment %}
+                            <script src="{% static 'js/knowGraphTab.js'%}"></script>
 
                         </div>
                     </div>
                     <div class="tab-pane fade" id="event-pred" role="tabpanel" aria-labelledby="event-pred-tab">
                         <!--INSIDE OF OPENNED TAB-->
                         <div class="row">
-                            
+
                             <p class="inside-tab" style="font-weight:bold;">Description</p>
-                        
+
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Using predictive analytic methods on the historical data in combination with additional weather data, we predict potential future operations. To increase the quality of our prediction, the operations were categorized into four weather-based categories (flood events, rain events, snow events and others).
-                                The following map provides an overview of predicted events per location within Germany. The following graphs provide a prediction for each weather-based event type for a selected city.
+                                Using predictive analytic methods on the historical data in combination with additional historical weather data, we trained our forecasting model in order to predict potential future operations. To increase the quality of our prediction, the operations were categorized into weather-based categories (flood events, rain events, snow events and others).
+                                The following map provides an overview of current weather data and predicted events per location within Germany. The following graphs provide a prediction for each weather-based event type for a selected city.
                             </p>
 
                             <div class="mapContainer">
                                 <div id="map" style="width: 97%;height: 65vh;position: relative;margin-left: 40px;">
-                        
+
                                 </div>
                             </div>
 
-                            <script> 
+                            <script>
                                 $('button[ data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
                                     if (e.target.id === "event-pred-tab") {
                                         initMap();
                                     }
                                 });
-                                
+
                                 function initMap() {
-                                    
+
                                     map = L.map('map', {
                                         center: [50.841755, 9.575857],
                                         zoom: 6
                                     });
-                                    
+
                                     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                         maxZoom: 19,
                                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -307,6 +311,12 @@
                                     var Neubrandenburg = [53.5574458, 13.2602781]
                                     var Schwerin = [53.6288297, 11.4148038]
                                     var Kiel = [54.3227085, 10.135555]
+                                    //
+                                    var Bengel = [50.016564, 7.064047]
+                                    var Cochem = [50.147709, 7.170171]
+                                    var Bernkastel_Kues = [49.919602, 7.068205]
+                                    var Muelheim = [49.912942, 7.010353]
+                                    var Zell = [50.036760, 7.177282]
 
                                     //1
                                     var dataWeatherGöttingen = {{get_weather_goettingen  | safe}}
@@ -322,7 +332,7 @@
                                     popupContentBiberach = generateTableRows(dataWeatherBiberach, "Biberach (Baden-Württemberg)")
 
                                     //5 Constant values
-                                    popupContentAachen = generateTableRows("Constant demo", "Aachen (Nordrhein-Westfalen)")
+                                    popupContentAachen = generateTableRows("hardcoded", "Aachen (Nordrhein-Westfalen)")
                                     //6
                                     var dataWeatherRegensburg = {{get_weather_regensburg  | safe}}
                                     popupContentRegensburg = generateTableRows(dataWeatherRegensburg, "Regensburg (Bavaria)")
@@ -338,10 +348,22 @@
                                     //10
                                     var dataWeatherKiel = {{get_weather_kiel  | safe}}
                                     popupContentKiel = generateTableRows(dataWeatherKiel, "Kiel (Schleswig-Holstein)")
-                                    
+                                    //11
+                                    //var dataWeatherBengel = {{get_weather_bengel | safe}}
+                                    popupContentBengel = generateTableRows("hardcoded", "Bengel (Mosel)")
+                                    //12 Cochem
+                                    popupContentCochem = generateTableRows("hardcoded", "Cochem (Rhineland-Palatinate)")
+                                    //13 Bernkastel_Kues
+                                    popupContentBernkastel_Kues = generateTableRows("hardcoded", "Bernkastel-Kues (Rhineland-Palatinate)")
+                                    //14 Muelheim
+                                    popupContentMuelheim = generateTableRows("hardcoded", "Mülheim (Mosel)")
+                                    //15
+                                    popupContentZell = generateTableRows("hardcoded", "Zell (Mosel)")
+
                                     //Add Markers to the map
                                     L.Icon.Default.prototype.options.popupAnchor = [0, -65];
-                                    //1
+
+                                     /*//1
                                     L.marker(Biberach).addTo(map).bindPopup(popupContentBiberach, {
                                         className: 'custom-popup',
                                         maxWidth: 'auto'
@@ -376,6 +398,7 @@
                                         className: 'custom-popup',
                                         maxWidth: 'auto'
                                     });
+
                                     //8
                                     L.marker(Neubrandenburg).addTo(map).bindPopup(popupContentNeubrandenburg, {
                                         className: 'custom-popup',
@@ -390,6 +413,32 @@
                                     L.marker(Kiel).addTo(map).bindPopup(popupContentKiel, {
                                         className: 'custom-popup',
                                         maxWidth: 'auto'
+                                    });*/
+
+                                    //11
+                                    L.marker(Bengel).addTo(map).bindPopup(popupContentBengel , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //12 Cochem
+                                    L.marker(Cochem).addTo(map).bindPopup(popupContentCochem , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //13
+                                    L.marker(Bernkastel_Kues).addTo(map).bindPopup(popupContentBernkastel_Kues , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //14
+                                    L.marker(Muelheim).addTo(map).bindPopup(popupContentMuelheim , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //15
+                                    L.marker(Zell).addTo(map).bindPopup(popupContentZell , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
                                     });
                                 }
                             </script>
@@ -402,17 +451,27 @@
                                         {% comment %} 1 raw {% endcomment %}
                                         <div class="row" style="display: flex; justify-content: center;margin: 40px 0px;">
                                             <select id="city-dropdown" style="width: 350px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; background-color: #f5f5f5;">
+
                                                 <option value="" disabled selected>City</option>
+                                                <!--
                                                 <option value="goettingen">Göttingen (Niedersachsen)</option>
                                                 <option value="biberach">Biberach (Baden-Württemberg)</option>
                                                 <option value="aachen">Aachen (Nordrhein-Westfalen)</option>
-                                                <option value="trier">Trier (Rheinland-Pfalz)</option> 
+                                                <option value="trier">Trier (Rheinland-Pfalz)</option>
                                                 <option value="augsburg">Augsburg (Bavaria)</option>
                                                 <option value="regensburg">Regensburg (Bavaria)</option>
                                                 <option value="chemnitz">Chemnitz (Sachsen)</option>
                                                 <option value="neubrandenburg">Neubrandenburg (Mecklenburg-Vorpommern)</option>
                                                 <option value="schwerin">Schwerin (Mecklenburg-Vorpommern)</option>
                                                 <option value="kiel">Kiel (Schleswig-Holstein)</option>
+                                                -->
+
+                                                <!--New cities-->
+                                                <option value="bengel">Bengel (Rheinland-Pfalz)</option>
+                                                <option value="cochem">Cochem (Rheinland-Pfalz)</option>
+                                                <option value="bernkastel_kues">Bernkastel-Kues (Rheinland-Pfalz)</option>
+                                                <option value="muelheim">Mülheim (Rheinland-Pfalz)</option>
+                                                <option value="zell">Zell (Rheinland-Pfalz</option>
                                             </select>
                                         </div>
 
@@ -439,7 +498,7 @@
                                                 <p id="warning_pred_4"> Please, select City. </p>
                                             </div>
                                             <div class="col">
-                                                
+
                                                 <p style="position: relative; margin: 0px 0px; left: 326px; font-size: 16px; width: 20px;">Sonstige</p>
                                                 <img id="others-prediction-image" alt="plot_others_prediction" style="width: 100%;">
                                                 <p id="warning_pred_3"> Please, select City. </p>
@@ -452,7 +511,7 @@
                             <script>
                                 $(document).ready(function() {
                                     // Listen for the change event of the dropdown select element
-                                    
+
                                     $('#flood-prediction-image').attr('src', 'data:image/png;base64,{{ empty_plot }}');
                                     $('#starkregen-prediction-image').attr('src', 'data:image/png;base64,{{ empty_plot }}');
                                     $('#others-prediction-image').attr('src', 'data:image/png;base64,{{ empty_plot }}');
@@ -463,7 +522,7 @@
 
                                         // Update the image source based on the selected city
                                         if (selectedCity === 'goettingen') {
-                                        
+
                                             $('#flood-prediction-image').attr('src', 'data:image/png;base64,{{ plot_flood_prediction_goettingen }}');
                                             $('#flood-prediction-image').attr('city', 'goettingen');
                                             $('#warning_pred_1').css('display', 'none');
@@ -615,14 +674,14 @@
                                             $('#snow-prediction-image').attr('src', 'data:image/png;base64,{{ plot_snow_prediction_kiel }}');
                                             $('#snow-prediction-image').attr('city', 'kiel');
                                             $('#warning_pred_4').css('display', 'none');
-                                        } 
+                                        }
                                         else if (selectedCity === 'aachen') {
                                             //Flood
                                             $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_aachen.svg" %}`);
                                             $('#flood-prediction-image').attr('city', 'aachen');
                                             $('#warning_pred_1').css('display', 'none');
                                             //Heavy rain
-                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_aachen.svg" %}`);        
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_aachen.svg" %}`);
                                             $('#starkregen-prediction-image').attr('city', 'aachen');
                                             $('#warning_pred_2').css('display', 'none');
                                             //Other
@@ -634,8 +693,97 @@
                                             $('#snow-prediction-image').attr('city', 'aachen');
                                             $('#warning_pred_4').css('display', 'none');
 
+                                        } else if (selectedCity === 'bengel'){
+                                            //Flood
+                                            $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_bangel.svg" %}`);
+                                            $('#flood-prediction-image').attr('city', 'bengel');
+                                            $('#warning_pred_1').css('display', 'none');
+                                            //Heavy rain
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_bangel.svg" %}`);
+                                            $('#starkregen-prediction-image').attr('city', 'bengel');
+                                            $('#warning_pred_2').css('display', 'none');
+                                            //Other
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_bangel.svg" %}`);
+                                            $('#others-prediction-image').attr('city', 'bengel');
+                                            $('#warning_pred_3').css('display', 'none');
+                                            //Snow
+                                            $('#snow-prediction-image').attr('src', `{% static "img/plot_snow_prediction_bangel.svg" %}`);
+                                            $('#snow-prediction-image').attr('city', 'bengel');
+                                            $('#warning_pred_4').css('display', 'none');
+
+                                        } else if (selectedCity === 'cochem'){
+                                            //Flood
+                                            $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_cochem.svg" %}`);
+                                            $('#flood-prediction-image').attr('city', 'cochem');
+                                            $('#warning_pred_1').css('display', 'none');
+                                            //Heavy rain
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_cochem.svg" %}`);
+                                            $('#starkregen-prediction-image').attr('city', 'cochem');
+                                            $('#warning_pred_2').css('display', 'none');
+                                            //Other
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_cochem.svg" %}`);
+                                            $('#others-prediction-image').attr('city', 'cochem');
+                                            $('#warning_pred_3').css('display', 'none');
+                                            //Snow
+                                            $('#snow-prediction-image').attr('src', `{% static "img/plot_snow_prediction_cochem.svg" %}`);
+                                            $('#snow-prediction-image').attr('city', 'cochem');
+                                            $('#warning_pred_4').css('display', 'none');
+
+                                        } else if (selectedCity === 'bernkastel_kues'){
+                                            //Flood
+                                            $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_bernkastel_kues.svg" %}`);
+                                            $('#flood-prediction-image').attr('city', 'bernkastel_kues');
+                                            $('#warning_pred_1').css('display', 'none');
+                                            //Heavy rain
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_bernkastel_kues.svg" %}`);
+                                            $('#starkregen-prediction-image').attr('city', 'bernkastel_kues');
+                                            $('#warning_pred_2').css('display', 'none');
+                                            //Other
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_cochem.svg" %}`);
+                                            $('#others-prediction-image').attr('city', 'bernkastel_kues');
+                                            $('#warning_pred_3').css('display', 'none');
+                                            //Snow
+                                            $('#snow-prediction-image').attr('src', `{% static "img/plot_snow_bernkastel_kues.svg" %}`);
+                                            $('#snow-prediction-image').attr('city', 'bernkastel_kues');
+                                            $('#warning_pred_4').css('display', 'none');
+
+                                        } else if (selectedCity === 'muelheim'){
+                                            //Flood
+                                            $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_muelheim.svg" %}`);
+                                            $('#flood-prediction-image').attr('city', 'muelheim');
+                                            $('#warning_pred_1').css('display', 'none');
+                                            //Heavy rain
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_muelheim.svg" %}`);
+                                            $('#starkregen-prediction-image').attr('city', 'muelheim');
+                                            $('#warning_pred_2').css('display', 'none');
+                                            //Other
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_muelheim.svg" %}`);
+                                            $('#others-prediction-image').attr('city', 'muelheim');
+                                            $('#warning_pred_3').css('display', 'none');
+                                            //Snow
+                                            $('#snow-prediction-image').attr('src', `{% static "img/plot_snow_prediction_muelheim.svg" %}`);
+                                            $('#snow-prediction-image').attr('city', 'muelheim');
+                                            $('#warning_pred_4').css('display', 'none');
+
+                                        } else if (selectedCity === 'zell'){
+                                            //Flood
+                                            $('#flood-prediction-image').attr('src', `{% static "img/plot_flood_prediction_zell.svg" %}`);
+                                            $('#flood-prediction-image').attr('city', 'zell');
+                                            $('#warning_pred_1').css('display', 'none');
+                                            //Heavy rain
+                                            $('#starkregen-prediction-image').attr('src', `{% static "img/plot_heavy_rain_prediction_zell.svg" %}`);
+                                            $('#starkregen-prediction-image').attr('city', 'zell');
+                                            $('#warning_pred_2').css('display', 'none');
+                                            //Other
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_zell.svg" %}`);
+                                            $('#others-prediction-image').attr('city', 'zell');
+                                            $('#warning_pred_3').css('display', 'none');
+                                            //Snow
+                                            $('#snow-prediction-image').attr('src', `{% static "img/plot_snow_prediction_zell.svg" %}`);
+                                            $('#snow-prediction-image').attr('city', 'zell');
+                                            $('#warning_pred_4').css('display', 'none');
+
                                         }
-                                        
 
                                     });
                                 });
@@ -680,7 +828,7 @@
                                     <div class="col-3">
                                         <button  id="generate_btn"  onclick="generateView(event)">Generate Recommendation</button>
                                     </div>
-                                </div> 
+                                </div>
 
                                 <script src="{% static 'js/recommendation-tab.js'%}"></script>
 
@@ -700,7 +848,7 @@
                                         <p id="warning_text_json" style="text-align: center;margin-top:30px;">
                                             Please select Event and Action.
                                         </p>
-                                        
+
                                         {% comment %} <p> JSON Output is shown here</p> {% endcomment %}
                                         <pre id="json-data-flood-bek" style="display: none;">{{ getFloodBekJson|safe }}</pre>
                                         <pre id="json-data-starkregen-fuehr" style="display: none;">{{ getStarkregenFuehrJson|safe }}</pre>
@@ -710,7 +858,7 @@
                                         <code class="prettyprint" id="json-renderer"></code>
                                         <div id="table_operation_plan"></div>
 
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -719,13 +867,17 @@
                                     <div id="title-recommendation">Recommendation Graph
                                     </div>
                                     <!--neo4j-->
-                                    <div id="graph-container2">
+                                    <div id="graph-container2" style="height: 320px;margin-top: -20;">
+
                                         <p id="warning_text2" style="text-align: center;">
                                             Please, select Event and Action.
                                         </p>
-                                    </div>  
-                                    
-                                    <script src="{% static 'js/recommendation-graph.js'%}"></script>
+
+                                        <script src="{% static 'js/visGraph.js'%}"></script>
+
+                                    </div>
+
+                                    {% comment %} <script src="{% static 'js/recommendation-graph.js'%}"></script> {% endcomment %}
 
                                 </div>
                             </div>
@@ -744,7 +896,7 @@
                 <a class="text-dark"
                 href="https://www.dfki.de/web/forschung/projekte-publikationen/projekte-uebersicht/projekt/pairs/">DFKI_PAIRS</a>
             </div>
-            
+
         </footer>
 
     </body>
