@@ -93,7 +93,16 @@ thw_test\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Run the application 
+4. Migrations
+
+```sh
+python manage.py makemigrations
+```
+```sh
+python manage.py migrate
+```
+
+5. Run the application 
 
 ```sh
 cd ./backend/
