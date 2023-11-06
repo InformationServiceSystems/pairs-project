@@ -350,15 +350,15 @@
                                     popupContentKiel = generateTableRows(dataWeatherKiel, "Kiel (Schleswig-Holstein)")
                                     //11
                                     //var dataWeatherBengel = {{get_weather_bengel | safe}}
-                                    popupContentBengel = generateTableRows("hardcoded", "Bengel (Mosel)")
+                                    popupContentBengel = generateTableRows("hardcoded", "Bengel (Rheinland-Pfalz)")
                                     //12 Cochem
-                                    popupContentCochem = generateTableRows("hardcoded", "Cochem (Rhineland-Palatinate)")
+                                    popupContentCochem = generateTableRows("hardcoded", "Cochem (Rheinland-Pfalz)")
                                     //13 Bernkastel_Kues
-                                    popupContentBernkastel_Kues = generateTableRows("hardcoded", "Bernkastel-Kues (Rhineland-Palatinate)")
+                                    popupContentBernkastel_Kues = generateTableRows("hardcoded", "Bernkastel-Kues (Rheinland-Pfalz)")
                                     //14 Muelheim
-                                    popupContentMuelheim = generateTableRows("hardcoded", "Mülheim (Mosel)")
+                                    popupContentMuelheim = generateTableRows("hardcoded", "Mülheim (Rheinland-Pfalz)")
                                     //15
-                                    popupContentZell = generateTableRows("hardcoded", "Zell (Mosel)")
+                                    popupContentZell = generateTableRows("hardcoded", "Zell (Rheinland-Pfalz)")
 
                                     //Add Markers to the map
                                     L.Icon.Default.prototype.options.popupAnchor = [0, -65];
@@ -453,8 +453,7 @@
                                             <select id="city-dropdown" style="width: 350px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; background-color: #f5f5f5;">
 
                                                 <option value="" disabled selected>City</option>
-                                                <!--
-                                                <option value="goettingen">Göttingen (Niedersachsen)</option>
+<!--                                                <option value="goettingen">Göttingen (Niedersachsen)</option>
                                                 <option value="biberach">Biberach (Baden-Württemberg)</option>
                                                 <option value="aachen">Aachen (Nordrhein-Westfalen)</option>
                                                 <option value="trier">Trier (Rheinland-Pfalz)</option>
@@ -463,15 +462,14 @@
                                                 <option value="chemnitz">Chemnitz (Sachsen)</option>
                                                 <option value="neubrandenburg">Neubrandenburg (Mecklenburg-Vorpommern)</option>
                                                 <option value="schwerin">Schwerin (Mecklenburg-Vorpommern)</option>
-                                                <option value="kiel">Kiel (Schleswig-Holstein)</option>
-                                                -->
+                                                <option value="kiel">Kiel (Schleswig-Holstein)</option>-->
 
                                                 <!--New cities-->
                                                 <option value="bengel">Bengel (Rheinland-Pfalz)</option>
                                                 <option value="cochem">Cochem (Rheinland-Pfalz)</option>
                                                 <option value="bernkastel_kues">Bernkastel-Kues (Rheinland-Pfalz)</option>
                                                 <option value="muelheim">Mülheim (Rheinland-Pfalz)</option>
-                                                <option value="zell">Zell (Rheinland-Pfalz</option>
+                                                <option value="zell">Zell (Rheinland-Pfalz)</option>
                                             </select>
                                         </div>
 
@@ -797,8 +795,14 @@
                                     <div class="col-2">
                                         <select id="city-dropdown-r">
                                             <option value="" disabled selected>City</option>
-                                            <option value="goettingen">Göttingen (Niedersachsen)</option>
-                                            <option value="biberach">Biberach (Baden-Württemberg)</option>
+                                           <!-- <option value="goettingen">Göttingen (Niedersachsen)</option>
+                                            <option value="biberach">Biberach (Baden-Württemberg)</option>-->
+<!--                                            <option value="xxx">XXX</option>-->
+                                            <option value="zell">Zell (Rheinland-Pfalz)</option>
+                                            <option value="muelheim">Mülheim (Rheinland-Pfalz)</option>
+                                            <option value="cochem">Cochem (Rheinland-Pfalz)</option>
+                                            <option value="bengel">Bengel (Rheinland-Pfalz)</option>
+                                            <option value="bernkastel_kues">Bernkastel-Kues (Rheinland-Pfalz)</option>
                                         </select>
                                     </div>
 
@@ -807,6 +811,7 @@
                                             <option value="" disabled selected>Events</option>
                                             <option value="Hochwasser">Hochwasser</option>
                                             <option value="Starkregen">Starkregen</option>
+                                            <option value="yyy">YYY</option>
                                         </select>
                                     </div>
                                     <div class="col-2">
@@ -822,6 +827,7 @@
                                             <option value="Sicherung von Verkehrswegen" disabled>Sicherung von Verkehrswegen</option>
                                             <option value="Logistik" disabled>Logistik</option>
                                             <option value="Führung, Führungsunterstützung und Verbindung" disabled>Führung, Führungsunterstützung und Verbindung</option>
+                                            <option value="zzz" disabled>ZZZ</option>
                                         </select>
                                     </div>
 
@@ -854,6 +860,29 @@
                                         <pre id="json-data-starkregen-fuehr" style="display: none;">{{ getStarkregenFuehrJson|safe }}</pre>
                                         <pre id="json-data-flood-ord" style="display: none;">{{ getFloodOrdJson|safe }}</pre>
                                         <pre id="json-data-starkregen-bek" style="display: none;">{{ getStarkregenBekJson|safe }}</pre>
+
+                                       <!-- <pre id="json-data-flood-b" style="display: none;">{{ getFloodBJson|safe }}</pre>
+                                        <pre id="json-data-flood-bort" style="display: none;">{{ getFloodBOrtJson|safe }}</pre>
+                                        <pre id="json-data-flood-bub" style="display: none;">{{ getFloodBUbJson|safe }}</pre>
+                                        <pre id="json-data-flood-bern" style="display: none;">{{ getFloodBernJson|safe }}</pre>
+                                        <pre id="json-data-flood-bernort" style="display: none;">{{ getFloodBernOrtJson|safe }}</pre>
+                                        <pre id="json-data-flood-bernub" style="display: none;">{{ getFloodBernUbJson|safe }}</pre>
+                                        <pre id="json-data-flood-m" style="display: none;">{{ getFloodMJson|safe }}</pre>
+                                        <pre id="json-data-flood-mort" style="display: none;">{{ getFloodMOrtJson|safe }}</pre>
+                                        <pre id="json-data-flood-mub" style="display: none;">{{ getFloodMUbJson|safe }}</pre>
+                                        <pre id="json-data-flood-z" style="display: none;">{{ getFloodZJson|safe }}</pre>
+                                        <pre id="json-data-flood-zort" style="display: none;">{{ getFloodZOrtJson|safe }}</pre>
+                                        <pre id="json-data-flood-zub" style="display: none;">{{ getFloodZUbJson|safe }}</pre>
+                                        <pre id="json-data-flood-c" style="display: none;">{{ getFloodCJson|safe }}</pre>
+                                        <pre id="json-data-flood-cort" style="display: none;">{{ getFloodCOrtJson|safe }}</pre>
+                                        <pre id="json-data-flood-cub" style="display: none;">{{ getFloodCUbJson|safe }}</pre>
+                                        <pre id="json-data-rain-b" style="display: none;">{{ getRainBJson|safe }}</pre>
+                                        <pre id="json-data-rain-m" style="display: none;">{{ getRainMJson|safe }}</pre>
+                                        <pre id="json-data-rain-z" style="display: none;">{{ getRainZJson|safe }}</pre>
+                                        <pre id="json-data-rain-c" style="display: none;">{{ getRainCJson|safe }}</pre>
+                                        <pre id="json-data-rain-bern" style="display: none;">{{ getRainBernJson|safe }}</pre>
+                                        <pre id="json-data-rain-bernfue" style="display: none;">{{ getRainBernFueJson|safe }}</pre>-->
+
 
                                         <code class="prettyprint" id="json-renderer"></code>
                                         <div id="table_operation_plan"></div>

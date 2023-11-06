@@ -96,7 +96,7 @@ function generateTableRows(dataWeather, location) {
 
       break;
 
-    case "Bengel (Mosel)":
+    case "Bengel (Rheinland-Pfalz)":
       tableRows += `
         <tr>
             <td>14/11/2023</td>
@@ -163,7 +163,7 @@ function generateTableRows(dataWeather, location) {
         </tr>
       `
       break;
-    case "Cochem (Rhineland-Palatinate)":
+    case "Cochem (Rheinland-Pfalz)":
       tableRows += `
         <tr>
             <td>14/11/2023</td>
@@ -172,15 +172,15 @@ function generateTableRows(dataWeather, location) {
             <td>9.98</td>
             <td>Yes</td>
             <td>No</td>
-            <td>Flood</td>
+            <td>Heavy Rain</td>
         </tr>
         <tr>
             <td>15/11/2023</td>
             <td>12.11</td>
             <td>4.06</td>
             <td>9.60</td>
-            <td>No</td>
-            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
             <td>Flood</td>
         </tr>
         <tr>
@@ -230,7 +230,7 @@ function generateTableRows(dataWeather, location) {
         </tr>
       `
       break;
-    case "Bernkastel-Kues (Rhineland-Palatinate)":
+    case "Bernkastel-Kues (Rheinland-Pfalz)":
       tableRows += `
         <tr>
             <td>14/11/2023</td>
@@ -246,7 +246,7 @@ function generateTableRows(dataWeather, location) {
             <td>11.11</td>
             <td>2.06</td>
             <td>9.60</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>Yes</td>
             <td>Flood</td>
         </tr>
@@ -297,7 +297,7 @@ function generateTableRows(dataWeather, location) {
         </tr>
       `
       break;
-    case "Mülheim (Mosel)":
+    case "Mülheim (Rheinland-Pfalz)":
       tableRows += `
         <tr>
             <td>14/11/2023</td>
@@ -306,15 +306,15 @@ function generateTableRows(dataWeather, location) {
             <td>4.98</td>
             <td>Yes</td>
             <td>Yes</td>
-            <td>Flood</td>
+            <td>Heavy Rain</td>
         </tr>
         <tr>
             <td>15/11/2023</td>
             <td>8.11</td>
             <td>2.06</td>
             <td>9.60</td>
-            <td>No</td>
-            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
             <td>Flood</td>
         </tr>
         <tr>
@@ -364,7 +364,7 @@ function generateTableRows(dataWeather, location) {
         </tr>
       `
       break;
-    case "Zell (Mosel)":
+    case "Zell (Rheinland-Pfalz)":
       tableRows += `
         <tr>
             <td>14/11/2023</td>
@@ -380,7 +380,7 @@ function generateTableRows(dataWeather, location) {
             <td>10.52</td>
             <td>2.06</td>
             <td>7.60</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>Flood</td>
         </tr>

@@ -7,6 +7,10 @@ var selectedCity = '';
 var selectedAction = '';
 
 function updateUI(){
+    console.log('updateUI');
+    console.log(selectedEvent);
+    console.log(selectedCity);
+
     const optionActions = selectAction.options;
 
 
@@ -44,6 +48,99 @@ function updateUI(){
                 optionActions[i].disabled = true;
             }
         }
+    }else if(selectedEvent == 'yyy'  && selectedCity ==  "xxx"){
+        for (let i = 0; i < optionActions.length; i++) {
+            if(optionActions[i].value == "zzz"){
+                optionActions[i].disabled = false;
+            }
+            else{
+                optionActions[i].disabled = true;
+            }
+        }
+    }else if (selectedEvent === 'Hochwasser' && selectedCity === "muelheim") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    }else if (selectedEvent === 'Hochwasser' && selectedCity === "zell") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+
+    } else if (selectedEvent === 'Hochwasser' && selectedCity === "bernkastel_kues") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Ortungs-, Rettungs-, Bergungsmaßnahmen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    }else if (selectedEvent === 'Hochwasser' && selectedCity === "cochem") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Hochwasser' && selectedCity === "bengel") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Starkregen' && selectedCity === "zell") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Starkregen' && selectedCity === "bengel") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Starkregen' && selectedCity === "cochem") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Starkregen' && selectedCity === "bernkastel_kues") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    } else if (selectedEvent === 'Starkregen' && selectedCity === "muelheim") {
+        for (let i = 0; i < optionActions.length; i++) {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+                optionActions[i].disabled = false;
+            } else {
+                optionActions[i].disabled = true;
+            }
+        }
+    }else {
+        console.log(selectedEvent);
+        console.log(selectedCity);
     }
 }
 
@@ -108,6 +205,13 @@ function generateView(event){
     const selectedOption_action = dropdown_action.find("option:selected");
     const selectedText_action = selectedOption_action.text();
 
+    //What city is chosen?
+    const dropdown_city = $("#city-dropdown-r")
+    const selectedOption_city = dropdown_city.find("option:selected");
+    const selectedText_city = selectedOption_city.text();
+
+
+
     const recommend_graph = $("#graph-container2");
 
     if(selectedText_event === 'Hochwasser'){
@@ -121,15 +225,74 @@ function generateView(event){
 
     //Filter JSON
     var jsonData ={};
-    if (selectedText_event === 'Hochwasser' && selectedText_action === 'Ortungs-, Rettungs-, Bergungsmaßnahmen') {
+/*    if (selectedText_event === 'Hochwasser' && selectedText_action === 'Ortungs-, Rettungs-, Bergungsmaßnahmen') {
         jsonData = JSON.parse(jsonFloodOrd.innerHTML);
     } else if (selectedText_event === 'Starkregen' && selectedText_action === 'Führung, Führungsunterstützung und Verbindung') {
         jsonData = JSON.parse(jsonStarkregenF.innerHTML);
     }else if (selectedText_event === 'Hochwasser' && selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen') {
-        jsonData = JSON.parse(jsonFloodBek.innerHTML);
-    }else if (selectedText_event === 'Starkregen' && selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen') {
-        jsonData = JSON.parse(jsonStarkregenBek.innerHTML);
+        jsonData = JSON.parse(jsonFloodBek.innerHTML);*/
+
+    if (selectedText_event === 'YYY' &&
+        selectedText_action === 'ZZZ' &&
+        selectedText_city === 'XXX') {
+            jsonData = loadXXX_YYY_ZZZ();
+            debugger
+    }else if (selectedText_event === 'YYY' &&
+              selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+              selectedText_city === 'AAA') {
+            jsonData = loadAAA_YYY();
     }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Mülheim (Rheinland-Pfalz)') {
+        jsonData = loadFMUb();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Zell (Rheinland-Pfalz)') {
+        jsonData = loadFZUb();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Ortungs-, Rettungs-, Bergungsmaßnahmen' &&
+        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
+        jsonData = loadFBernUb();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Cochem (Rheinland-Pfalz)') {
+        jsonData = loadFCUb();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Bengel (Rheinland-Pfalz)') {
+        jsonData = loadFBUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Führung, Führungsunterstützung und Verbindung' &&
+        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
+        jsonData = loadRBernUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Bengel (Rheinland-Pfalz)') {
+        jsonData = loadRBUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Cochem (Rheinland-Pfalz)') {
+        jsonData = loadRCUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Mülheim (Rheinland-Pfalz)') {
+        jsonData = loadRMUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Zell (Rheinland-Pfalz)') {
+        jsonData = loadRZUb();
+    }
+
     //PuT filtered JSON in HTML
     jsonRenderer.text(JSON.stringify(jsonData, null, 4));
 
@@ -305,3 +468,1657 @@ function generateView(event){
         
     }
 }
+
+/*function loadJSONdata(filename){
+    return
+    $.ajax({
+        url: filename,
+        dataType: "json",
+        success: function(response) {
+            return response;
+        }
+    });
+
+}*/
+
+function loadXXX_YYY_ZZZ(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "67419",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "67419",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Bengel",\n' +
+        '                      "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                    "schema:addressLocality": "Bengel",\n' +
+        '                    "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '                    "schema:State": "Rheinland-Pfalz",\n' +
+        '                    "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "67419",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": ""\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "67419",\n' +
+        '                "pairs:TotalNumberOfHelpers": "",\n' +
+        '                "schema:workHours": "",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "1893",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1678",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7543",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1978",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1588",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1892",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "6782",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7839",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "9717",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7189",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8192",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8929",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8977",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "9202",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sanitätshelfer"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "10196",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  }\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')
+}
+function loadFMUb(){
+    return JSON.parse('{\n' +
+        '  "@context": [\n' +
+        '    {\n' +
+        '      "schema": "http://schema.org",\n' +
+        '      "dct": "http://purl.org/dc/terms/",\n' +
+        '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '      "pairs": "https://www.pairs-projekt.de/",\n' +
+        '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '      "lode": "https://linkedevents.org/ontology/",\n' +
+        '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  "scenarioPattern": [\n' +
+        '    {\n' +
+        '      "schema:identifier": {\n' +
+        '        "@id": "917643",\n' +
+        '        "schema:startDate": "14/11/2023",\n' +
+        '        "schema:endDate": "15/11/2023"\n' +
+        '      },\n' +
+        '      "pairs:Context": {\n' +
+        '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+        '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+        '        "schema:description": ""\n' +
+        '      },\n' +
+        '      "dct:Provenance": {\n' +
+        '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '      },\n' +
+        '      "schema:location": {\n' +
+        '        "pairs:ReportLocation": {\n' +
+        '          "schema:addressLocality": "Mülheim",\n' +
+        '          "schema:addressRegion": "Mülheim",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        },\n' +
+        '        "pairs:OperationLocation": {\n' +
+        '          "schema:addressLocality": "Mülheim",\n' +
+        '          "schema:addressRegion": "Mülheim",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        }\n' +
+        '      },\n' +
+        '      "pairs:Reason": {\n' +
+        '        "pairs:Precondition": "Starkregen"\n' +
+        '      },\n' +
+        '      "pairs:Impact": {\n' +
+        '        "pairs:Postcondition": "",\n' +
+        '        "schema:Duration": ""\n' +
+        '      },\n' +
+        '      "foaf:Agent": {\n' +
+        '        "pairs:TotalNumberOfHelpers": "",\n' +
+        '        "schema:workHours": "",\n' +
+        '        "beAware:Responder":[{\n' +
+        '          "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '          "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '          "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '          "pairs:Role": [{\n' +
+        '            "schema:name":"Gruppenführer/in",\n' +
+        '            "pairs:NumberOfActors": "1",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Truppführer/in",\n' +
+        '            "pairs:NumberOfActors": "2",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Fachhelfer/in",\n' +
+        '            "pairs:NumberOfActors": "4",\n' +
+        '            "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '          }],\n' +
+        '          "schema:Person": [\n' +
+        '          {\n' +
+        '            "@id": "15773",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15889",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15443",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15992",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15998",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15994",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15772",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15441",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15765",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15432",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15555",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15667",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15429",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15879",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "15890",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sanitätshelfer"\n' +
+        '          }\n' +
+        '\n' +
+        '          ]\n' +
+        '        }]\n' +
+        '      },\n' +
+        '      "beAware:Mission": {\n' +
+        '        "@id": "917643",\n' +
+        '          "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '          "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '      },\n' +
+        '      "pairs:Resource": {\n' +
+        '        "@id": "917643",\n' +
+        '          "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '        "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '      }\n' +
+        '    }\n' +
+        '  ]\n' +
+        '}\n')}
+
+function loadFBUb(){
+    return JSON.parse('{\n' +
+        '  "@context": [\n' +
+        '    {\n' +
+        '      "schema": "http://schema.org",\n' +
+        '      "dct": "http://purl.org/dc/terms/",\n' +
+        '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '      "pairs": "https://www.pairs-projekt.de/",\n' +
+        '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '      "lode": "https://linkedevents.org/ontology/",\n' +
+        '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  "scenarioPattern": [\n' +
+        '    {\n' +
+        '      "schema:identifier": {\n' +
+        '        "@id": "789453",\n' +
+        '        "schema:startDate": "",\n' +
+        '        "schema:endDate": ""\n' +
+        '      },\n' +
+        '      "pairs:Context": {\n' +
+        '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+        '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+        '        "schema:description": ""\n' +
+        '      },\n' +
+        '      "dct:Provenance": {\n' +
+        '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '      },\n' +
+        '      "schema:location": {\n' +
+        '        "@id": "67419",\n' +
+        '          "pairs:ReportLocation": {\n' +
+        '              "schema:addressLocality": "Bengel",\n' +
+        '              "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '              "schema:State": "Rheinland-Pfalz",\n' +
+        '              "schema:addressCountry": "Germany"\n' +
+        '          },\n' +
+        '          "pairs:OperationLocation": {\n' +
+        '            "schema:addressLocality": "Bengel",\n' +
+        '            "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '            "schema:State": "Rheinland-Pfalz",\n' +
+        '            "schema:addressCountry": "Germany"\n' +
+        '          }\n' +
+        '      },\n' +
+        '      "pairs:Reason": {\n' +
+        '        "pairs:Precondition": "Starkregen"\n' +
+        '      },\n' +
+        '      "pairs:Impact": {\n' +
+        '        "pairs:Postcondition": "",\n' +
+        '        "schema:Duration": ""\n' +
+        '      },\n' +
+        '      "foaf:Agent": {\n' +
+        '        "pairs:TotalNumberOfHelpers": "",\n' +
+        '        "schema:workHours": "",\n' +
+        '        "beAware:Responder":[{\n' +
+        '          "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '          "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '          "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '          "pairs:Role": [{\n' +
+        '            "schema:name":"Gruppenführer/in",\n' +
+        '            "pairs:NumberOfActors": "1",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Truppführer/in",\n' +
+        '            "pairs:NumberOfActors": "2",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Fachhelfer/in",\n' +
+        '            "pairs:NumberOfActors": "4",\n' +
+        '            "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '          }],\n' +
+        '          "schema:Person": [\n' +
+        '          {\n' +
+        '            "@id": "1893",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "1678",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "7543",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "1978",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "1588",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "1892",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "6782",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "7839",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "9717",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "7189",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "8192",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "8929",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "8977",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "9202",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sanitätshelfer"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "10196",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          }\n' +
+        '          ]\n' +
+        '        }]\n' +
+        '      },\n' +
+        '      "beAware:Mission": {\n' +
+        '        "@id": "789453",\n' +
+        '          "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '          "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '      },\n' +
+        '      "pairs:Resource": {\n' +
+        '        "@id": "789453",\n' +
+        '          "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '        "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '      }\n' +
+        '  }\n' +
+        ']\n' +
+        '}\n')}
+
+function loadFZUb(){
+    return JSON.parse('{\n' +
+        '  "@context": [\n' +
+        '    {\n' +
+        '      "schema": "http://schema.org",\n' +
+        '      "dct": "http://purl.org/dc/terms/",\n' +
+        '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '      "pairs": "https://www.pairs-projekt.de/",\n' +
+        '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '      "lode": "https://linkedevents.org/ontology/",\n' +
+        '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  "scenarioPattern": [\n' +
+        '    {\n' +
+        '      "schema:identifier": {\n' +
+        '        "@id": "789453",\n' +
+        '        "schema:startDate": "14/11/2023",\n' +
+        '        "schema:endDate": "15/11/2023"\n' +
+        '      },\n' +
+        '      "pairs:Context": {\n' +
+        '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+        '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+        '        "schema:description": ""\n' +
+        '      },\n' +
+        '      "dct:Provenance": {\n' +
+        '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '      },\n' +
+        '      "schema:location": {\n' +
+        '        "pairs:ReportLocation": {\n' +
+        '            "schema:addressLocality": "Zell",\n' +
+        '            "schema:addressRegion": "Trier",\n' +
+        '            "schema:State": "Rheinland-Pfalz",\n' +
+        '            "schema:addressCountry": "Germany"\n' +
+        '        },\n' +
+        '        "pairs:OperationLocation": {\n' +
+        '            "schema:addressLocality": "Zell",\n' +
+        '            "schema:addressRegion": "Trier",\n' +
+        '            "schema:State": "Rheinland-Pfalz",\n' +
+        '            "schema:addressCountry": "Germany"\n' +
+        '        }\n' +
+        '      },\n' +
+        '      "pairs:Reason": {\n' +
+        '        "pairs:Precondition": "Starkregen"\n' +
+        '      },\n' +
+        '      "pairs:Impact": {\n' +
+        '        "pairs:Postcondition": "",\n' +
+        '        "schema:Duration": "00:48:21:00"\n' +
+        '      },\n' +
+        '      "foaf:Agent": {\n' +
+        '        "pairs:TotalNumberOfHelpers": "9",\n' +
+        '        "schema:workHours": "290",\n' +
+        '        "beAware:Responder":[{\n' +
+        '          "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '          "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '          "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '          "pairs:Role": [{\n' +
+        '            "schema:name":"Gruppenführer/in",\n' +
+        '            "pairs:NumberOfActors": "1",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Truppführer/in",\n' +
+        '            "pairs:NumberOfActors": "2",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Fachhelfer/in",\n' +
+        '            "pairs:NumberOfActors": "4",\n' +
+        '            "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '          }],\n' +
+        '          "schema:Person": [\n' +
+        '          {\n' +
+        '            "@id": "3652",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3791",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3667",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3942",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3988",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3956",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3544",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "3462",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2784",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          }\n' +
+        '          ]\n' +
+        '        }]\n' +
+        '      },\n' +
+        '      "beAware:Mission": {\n' +
+        '        "@id": "789453",\n' +
+        '          "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '          "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '      },\n' +
+        '      "pairs:Resource": {\n' +
+        '        "@id": "789453",\n' +
+        '          "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '        "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '      }\n' +
+        '    }\n' +
+        '  ]\n' +
+        '}\n')}
+
+function loadFCUb(){
+    return JSON.parse('{\n' +
+        '  "@context": [\n' +
+        '    {\n' +
+        '      "schema": "http://schema.org",\n' +
+        '      "dct": "http://purl.org/dc/terms/",\n' +
+        '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '      "pairs": "https://www.pairs-projekt.de/",\n' +
+        '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '      "lode": "https://linkedevents.org/ontology/",\n' +
+        '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  "scenarioPattern": [\n' +
+        '    {\n' +
+        '      "schema:identifier": {\n' +
+        '        "@id": "789453",\n' +
+        '        "schema:startDate": "14/11/2023",\n' +
+        '        "schema:endDate": "15/11/2023"\n' +
+        '      },\n' +
+        '      "pairs:Context": {\n' +
+        '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+        '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+        '        "schema:description": ""\n' +
+        '      },\n' +
+        '      "dct:Provenance": {\n' +
+        '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '      },\n' +
+        '      "schema:location": {\n' +
+        '        "pairs:ReportLocation": {\n' +
+        '          "schema:addressLocality": "Cochem",\n' +
+        '          "schema:addressRegion": "Trier",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        },\n' +
+        '        "pairs:OperationLocation": {\n' +
+        '          "schema:addressLocality": "Cochem",\n' +
+        '          "schema:addressRegion": "Trier",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        }\n' +
+        '      },\n' +
+        '      "pairs:Reason": {\n' +
+        '        "pairs:Precondition": "Starkregen"\n' +
+        '      },\n' +
+        '      "pairs:Impact": {\n' +
+        '        "pairs:Postcondition": "",\n' +
+        '        "schema:Duration": "00:19:00:00"\n' +
+        '      },\n' +
+        '      "foaf:Agent": {\n' +
+        '        "pairs:TotalNumberOfHelpers": "4",\n' +
+        '        "schema:workHours": "73",\n' +
+        '        "beAware:Responder":[{\n' +
+        '          "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '          "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '          "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '          "pairs:Role": [{\n' +
+        '            "schema:name":"Gruppenführer/in",\n' +
+        '            "pairs:NumberOfActors": "1",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Truppführer/in",\n' +
+        '            "pairs:NumberOfActors": "2",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Fachhelfer/in",\n' +
+        '            "pairs:NumberOfActors": "4",\n' +
+        '            "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '          }],\n' +
+        '          "schema:Person": [\n' +
+        '          {\n' +
+        '            "@id": "16787",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "16566",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "16321",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "16432",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          }\n' +
+        '          ]\n' +
+        '        }]\n' +
+        '      },\n' +
+        '      "beAware:Mission": {\n' +
+        '        "@id": "789453",\n' +
+        '          "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '          "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '      },\n' +
+        '      "pairs:Resource": {\n' +
+        '        "@id": "789453",\n' +
+        '          "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '        "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '      }\n' +
+        '  }\n' +
+        ']\n' +
+        '}\n')}
+
+function loadFBernUb(){
+    return JSON.parse('{\n' +
+        '  "@context": [\n' +
+        '    {\n' +
+        '      "schema": "http://schema.org",\n' +
+        '      "dct": "http://purl.org/dc/terms/",\n' +
+        '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '      "pairs": "https://www.pairs-projekt.de/",\n' +
+        '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '      "lode": "https://linkedevents.org/ontology/",\n' +
+        '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  "scenarioPattern": [\n' +
+        '    {\n' +
+        '      "schema:identifier": {\n' +
+        '        "@id": "789453",\n' +
+        '        "schema:startDate": "14/11/2023",\n' +
+        '        "schema:endDate": "15/11/2023"\n' +
+        '      },\n' +
+        '      "pairs:Context": {\n' +
+        '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+        '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+        '        "schema:description": ""\n' +
+        '      },\n' +
+        '      "dct:Provenance": {\n' +
+        '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '      },\n' +
+        '      "schema:location": {\n' +
+        '        "pairs:ReportLocation": {\n' +
+        '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+        '          "schema:addressRegion": "Wittlich",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        },\n' +
+        '        "pairs:OperationLocation": {\n' +
+        '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+        '          "schema:addressRegion": "Wittlich",\n' +
+        '          "schema:State": "Rheinland-Pfalz",\n' +
+        '          "schema:addressCountry": "Germany"\n' +
+        '        }\n' +
+        '      },\n' +
+        '      "pairs:Reason": {\n' +
+        '        "pairs:Precondition": "Starkregen"\n' +
+        '      },\n' +
+        '      "pairs:Impact": {\n' +
+        '        "pairs:Postcondition": "",\n' +
+        '        "schema:Duration": "00:17:00:00"\n' +
+        '      },\n' +
+        '      "foaf:Agent": {\n' +
+        '        "pairs:TotalNumberOfHelpers": "13",\n' +
+        '        "schema:workHours": "236",\n' +
+        '        "beAware:Responder":[{\n' +
+        '          "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '          "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '          "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '          "pairs:Role": [{\n' +
+        '            "schema:name":"Gruppenführer/in",\n' +
+        '            "pairs:NumberOfActors": "1",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Truppführer/in",\n' +
+        '            "pairs:NumberOfActors": "2",\n' +
+        '            "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "schema:name":"Fachhelfer/in",\n' +
+        '            "pairs:NumberOfActors": "4",\n' +
+        '            "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '          }],\n' +
+        '          "schema:Person": [\n' +
+        '          {\n' +
+        '            "@id": "2763",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2799",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2578",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2542",\n' +
+        '            "schema:gender": "Weiblich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2679",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2655",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2654",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2998",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2699",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          },\n' +
+        '          {\n' +
+        '            "@id": "2678",\n' +
+        '            "schema:gender": "Männlich",\n' +
+        '            "pairs:Qualification": "Grundausbildung"\n' +
+        '          }\n' +
+        '          ]\n' +
+        '        }]\n' +
+        '      },\n' +
+        '      "beAware:Mission": {\n' +
+        '        "@id": "789453",\n' +
+        '          "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '          "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '      },\n' +
+        '      "pairs:Resource": {\n' +
+        '        "@id": "789453",\n' +
+        '          "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '        "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '      }\n' +
+        '  }\n' +
+        ']\n' +
+        '}\n')}
+
+function loadRMUb(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "298763",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "5631560",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "298763",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "298763",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Mülheim",\n' +
+        '                      "schema:addressRegion": "Mülheim",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                      "schema:addressLocality": "Mülheim",\n' +
+        '                      "schema:addressRegion": "Mülheim",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "298763",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": ""\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "298763",\n' +
+        '                "pairs:TotalNumberOfHelpers": "",\n' +
+        '                "schema:workHours": "",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "15773",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15889",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15443",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15992",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15998",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15994",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15772",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15441",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15765",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15432",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15555",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15667",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15429",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15879",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "15890",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sanitätshelfer"\n' +
+        '                  }\n' +
+        '\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "298763",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "298763",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')}
+
+function loadRBUb(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "67419",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "67419",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Bengel",\n' +
+        '                      "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                    "schema:addressLocality": "Bengel",\n' +
+        '                    "schema:addressRegion": "Bengel (Mosel)",\n' +
+        '                    "schema:State": "Rheinland-Pfalz",\n' +
+        '                    "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "67419",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": ""\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "67419",\n' +
+        '                "pairs:TotalNumberOfHelpers": "",\n' +
+        '                "schema:workHours": "",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "1893",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1678",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7543",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1978",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1588",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "1892",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "6782",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7839",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "9717",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "7189",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8192",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8929",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "8977",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "9202",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sanitätshelfer"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "10196",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  }\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "67419",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')}
+
+function loadRZUb(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "234967",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "5631560",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "234967",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "234967",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Zell",\n' +
+        '                      "schema:addressRegion": "Trier",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                      "schema:addressLocality": "Zell",\n' +
+        '                      "schema:addressRegion": "Trier",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "234967",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": "00:00:12:00"\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "234967",\n' +
+        '                "pairs:TotalNumberOfHelpers": "9",\n' +
+        '                "schema:workHours": "81",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "3652",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3791",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3667",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3942",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3988",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3956",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3544",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "3462",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2784",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  }\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "234967",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "234967",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')}
+
+function loadRCUb(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "87629",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "5631560",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "87629",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "87629",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Cochem",\n' +
+        '                      "schema:addressRegion": "Trier",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                    "schema:addressLocality": "Cochem",\n' +
+        '                    "schema:addressRegion": "Trier",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "87629",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": "00:09:40:00"\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "87629",\n' +
+        '                "pairs:TotalNumberOfHelpers": "4",\n' +
+        '                "schema:workHours": "93",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "16543",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16783",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16890",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Kraftfahrwesen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16542",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16578",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16589",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16890",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "16432",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  }\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "87629",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "87629",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')}
+
+function loadRBernUb(){
+    return JSON.parse('{\n' +
+        '        "@context": [\n' +
+        '            {\n' +
+        '                "schema": "http://schema.org",\n' +
+        '                "dct": "http://purl.org/dc/terms/",\n' +
+        '                "dcat": "http://www.w3.org/ns/dcat#",\n' +
+        '                "pairs": "https://www.pairs-projekt.de/",\n' +
+        '                "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+        '                "lode": "https://linkedevents.org/ontology/",\n' +
+        '                "empathi": "https://w3id.org/empathi/1.0"\n' +
+        '            }\n' +
+        '        ],\n' +
+        '        "scenarioPattern":[\n' +
+        '          {\n' +
+        '              "@id": "78942",\n' +
+        '              "schema:identifier": {\n' +
+        '                "@id": "5631560",\n' +
+        '                  "schema:startDate": "14/11/2023",\n' +
+        '                  "schema:endDate": "15/11/2023"\n' +
+        '              },\n' +
+        '              "pairs:Context": {\n' +
+        '                  "@id": "78942",\n' +
+        '                  "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Naturereignissen und anthropogenen Umwelteinflüssen",\n' +
+        '                  "Lode:Event": "Starkregen, Hagel, Eisregen, Blitzeis",\n' +
+        '                  "pairs:Subevent": "Starkregen"\n' +
+        '              },\n' +
+        '              "dct:Provenance":{\n' +
+        '                  "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+        '                  },\n' +
+        '              "schema:location": {\n' +
+        '                "@id": "78942",\n' +
+        '                  "pairs:ReportLocation": {\n' +
+        '                      "schema:addressLocality": "Bernkastel-Kues",\n' +
+        '                      "schema:addressRegion": "Wittlich",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  },\n' +
+        '                  "pairs:OperationLocation": {\n' +
+        '                    "schema:addressLocality": "Bernkastel-Kues",\n' +
+        '                    "schema:addressRegion": "Wittlich",\n' +
+        '                      "schema:State": "Rheinland-Pfalz",\n' +
+        '                      "schema:addressCountry": "Germany"\n' +
+        '                  }\n' +
+        '              },\n' +
+        '              "pairs:Reason": {\n' +
+        '                  "pairs:Precondition": "Starkregen"\n' +
+        '              },\n' +
+        '              "pairs:Impact": {\n' +
+        '                  "@id": "78942",\n' +
+        '                  "pairs:Postcondition": "",\n' +
+        '                  "schema:Duration": "00:18:00:00"\n' +
+        '              },\n' +
+        '              "foaf:Agent": {\n' +
+        '                "@id": "78942",\n' +
+        '                "pairs:TotalNumberOfHelpers": "10",\n' +
+        '                "schema:workHours": "142",\n' +
+        '                "beAware:Responder":[{\n' +
+        '                  "pairs:UnitName": "Fachgruppe Wasserschaden/Pumpen B",\n' +
+        '                  "pairs:UnitDescription": " Die Fachgruppe Wasserschaden/Pumpen (B) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. In der Sollaufstellung nach Rahmenkonzept soll die Fachgruppe Wasserschaden/Pumpen in der 2,5- fachen Anzahl der Regionalbereiche eines Landesverbandes disloziert werden. Dies entspricht derzeit einer Gesamtzahl von 165 Fachgruppen Wasserschaden/Pumpen.",\n' +
+        '                  "pairs:UnitStrength": "-/3/9/12 (+12)",\n' +
+        '                  "pairs:Role": [{\n' +
+        '                    "schema:name":"Gruppenführer/in",\n' +
+        '                    "pairs:NumberOfActors": "1",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Truppführer/in",\n' +
+        '                    "pairs:NumberOfActors": "2",\n' +
+        '                    "pairs:ActorFunction": "Sprechfunker/in"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "schema:name":"Fachhelfer/in",\n' +
+        '                    "pairs:NumberOfActors": "4",\n' +
+        '                    "pairs:ActorFunction": "Atemschutzgeräteträger/in, CBRN-Helfer/in, Maschinist/in Pumpen, Kraftfahrer/in CE, Sprechfunker/in, Sanitätshelfer/in"\n' +
+        '                  }],\n' +
+        '                  "schema:Person": [\n' +
+        '                  {\n' +
+        '                    "@id": "2763",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2799",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2578",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2542",\n' +
+        '                    "schema:gender": "Weiblich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2679",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Sprechfunker"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2655",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2654",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Fachausbildung Wasserschaden / Pumpen"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2998",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Bereichsausbildung Atemschutz"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2699",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  },\n' +
+        '                  {\n' +
+        '                    "@id": "2678",\n' +
+        '                    "schema:gender": "Männlich",\n' +
+        '                    "pairs:Qualification": "Grundausbildung"\n' +
+        '                  }\n' +
+        '                  ]\n' +
+        '                }]\n' +
+        '              },\n' +
+        '              "beAware:Mission": {\n' +
+        '                "@id": "78942",\n' +
+        '                  "pairs:ActionType": "Bekämpfung von Überschwemmungen/Überflutungen",\n' +
+        '                  "schema:Action": ["Netz- und Leitungsbau (Abwasser, groß),Pumparbeiten (klein),Pumparbeiten (groß),Pumparbeiten mit Großpumpe (mittel)"]\n' +
+        '              },\n' +
+        '              "pairs:Resource": {\n' +
+        '                "@id": "78942",\n' +
+        '                  "beAware:Vehicle": ["Lastkraftwagen Plane/Spriegel mit Ladebordwand (7 t Nutzlast),Mannschaftslastwagen IV Plane/Spriegel mit Ladebordwand,Anhänger mit Schmutzwasser-Kreiselpumpe (15.000 l/min),Anhänger Plane/Spriegel mit Aufnahmen für Container (7 t Zuladung)"],\n' +
+        '                "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+        '              }\n' +
+        '          }\n' +
+        '        ]\n' +
+        '      }\n')}
