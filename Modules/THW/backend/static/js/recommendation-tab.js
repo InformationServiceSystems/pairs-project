@@ -59,7 +59,8 @@ function updateUI(){
         }
     }else if (selectedEvent === 'Hochwasser' && selectedCity === "muelheim") {
         for (let i = 0; i < optionActions.length; i++) {
-            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen"
+          || optionActions[i].value === "Ortungs-, Rettungs-, Bergungsmaßnahmen") {
                 optionActions[i].disabled = false;
             } else {
                 optionActions[i].disabled = true;
@@ -76,7 +77,8 @@ function updateUI(){
 
     } else if (selectedEvent === 'Hochwasser' && selectedCity === "bernkastel_kues") {
         for (let i = 0; i < optionActions.length; i++) {
-            if (optionActions[i].value === "Ortungs-, Rettungs-, Bergungsmaßnahmen") {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen"
+                || optionActions[i].value === "Ortungs-, Rettungs-, Bergungsmaßnahmen") {
                 optionActions[i].disabled = false;
             } else {
                 optionActions[i].disabled = true;
@@ -122,15 +124,16 @@ function updateUI(){
                 optionActions[i].disabled = true;
             }
         }
-    } else if (selectedEvent === 'Starkregen' && selectedCity === "bernkastel_kues") {
+    }  else if (selectedEvent === 'Starkregen' && selectedCity === "bernkastel_kues") {
         for (let i = 0; i < optionActions.length; i++) {
-            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
+            if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen"
+                || optionActions[i].value === "Führung, Führungsunterstützung und Verbindung") {
                 optionActions[i].disabled = false;
             } else {
                 optionActions[i].disabled = true;
             }
         }
-    } else if (selectedEvent === 'Starkregen' && selectedCity === "muelheim") {
+    }else if (selectedEvent === 'Starkregen' && selectedCity === "muelheim") {
         for (let i = 0; i < optionActions.length; i++) {
             if (optionActions[i].value === "Bekämpfung von Überschwemmungen/Überflutungen") {
                 optionActions[i].disabled = false;
@@ -163,7 +166,7 @@ selectEvent.addEventListener('change', function(event) {
 
     //reset Action
     selectAction.selectedIndex = 0;
-    
+
 });
 
 //next script
@@ -175,32 +178,32 @@ function generateView(event){
 
     var table_btn_json = $('#button_op_json');
     var table_btn_table = $('#button_op_table');
-    
+
     const jsonRenderer = $("#json-renderer");
     const jsonContainer = $(".json-container")[0];
-    
+
     const warningTextJson = $("#warning_text_json");
     const warningText2 = $("#warning_text2");
-    
+
     if (!isButtonClicked) {
-        
+
         warningText2.css("display", "none");
         warningTextJson.css("display", "none");
         isButtonClicked = true;
         table_btn_json.css("display", "inline");
-        table_btn_table.css("display", "inline"); 
+        table_btn_table.css("display", "inline");
         $(jsonContainer).css("overflowY", "scroll");
     }
 
     //btn
     const showButton = $("#generate_btn");
-    
-    //What event is chosen? 
+
+    //What event is chosen?
     const dropdown_event = $("#events-dropdown");
     const selectedOption_event = dropdown_event.find("option:selected");
     const selectedText_event = selectedOption_event.text();
 
-    //What action is chosen? 
+    //What action is chosen?
     const dropdown_action = $("#actions-dropdown")
     const selectedOption_action = dropdown_action.find("option:selected");
     const selectedText_action = selectedOption_action.text();
@@ -236,7 +239,7 @@ function generateView(event){
         selectedText_action === 'ZZZ' &&
         selectedText_city === 'XXX') {
             jsonData = loadXXX_YYY_ZZZ();
-            debugger
+
     }else if (selectedText_event === 'YYY' &&
               selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
               selectedText_city === 'AAA') {
@@ -248,6 +251,11 @@ function generateView(event){
         jsonData = loadFMUb();
     }
     else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Ortungs-, Rettungs-, Bergungsmaßnahmen' &&
+        selectedText_city === 'Mülheim (Rheinland-Pfalz)') {
+        jsonData = loadFMO();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
         selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
         selectedText_city === 'Zell (Rheinland-Pfalz)') {
         jsonData = loadFZUb();
@@ -255,7 +263,22 @@ function generateView(event){
     else if (selectedText_event === 'Hochwasser' &&
         selectedText_action === 'Ortungs-, Rettungs-, Bergungsmaßnahmen' &&
         selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
+        jsonData = loadFBernO();
+    }
+    else if (selectedText_event === 'Hochwasser' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
         jsonData = loadFBernUb();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Führung, Führungsunterstützung und Verbindung' &&
+        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
+        jsonData = loadRBernFue();
+    }
+    else if (selectedText_event === 'Starkregen' &&
+        selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
+        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
+        jsonData = loadRBernUb();
     }
     else if (selectedText_event === 'Hochwasser' &&
         selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
@@ -266,11 +289,6 @@ function generateView(event){
         selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
         selectedText_city === 'Bengel (Rheinland-Pfalz)') {
         jsonData = loadFBUb();
-    }
-    else if (selectedText_event === 'Starkregen' &&
-        selectedText_action === 'Führung, Führungsunterstützung und Verbindung' &&
-        selectedText_city === 'Bernkastel-Kues (Rheinland-Pfalz)') {
-        jsonData = loadRBernUb();
     }
     else if (selectedText_event === 'Starkregen' &&
         selectedText_action === 'Bekämpfung von Überschwemmungen/Überflutungen' &&
@@ -299,7 +317,7 @@ function generateView(event){
     //CLICK EVENT when Table
     table_btn_table.on('click', function(event) {
         //Hide JSON
-        jsonRenderer.css("display", "none"); 
+        jsonRenderer.css("display", "none");
         //Show Table view
         var operation_plan_div = $('#table_operation_plan')
         createTableView(jsonData, operation_plan_div);
@@ -312,10 +330,10 @@ function generateView(event){
         var operation_plan_div = $('#table_operation_plan');
         operation_plan_div.css("display","none");
         //Show JSON
-        jsonRenderer.css("display", "block"); 
+        jsonRenderer.css("display", "block");
         $(jsonContainer).css("overflowY", "scroll");
     });
-    
+
 
     //Build GRAPH
     buildRecommendation()
@@ -343,19 +361,19 @@ function generateView(event){
             totalHelpersRow.append($('<th>').text('Total Number of Helpers'));
             totalHelpersRow.append($('<td>').text(jsonData.scenarioPattern[0]['foaf:Agent']['pairs:TotalNumberOfHelpers']));
             table_overview.append(totalHelpersRow);
-            
+
             var workHoursRow = $('<tr>');
             workHoursRow.append($('<th>').text('Work Hours'));
             workHoursRow.append($('<td>').text(jsonData.scenarioPattern[0]['foaf:Agent']['schema:workHours']));
             table_overview.append(workHoursRow);
-            
-            
+
+
         //
-        
+
         //222222222222222222222
 
         // Create the table element
-        
+
         var responder_array = jsonData.scenarioPattern[0]['foaf:Agent']['beAware:Responder']
 
         for(var i=0;i<responder_array.length;i++){
@@ -379,7 +397,7 @@ function generateView(event){
             unitStrength.append($('<th>').text('Unit Strength'));
             unitStrength.append($('<td>').text(responder_array[i]['pairs:UnitStrength']));
             table_responder.append(unitStrength);
-            
+
             //ROLE-------------
             var table_role = $('<table>').addClass('responder-table-role'+i).css('margin', '10px 5px').css('width','99%');
 
@@ -402,8 +420,8 @@ function generateView(event){
 
             var personal_array = responder_array[i]['schema:Person']
             var table_personal = $('<table>').addClass('responder-table-personal-'+i).css('margin', '10px 5px').css('width','99%');
-            
-            //Caption Personal Table 
+
+            //Caption Personal Table
             var personal_title = $('<div>').addClass('peronal-table-'+i).css('margin', '20px auto').css('text-align', 'center' ).css('font-weight', '700');
             personal_title.text('Personal ' + title_num);
 
@@ -429,7 +447,7 @@ function generateView(event){
             operation_plan_div.append(table_role);
             operation_plan_div.append(personal_title);
             operation_plan_div.append(table_personal);
-                
+
         }
 
         // ---------------RESOURCES ---------------
@@ -442,7 +460,7 @@ function generateView(event){
 
         for (var key in resources_all) {
             if (resources_all.hasOwnProperty(key)) {
-                
+
                 var parts = key.split(':');
 
                 if (parts.length > 1) {
@@ -462,10 +480,10 @@ function generateView(event){
 
                     operation_plan_div.append(table_resource);
                 }
-        
+
             }
         }
-        
+
     }
 }
 
@@ -817,7 +835,7 @@ function loadFMUb(){
         '}\n')}
 
 function loadFBUb(){
-    return JSON.parse('{\n' +
+    var x = JSON.parse('{\n' +
         '  "@context": [\n' +
         '    {\n' +
         '      "schema": "http://schema.org",\n' +
@@ -980,7 +998,8 @@ function loadFBUb(){
         '      }\n' +
         '  }\n' +
         ']\n' +
-        '}\n')}
+        '}\n')
+      return x}
 
 function loadFZUb(){
     return JSON.parse('{\n' +
@@ -2122,3 +2141,493 @@ function loadRBernUb(){
         '          }\n' +
         '        ]\n' +
         '      }\n')}
+
+
+        function loadFMO(){
+          var x = JSON.parse('{\n' +
+                '  "@context": [\n' +
+                '    {\n' +
+                '      "schema": "http://schema.org",\n' +
+                '      "dct": "http://purl.org/dc/terms/",\n' +
+                '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+                '      "pairs": "https://www.pairs-projekt.de/",\n' +
+                '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+                '      "lode": "https://linkedevents.org/ontology/",\n' +
+                '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+                '    }\n' +
+                '  ],\n' +
+                '  "scenarioPattern": [\n' +
+                '    {\n' +
+                '      "schema:identifier": {\n' +
+                '        "@id": "917643",\n' +
+                '        "schema:startDate": "14/11/2023",\n' +
+                '        "schema:endDate": "15/11/2023"\n' +
+                '      },\n' +
+                '      "pairs:Context": {\n' +
+                '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+                '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+                '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+                '        "schema:description": ""\n' +
+                '      },\n' +
+                '      "dct:Provenance": {\n' +
+                '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+                '      },\n' +
+                '      "schema:location": {\n' +
+                '        "pairs:ReportLocation": {\n' +
+                '          "schema:addressLocality": "Mülheim",\n' +
+                '          "schema:addressRegion": "Mülheim",\n' +
+                '          "schema:State": "Rheinland-Pfalz",\n' +
+                '          "schema:addressCountry": "Germany"\n' +
+                '        },\n' +
+                '        "pairs:OperationLocation": {\n' +
+                '          "schema:addressLocality": "Mülheim",\n' +
+                '          "schema:addressRegion": "Mülheim",\n' +
+                '          "schema:State": "Rheinland-Pfalz",\n' +
+                '          "schema:addressCountry": "Germany"\n' +
+                '        }\n' +
+                '      },\n' +
+                '      "pairs:Reason": {\n' +
+                '        "pairs:Precondition": "Starkregen"\n' +
+                '      },\n' +
+                '      "pairs:Impact": {\n' +
+                '        "pairs:Postcondition": "",\n' +
+                '        "schema:Duration": ""\n' +
+                '      },\n' +
+                '      "foaf:Agent": {\n' +
+                '        "pairs:TotalNumberOfHelpers": "",\n' +
+                '        "pairs:DutyHours": "",\n' +
+                '        "beAware:Responder": [\n' +
+                '          {\n' +
+                '            "pairs:UnitName": "Ortungstrupp Typ A",\n' +
+                '            "pairs:UnitDescription": "Die Fachgruppe Ortung (A) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. Die Fachgruppe Ortung (A) kann überall dort disloziert werden, wo biologische und technische Or- tung innerhalb einer Teileinheit durchgeführt werden soll. Grundsätzlich sollten diese Aufgaben in den spezialisierten Fachgruppen wahrgenommen werden.",\n' +
+                '            "pairs:UnitStrength": "-/2/7/9 (+9)",\n' +
+                '            "pairs:Role": [\n' +
+                '              {\n' +
+                '                "schema:name": "Gruppenführer/in",\n' +
+                '                "pairs:NumberOfActors": "1",\n' +
+                '                "pairs:ActorFunction": "Technische/r Berater/in Ortung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "schema:name": "Truppführer/in",\n' +
+                '                "pairs:NumberOfActors": "1",\n' +
+                '                "pairs:ActorFunction": "Sprechfunker/in"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "schema:name": "Fachhelfer/in",\n' +
+                '                "pairs:NumberOfActors": "7",\n' +
+                '                "pairs:ActorFunction": "Bediener/in technisches Ortungs- gerät, Kraftfahrer/in BE, Rettungshundeführer/in, Sanitätshelfer/in,Sprechfunker/in"\n' +
+                '              }\n' +
+                '            ],\n' +
+                '            "schema:Person": [\n' +
+                '              {\n' +
+                '                "@id": "15333",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Fachausbildung Ortung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15245",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Ausbilder Kraftfahrer"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15246",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15367",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15369",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15666",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Bereichsausbildung Sprechfunk-Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15646",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15632",\n' +
+                '                "schema:gender": "Weiblich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15698",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Bereichsausbildung Sprechfunker - Analog"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15829",\n' +
+                '                "schema:gender": "Weiblich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15816",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              },\n' +
+                '              {\n' +
+                '                "@id": "15943",\n' +
+                '                "schema:gender": "Männlich",\n' +
+                '                "pairs:Qualification": "Grundausbildung"\n' +
+                '              }\n' +
+                '            ]\n' +
+                '          }\n' +
+                '        ]\n' +
+                '      },\n' +
+                '      "beAware:Mission": {\n' +
+                '        "@id": "917643",\n' +
+                '        "pairs:ActionType": "Ortungs-, Rettungs-, Bergungsmaßnahmen",\n' +
+                '        "schema:Action": [\n' +
+                '          "Orten (biologisch),Orten (technisch, Boden),Bergen/Retten von Personen (leicht),Absperren/Absichern,Erkunden (Boden),Ersthelfen,Führen,Eigenschutz,Transportfähigkeit sicherstellen"\n' +
+                '        ]\n' +
+                '      },\n' +
+                '      "pairs:Resource": {\n' +
+                '        "@id": "917643",\n' +
+                '        "beAware:Vehicle": [\n' +
+                '          "Mannschaftstransportwagen TZ,Anhänger mit Spezialaufbau FGr O (2 t Zuladung)"\n' +
+                '        ],\n' +
+                '      "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+                '      }\n' +
+                '    }\n' +
+                '  ]\n' +
+                '}\n')
+
+              return x;}
+
+
+              function loadRBernFue(){
+                  var x = JSON.parse('{\n' +
+                      '  "@context": [\n' +
+                      '    {\n' +
+                      '      "schema": "http://schema.org",\n' +
+                      '      "dct": "http://purl.org/dc/terms/",\n' +
+                      '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+                      '      "pairs": "https://www.pairs-projekt.de/",\n' +
+                      '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+                      '      "lode": "https://linkedevents.org/ontology/",\n' +
+                      '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+                      '    }\n' +
+                      '  ],\n' +
+                      '  "scenarioPattern": [\n' +
+                      '    {\n' +
+                      '      "schema:identifier": {\n' +
+                      '        "@id": "789453",\n' +
+                      '        "schema:startDate": "14/11/2023",\n' +
+                      '        "schema:endDate": "15/11/2023"\n' +
+                      '      },\n' +
+                      '      "pairs:Context": {\n' +
+                      '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+                      '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+                      '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+                      '        "schema:description": ""\n' +
+                      '      },\n' +
+                      '      "dct:Provenance": {\n' +
+                      '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+                      '      },\n' +
+                      '      "schema:location": {\n' +
+                      '        "pairs:ReportLocation": {\n' +
+                      '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+                      '          "schema:addressRegion": "Wittlich",\n' +
+                      '          "schema:State": "Rheinland-Pfalz",\n' +
+                      '          "schema:addressCountry": "Germany"\n' +
+                      '        },\n' +
+                      '        "pairs:OperationLocation": {\n' +
+                      '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+                      '          "schema:addressRegion": "Wittlich",\n' +
+                      '          "schema:State": "Rheinland-Pfalz",\n' +
+                      '          "schema:addressCountry": "Germany"\n' +
+                      '        }\n' +
+                      '      },\n' +
+                      '      "pairs:Reason": {\n' +
+                      '        "pairs:Precondition": "Starkregen"\n' +
+                      '      },\n' +
+                      '      "pairs:Impact": {\n' +
+                      '        "pairs:Postcondition": "",\n' +
+                      '        "schema:Duration": "00:17:00:00"\n' +
+                      '      },\n' +
+                      '      "foaf:Agent": {\n' +
+                      '        "pairs:TotalNumberOfHelpers": "13",\n' +
+                      '        "pairs:DutyHours": "236",\n' +
+                      '        "beAware:Responder": [\n' +
+                      '          {\n' +
+                      '            "pairs:UnitName": "Ortungstrupp Typ A",\n' +
+                      '            "pairs:UnitDescription": "Die Fachgruppe Ortung (A) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. Die Fachgruppe Ortung (A) kann überall dort disloziert werden, wo biologische und technische Or- tung innerhalb einer Teileinheit durchgeführt werden soll. Grundsätzlich sollten diese Aufgaben in den spezialisierten Fachgruppen wahrgenommen werden.",\n' +
+                      '            "pairs:UnitStrength": "-/2/7/9 (+9)",\n' +
+                      '            "pairs:Role": [\n' +
+                      '              {\n' +
+                      '                "schema:name": "Gruppenführer/in",\n' +
+                      '                "pairs:NumberOfActors": "1",\n' +
+                      '                "pairs:ActorFunction": "Technische/r Berater/in Ortung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "schema:name": "Truppführer/in",\n' +
+                      '                "pairs:NumberOfActors": "1",\n' +
+                      '                "pairs:ActorFunction": "Sprechfunker/in"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "schema:name": "Fachhelfer/in",\n' +
+                      '                "pairs:NumberOfActors": "7",\n' +
+                      '                "pairs:ActorFunction": "Bediener/in technisches Ortungs- gerät, Kraftfahrer/in BE, Rettungshundeführer/in, Sanitätshelfer/in,Sprechfunker/in"\n' +
+                      '              }\n' +
+                      '            ],\n' +
+                      '            "schema:Person": [\n' +
+                      '              {\n' +
+                      '                "@id": "1854",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Fachausbildung Ortung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1892",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1743",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1811",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1488",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1489",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Ausbilder Kraftfahrer"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1467",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1890",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1864",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1489",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Bereichsausbildung Sprechfunk-Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1876",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1456",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1444",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              }\n' +
+                      '            ]\n' +
+                      '          }\n' +
+                      '        ]\n' +
+                      '      },\n' +
+                      '      "beAware:Mission": {\n' +
+                      '        "@id": "7943",\n' +
+                      '        "pairs:ActionType": "Ortungs-, Rettungs-, Bergungsmaßnahmen",\n' +
+                      '        "schema:Action": [\n' +
+                      '          "Orten (biologisch),Orten (technisch, Boden),Bergen/Retten von Personen (leicht),Absperren/Absichern,Erkunden (Boden),Ersthelfen,Führen,Eigenschutz,Transportfähigkeit sicherstellen"\n' +
+                      '        ]\n' +
+                      '      },\n' +
+                      '      "pairs:Resource": {\n' +
+                      '        "@id": "7943",\n' +
+                      '        "beAware:Vehicle": [\n' +
+                      '          "Mannschaftstransportwagen TZ,Anhänger mit Spezialaufbau FGr O (2 t Zuladung)"\n' +
+                      '        ],\n' +
+                      '      "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+                      '      }\n' +
+                      '    }\n' +
+                      '  ]\n' +
+                      '}\n')
+                    return x}
+
+              function loadFBernO(){
+                  var x = JSON.parse('{\n' +
+                      '  "@context": [\n' +
+                      '    {\n' +
+                      '      "schema": "http://schema.org",\n' +
+                      '      "dct": "http://purl.org/dc/terms/",\n' +
+                      '      "dcat": "http://www.w3.org/ns/dcat#",\n' +
+                      '      "pairs": "https://www.pairs-projekt.de/",\n' +
+                      '      "foaf": "http://xmlns.com/foaf/0.1/",\n' +
+                      '      "lode": "https://linkedevents.org/ontology/",\n' +
+                      '      "empathi": "https://w3id.org/empathi/1.0"\n' +
+                      '    }\n' +
+                      '  ],\n' +
+                      '  "scenarioPattern": [\n' +
+                      '    {\n' +
+                      '      "schema:identifier": {\n' +
+                      '        "@id": "789453",\n' +
+                      '        "schema:startDate": "14/11/2023",\n' +
+                      '        "schema:endDate": "15/11/2023"\n' +
+                      '      },\n' +
+                      '      "pairs:Context": {\n' +
+                      '        "empathi:HazardType": "Gefahren und Anforderungen aufgrund von Natur- ereignissen und anthropogenen Umwelteinflüssen",\n' +
+                      '        "Lode:Event": "Hochwasser/Sturmfluten",\n' +
+                      '        "pairs:Subevent": "Hochwasser in Bächen, Flüssen und Stromtälern",\n' +
+                      '        "schema:description": ""\n' +
+                      '      },\n' +
+                      '      "dct:Provenance": {\n' +
+                      '        "schema:Organization": "Technisches Hilfswerk (THW)"\n' +
+                      '      },\n' +
+                      '      "schema:location": {\n' +
+                      '        "pairs:ReportLocation": {\n' +
+                      '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+                      '          "schema:addressRegion": "Wittlich",\n' +
+                      '          "schema:State": "Rheinland-Pfalz",\n' +
+                      '          "schema:addressCountry": "Germany"\n' +
+                      '        },\n' +
+                      '        "pairs:OperationLocation": {\n' +
+                      '          "schema:addressLocality": "Bernkastel-Kues",\n' +
+                      '          "schema:addressRegion": "Wittlich",\n' +
+                      '          "schema:State": "Rheinland-Pfalz",\n' +
+                      '          "schema:addressCountry": "Germany"\n' +
+                      '        }\n' +
+                      '      },\n' +
+                      '      "pairs:Reason": {\n' +
+                      '        "pairs:Precondition": "Starkregen"\n' +
+                      '      },\n' +
+                      '      "pairs:Impact": {\n' +
+                      '        "pairs:Postcondition": "",\n' +
+                      '        "schema:Duration": "00:17:00:00"\n' +
+                      '      },\n' +
+                      '      "foaf:Agent": {\n' +
+                      '        "pairs:TotalNumberOfHelpers": "13",\n' +
+                      '        "pairs:DutyHours": "236",\n' +
+                      '        "beAware:Responder": [\n' +
+                      '          {\n' +
+                      '            "pairs:UnitName": "Ortungstrupp Typ A",\n' +
+                      '            "pairs:UnitDescription": "Die Fachgruppe Ortung (A) ist als Fachgruppe im Technischen Zug eine Teileinheit im THW. Die Fachgruppe Ortung (A) kann überall dort disloziert werden, wo biologische und technische Or- tung innerhalb einer Teileinheit durchgeführt werden soll. Grundsätzlich sollten diese Aufgaben in den spezialisierten Fachgruppen wahrgenommen werden.",\n' +
+                      '            "pairs:UnitStrength": "-/2/7/9 (+9)",\n' +
+                      '            "pairs:Role": [\n' +
+                      '              {\n' +
+                      '                "schema:name": "Gruppenführer/in",\n' +
+                      '                "pairs:NumberOfActors": "1",\n' +
+                      '                "pairs:ActorFunction": "Technische/r Berater/in Ortung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "schema:name": "Truppführer/in",\n' +
+                      '                "pairs:NumberOfActors": "1",\n' +
+                      '                "pairs:ActorFunction": "Sprechfunker/in"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "schema:name": "Fachhelfer/in",\n' +
+                      '                "pairs:NumberOfActors": "7",\n' +
+                      '                "pairs:ActorFunction": "Bediener/in technisches Ortungs- gerät, Kraftfahrer/in BE, Rettungshundeführer/in, Sanitätshelfer/in,Sprechfunker/in"\n' +
+                      '              }\n' +
+                      '            ],\n' +
+                      '            "schema:Person": [\n' +
+                      '              {\n' +
+                      '                "@id": "1854",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Fachausbildung Ortung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1892",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1743",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1811",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1488",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1489",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Ausbilder Kraftfahrer"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1467",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1890",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1864",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1489",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Bereichsausbildung Sprechfunk-Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1876",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1456",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              },\n' +
+                      '              {\n' +
+                      '                "@id": "1444",\n' +
+                      '                "schema:gender": "Männlich",\n' +
+                      '                "pairs:Qualification": "Grundausbildung"\n' +
+                      '              }\n' +
+                      '            ]\n' +
+                      '          }\n' +
+                      '        ]\n' +
+                      '      },\n' +
+                      '      "beAware:Mission": {\n' +
+                      '        "@id": "7943",\n' +
+                      '        "pairs:ActionType": "Ortungs-, Rettungs-, Bergungsmaßnahmen",\n' +
+                      '        "schema:Action": [\n' +
+                      '          "Orten (biologisch),Orten (technisch, Boden),Bergen/Retten von Personen (leicht),Absperren/Absichern,Erkunden (Boden),Ersthelfen,Führen,Eigenschutz,Transportfähigkeit sicherstellen"\n' +
+                      '        ]\n' +
+                      '      },\n' +
+                      '      "pairs:Resource": {\n' +
+                      '        "@id": "7943",\n' +
+                      '        "beAware:Vehicle": [\n' +
+                      '          "Mannschaftstransportwagen TZ,Anhänger mit Spezialaufbau FGr O (2 t Zuladung)"\n' +
+                      '        ],\n' +
+                      '      "schema:instrument": ["Schmutzwasser-Kreiselpumpe mit einer Leistung von 5.000, 15.000 oder 25.000 Litern pro Minute, Pumpensatz (8 Tauchpumpen mit 1.000 bis 3.000 Litern pro Minute), Werkstattausstattung Abwasserschäden,Pumpenzubehör, Energieverteilersatz 32/16 A, Brenner-Ausstattung Propangas, Vermessungsausstattung, Flutlichtleuchtensatz 1 kW, Schlauchpflegegerät groß, Trennschleifgerät elektrisch 230 V, Stromerzeuger 8 kVA 230/400 V 50/60Hz,Schläuche"]\n' +
+                      '      }\n' +
+                      '    }\n' +
+                      '  ]\n' +
+                      '}\n')
+                    return x}
