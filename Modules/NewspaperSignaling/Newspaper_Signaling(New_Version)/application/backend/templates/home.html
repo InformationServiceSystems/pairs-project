@@ -1,0 +1,273 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'img/News.ico' %}"/>
+        <!-- Core theme CSS (includes Bootstrap)-->
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Newspaper Signaling</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/signaling.css' %}">
+
+        <!-- Countries dropdown-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/css/countrySelect.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/js/countrySelect.min.js"></script>
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        {% comment %} <script src="https://code.highcharts.com/highcharts.js"></script> {% endcomment %}
+
+
+        <!-- Core theme JS-->
+        <script src="{% static 'js/main.js'%}"></script>
+        {% comment %} <script src="{% static 'js/chart.js' %}"></script> {% endcomment %}
+
+    </head>
+
+    <body>
+        {% comment %} HEADER {% endcomment %}
+        <div class="header">
+            <div class="header-left">
+                <img src="{% static 'img/pairs-logo.jpg' %}" alt="Image Description" style="height:70px;">
+            </div>
+
+            <div class="header-center">
+                <a  href="https://www.dfki.de/web/forschung/projekte-publikationen/projekte-uebersicht/projekt/pairs/">
+                    <span class="my_title">Newspaper Signaling for Crisis Prediction</span>
+                </a>
+            </div>
+
+            <div class="header-right">      
+                <img src="{% static 'img/dfki_logo.jpg' %}" alt="Image DFKI" style="height:70px;">
+                <img src="{% static 'img/Bundesmini.png' %}" alt="Image Bindes Mini" style="height:70px;">
+            </div>
+        </div>
+
+        <br>
+
+        {% comment %} MAIN {% endcomment %}
+
+
+        <div class="container">
+            
+            <div id="statements">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="case-adapt-tab" data-bs-toggle="tab" data-bs-target="#case-adapt" type="button" role="tab" aria-controls="case-adapt" aria-selected="false">Use Case Adaptation</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="newspaper-forcast-tab" data-bs-toggle="tab" data-bs-target="#newspaper-forcast" type="button" role="tab" aria-controls="newspaper-forcast" aria-selected="false">Newspaper Forecasting</button>
+                    </li>
+                    {% comment %} <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="trend-analysis-tab" data-bs-toggle="tab" data-bs-target="#trend-analysis" type="button" role="tab" aria-controls="trend-analysis" aria-selected="false">Statistical Trend Analysis</button>
+                    </li> {% endcomment %}
+
+                </ul>
+
+                <div class="tab-content" id="myTabContent" style="border:solid; border-radius: 5px;width: 1875px;">
+
+                    {% comment %} FIRST TAB {% endcomment %}
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                        <div class="row" style="display: flex;
+                            justify-content: center;
+                            align-items: center;">
+
+                            <p class="inside-tab" style="font-weight:bold;">Description</p>
+                            <p class="inside-tab" style=" padding-top:0px;">To establish sophisticated monitoring of newspaper articles for detecting crisis-related signals, 
+                                natural language processing has to cope with unstructured data, media and cultural bias as well as multiple languages. We demonstrate MENDEL – a model for multi-lingual and open-domain newspaper
+                                signaling for detecting crisis-related indicators in newspaper articles. The model works with unstructured data and combines multiple transformer-based models for pre-processing
+                                (STANZA) and content filtering (XLM-Roberta). 
+                                Embedded in a question-answering setting, MENDEL supports multiple languages (>90) and is able to detect newspaper signals for open domains in real-time.
+                            </p>
+
+                        </div>
+                        
+
+                    </div>
+
+                    {% comment %} NEXT TAB {% endcomment %}
+                    <div class="tab-pane fade" id="case-adapt" role="tabpanel" aria-labelledby="case-adapt-tab">
+                    
+                        <div class="grid-container-element">
+
+                            <div class="grid-child-element purple">
+                                <div id="qas-container1">
+                                    <h1 align= "center" style="font-size: 150%;">MENDEL</h1>
+                    
+                                    <figure>
+                                        <img src="{% static 'img/model-1.png' %}" alt="Image Description" style="width: 26%; display: block; margin: 0px auto;">
+                                        <figcaption id="Caption" align= "center" style="font-size: 12px";>Model for multi-lingual and open-domain newspaper signaling for detecting early crisis-related indicators in the newspaper article (MENDEL)</figcaption>
+                                    </figure>
+                                
+                                </div>
+                            </div>
+                    
+                            <div class="grid-child-element green">
+                                <div id="qas-container2">
+                                    <div class="row" style="padding:10px">
+
+                                        <div class="col">
+                                            <section class="fieldset_tabs">
+                                                <h5>Approach</h5>
+                                                <p style="font-size: 12px;"><!-- Our application is divided into 3 different modules. Each module has a number of implementations using state-of-the-art techniques. First, we started with the data retrieval step where we are extracting news articles from Google News API. In the next module, we are pre-processing the news articles by implementing the preprocessing library introduced by the Standford NLP group. We build a Pipeline that tokenized the text from the articles and once we get the tokens we lemmatized the text that helps to reduce the dimensionality of the feature space. After the pre-processing, we used the zero-shot text classification model XLM-R which is a multilingual masked language model. In the final step, we proposed a question-answering system (QAS). -->
+                                                    We present MENDEL, a model for multi-lingual and open-domain newspaper signaling for crisis prediction powered with a real-time alert system, a QA chatbot, and data visualization aids. Our framework consists of four main modules: Data acquisitions, Pre-processing pipeline, Two-stage data filtration, Context-based reasoning & forecasting. MENDEL operates on keywords given by a user with additional parameters. This serves as input to the data acquisition layer. Outputs of these modules are fed to the pre-processing pipeline and process the data that can be directly fed to our two-stage data filtration stage. It mainly performs extensive filtering of the articles and capable of finding early signals. Outputs are finally passed to Context-based Reasoning & Forecasting. This component find high alerts and generates context which is passed to a QA chatbot. This pipeline completely uses Unstructured data and is an open domain for signaling a crisis.
+                                                </p>
+                                            </section>
+                                        </div>
+                    
+                                        <div class="col">
+                                            <section class="fieldset_tabs">
+                                                <h5>Domain Adaptation</h5>
+                                                <p style="font-size: 12px;">For real-time analysis of the newspaper articles for any use-case related to crisis, the MENDEL can be adapted. It operates on keyword (Domain Specific) given by a user with additional parameters, i.e. Language, Country, and Timeframe. This serves as input to the data acquisition layer. It consists of several modules charged with generating domain-specific keywords i.e. Keyword expansion, extracting newspaper articles, and a data parser. With our additional subdoamin specific keyword, model further adapt the pipeline to focus on the subdomain. Therefore, with this domain Specific crisis relevant keywords our framework can adapt and establish sophisticated monitoring of newspaper articles for detecting crisis-related signals. </p>
+                                            </section>
+                                        </div>
+                                        
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+
+                    {% comment %} NEXT TAB {% endcomment %}
+                    <div class="tab-pane fade" id="newspaper-forcast" role="tabpanel" aria-labelledby="newspaper-forcast-tab" style="width: 100%;">
+							<div class="row" style="position:relative;top:20px; margin-bottom:30px;display: flex;justify-content: center;">
+								<form method="post" action="{% url 'home' %}">
+									{% csrf_token %}
+									{{ form.as_p }}
+									<input type="submit" value="Submit">
+								</form>
+
+								{% if output_data %}
+								<div>
+									Output: {{ output_data }}
+								</div>
+								{% endif %}
+
+								<div class="col">
+									<button id="generate_btn" onclick="trendAnalysis(event)">Generate Trends</button>
+								</div>
+						</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div  style="border: 1px solid #000; border-radius: 5px; height:480px; width: 96%; margin-top: 20px;">
+                                    <div id="title-alarm-system">Alert System</div>
+
+                                    <p class="warning_text" style="text-align: center;margin-top:30px;">
+                                        Please select Keywords, Country and Time Period.
+                                    </p>
+
+                                    <div id="alert_system_div" style="display: none;">
+
+                                        <table style="width:50%; height:100%; margin: 5px auto; border: none;">
+                                            <tr>
+                                                <th style="width:60%;">Total Newsarticles Extracted</th>
+                                                <td>{{model_response.alerts.total_articles_extracted}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Total Relevant Newsarticles</th>
+                                                <td>{{model_response.alerts.total_relevant_articles}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Total Relevant Newsarticles</th>
+                                                <td>{{model_response.alerts.total_high_alert}}%, {{model_response.alerts.total_low_alert}}%, {{model_response.alerts.total_no_alert}}%</td>
+                                            </tr>
+
+                                        </table>
+
+                                        <img id="plot_alarm_system" alt="plot_alarm_system" style="width: 52%; margin: 10px auto; display: block;" src="data:image/png;base64,{{ plot_alarm_system }}">
+                                        {% comment %} <img src="{% static 'img/chart.jpg' %}" alt="chart" style="width: 32%; margin: 10px auto; display: block;"> {% endcomment %}
+                                
+                                        <p id="number-field6" style="text-align:center;"><strong>Most Influential Newsarticle:</strong> <a href="https://example.com/">{{model_response.alerts.first_article}}</a>, {{model_response.alerts.first_score}}%</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div  style="border: 1px solid #000;border-radius: 5px; height: 480px;width: 100%;margin-top: 20px;">
+                                    
+                                    <div id="title-relevant-keywords">Relevant Keywords</div>
+
+                                    <p class="warning_text" style="text-align: center;margin-top:30px;">
+                                        Please select Keywords, Country and Time Period.
+                                    </p>
+
+                                    <div id="relevant_words" style="display:none; overflow-y:auto">
+                                        <table style="width: 97%; height: 100%; margin: 15px auto; border: none;">
+
+                                            <tr>
+                                                <td id="center-td" >('ukraine krieges europa erdgaspreis', {{model_response.alerts.relevant_keywords.ukraine_krieges_europa_erdgaspreis}}%)</td>
+                                            </tr>
+            
+                                            <tr>
+                                                <td  id="center-td">('energie krise',  {{ model_response.alerts.relevant_keywords.energy_expensive}}%)</td>
+                                            </tr>
+            
+                                            <tr>
+                                                <td  id="center-td">('russischen gaslieferung', {{model_response.alerts.relevant_keywords.russischen_gaslieferung}}%)</td>
+                                            </tr>
+            
+                                            <tr>
+                                                <td  id="center-td">('gaspreise', {{model_response.alerts.relevant_keywords.gas_price_spikes}}%)</td>
+                                            </tr>
+            
+                                            <tr>
+                                                <td  id="center-td">('alten notfallplan notfallplan gas', 61.1%)</td>
+                                            </tr>
+                                        
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			{% if messages %}
+				<div id="flash-message" class="alert alert-success">
+					<ul class="messages">
+						{% for message in messages %}
+							<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+        </div>
+
+        <div id="loadingOverlay" style="display:none;">
+            <img src="{% static 'img/loading.gif' %}" alt="Loading GIF">
+        </div>
+
+        <!-- FOOTER -->
+        <!-- Copyright footer-->
+        <footer class="bg-light text-center text-lg-start" style="height:100%">
+
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);height: 70px;">
+                © 2023 Copyright:
+                <a class="text-dark"
+                href="https://www.dfki.de/web/forschung/projekte-publikationen/projekte-uebersicht/projekt/pairs/">DFKI_PAIRS</a>
+            </div>
+            
+        </footer>
+
+    </body>
+</html>
