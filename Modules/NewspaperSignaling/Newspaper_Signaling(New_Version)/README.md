@@ -30,41 +30,29 @@ For real-time analysis of the newspaper articles for any use-case related to cri
 
 ## 4. Installation 
 
-- Prerequisites:
 
-	```Python 3.9 or higher.``` You can follow [this guide](https://phoenixnap.com/kb/upgrade-python) on how to install it on Windows/macOS/Linux.
+1. Create env in THW folder
+```bash
+    cd .\POC\Newspaper_Signalling\application\newspaperSignaling\
+    virtualenv newspaperSignal
+```
 
-- Clone/Download the repository:
+2. Activate env
+```bash
+   newspaperSignal\Scripts\activate
+```
 
-	- Open a terminal (Linux) or cmd (Windows) and run the following command to clone the repository:
-	```
-	git clone https://github.com/InformationServiceSystems/pairs-project.git
-	```
+3. Requirements.txt file with all dependencies
 
-- Intsall the dependencies 
+4. Install dependencies
+```bash
+    pip install -r requirements.txt
+```
 
-	- In the terminal, run the following command to go to OutagePredictor directory. 
-	```
-	cd pairs-project/Modules/NewspaperSignaling/
-	```
-	- Then run this command to install the dependencies
-	```
-	pip install -r requirements.txt
-	```
-
-- Start the flask server.
-
-	- Go back to the directory where you downloaded the repo and run this command to go to backend directory:
-	```
-	cd pairs-project/Modules/NewspaperSignaling/
-	```
-	- Run server
-	```
-	python app.py
-	```
-	- Leave this terminal running. 
-
-
+5. Run application
+```bash
+    cd .\backend\
+	python manage.py runserver  
 
 - Finally, go the internet browser (e.g. Chrome) and type in the url <http://127.0.0.1:5000>
 
