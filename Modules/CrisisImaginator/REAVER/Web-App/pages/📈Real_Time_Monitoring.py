@@ -80,7 +80,7 @@ def reorder_to_zne(stream):
 
 
 model = REAVER(phases="PSN", norm="std")
-model.load_state_dict(torch.load('../model_epoch_1_iter_7000180.pth', map_location='cpu'))
+model.load_state_dict(torch.load('../REAVER/model_checkpoints/checkpoint.pth', map_location='cpu'))
 model.double();
 model.eval();
 # Check if the inventory is already loaded
