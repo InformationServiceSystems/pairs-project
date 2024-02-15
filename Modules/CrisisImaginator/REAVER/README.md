@@ -7,6 +7,11 @@ We propose **REAVER**, a novel approach for real-time prediction of P- and S-wav
 !["img"](./img.png)
 
 
+# REAVER Project
+
+We propose **REAVER**, a novel approach for real-time prediction of P- and S-waves of earthquakes using attention-based sliding-window spectrograms. REAVER leverages Mel-Spectrogram signal representations to effectively capture temporal frequency changes in seismic signals. By employing an encoder-decoder architecture with attention mechanisms, REAVER accurately predicts the onset of P- and S-waves moments when an earthquake occurs.
+
+
 **REAVER** is comprised of four key layers:
 
 1. **Data Acquisition Layer**: This layer is responsible for gathering real-time and historical waveform data, ensuring a comprehensive dataset for analysis.
