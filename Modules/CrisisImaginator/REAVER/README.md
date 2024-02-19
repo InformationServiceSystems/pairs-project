@@ -5,7 +5,7 @@ We propose **REAVER**, a novel approach for real-time prediction of P- and S-wav
 
 
 
-![gif](./video.gif)
+![gif](./video2.gif)
 
 
 **REAVER** is comprised of four key layers:

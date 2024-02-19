@@ -124,11 +124,11 @@ if st.sidebar.button('Run the model'):
 
         plot_placeholder.pyplot(fig, use_container_width=True)  # This will scale the plot
         print(pred_p.shape, torch.max(pred_p[0, 250:]))
-        if torch.max(pred_p[0, 250:]) > 0.6 and not p_wave_detected:
+        if torch.max(pred_p[0, 250:]) > 0.7 and not p_wave_detected:
             text_placeholder.markdown('<p style="text-align: center; font-weight: bold; font-size: 24px;">Status: <span style="color: red;">P-wave detected! 🚨📢</span></p>', unsafe_allow_html=True)
             p_wave_detected = True
             time.sleep(2)
-        if torch.max(pred_s[0, 250:]) > 0.45 and not s_wave_detected:
+        if torch.max(pred_s[0, 250:]) > 0.7 and not s_wave_detected:
             s_wave_detected = True
             text_placeholder.markdown('<p style="text-align: center; font-weight: bold; font-size: 24px;">Status: <span style="color: red;">S-wave detected! 🚨📢</span></p>', unsafe_allow_html=True)
             time.sleep(2)
@@ -136,4 +136,3 @@ if st.sidebar.button('Run the model'):
             text_placeholder.markdown('<p style="text-align: center; font-weight: bold; font-size: 24px;">Earthquake happening. S-wave is coming! ⚠️</p>', unsafe_allow_html=True)
         elif torch.max(pred_s) < 0.2  and torch.max(pred_p) < 0.2 :
             text_placeholder.markdown('<p style="text-align: center; font-weight: bold; font-size: 24px;">Status: All Clear 🟢</p>', unsafe_allow_html=True)
-
