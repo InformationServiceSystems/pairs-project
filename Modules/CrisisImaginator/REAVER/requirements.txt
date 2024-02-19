@@ -1,0 +1,13 @@
+folium==0.14.0
+librosa==0.10.1
+matplotlib==3.6.3
+numpy==1.23.5
+obspy==1.4.0
+packaging==23.2
+pandas==1.5.3
+scipy==1.12.0
+seaborn==0.13.2
+seisbench==0.5.3
+streamlit==1.27.0
+streamlit_folium==0.18.0
+torch==2.1.1

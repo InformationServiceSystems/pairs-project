@@ -18,9 +18,6 @@ from melspectogram import *
 
 
 
-# Load the data
-eq_data = pd.read_csv('../selected_EQs.csv')
-waveforms = np.load('../selected_EQs.npy', allow_pickle=True)
 
 # Streamlit page configuration
 st.set_page_config(page_title='Real-Time EQ Prediction', layout='wide')
@@ -97,7 +94,6 @@ networks = [net.code for net in st.session_state.inventory.networks]
 selected_network = st.sidebar.selectbox("Network", networks)
 
 # Find the selected network in the inventory
-# Find the selected network in the inventory
 network = st.session_state.inventory.select(network=selected_network)[0]
 
 # Extract stations and their codes from the selected network
@@ -158,16 +154,14 @@ if st.session_state.get('monitoring', False):
             end_time = UTCDateTime(end)
 
             # Define station parameters
-            #channels = ['BHZ', 'BHN', 'BHE', 'HNZ', 'HNN', 'HNE', 'LHZ', 'LHN', 'LHE', 'BH1', 'BH2']  # Z, N, and E components
             channels = ['HNZ', 'HNN', 'HNE']  # Z, N, and E components
-
-            # Access latitude and longitude of the selected station
-            #st.subheader("Monitoring station {}, located at lat: {} and long: {}".format(selected_station_code, latitude, longitude))
-            
             # Try to fetch waveform data for each component
             try:
-                stream = client.get_waveforms(selected_network, selected_station_code, selected_location, ",".join(channels), start_time, end_time).resample(100)[0:3]
-                print(stream)
+                stream = client.get_waveforms(selected_network, selected_station_code, selected_location, ",".join(channels), start_time, end_time)
+                stream = stream.detrend("demean")
+                stream = stream.filter("bandpass", freqmin=1, freqmax=45)
+                stream = stream.taper(max_percentage=0.005)
+                stream = stream[0:3].resample(100)
                 stream = reorder_to_zne(stream)
                 if len(stream) != 3:
                     raise Exception
@@ -235,9 +229,7 @@ if st.session_state.get('monitoring', False):
                 w[np.isnan(w)] = 1e-5
                 w[np.isinf(w)] = 1e-5
             print(np.max(current_window_data[0,:]), np.min(current_window_data[0,:]))
-            #current_window_data = current_window_data * 0.001
             # Compute the log Mel spectrograms and model predictions for the current window
-            current_window_data[0,:]  = current_window_data[0,:]* 0.1
             log_mel_spectrograms_stacked = compute_log_mel_spectrograms(torch.tensor(current_window_data).unsqueeze(0).detach().cpu().numpy())
             with torch.no_grad():
                 pred_p, pred_s = model(torch.tensor(log_mel_spectrograms_stacked))
