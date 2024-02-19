@@ -51,7 +51,7 @@ python3 train.py
 To run the web application:
 
 1. Navigate to the `Web-App` directory within the project folder.
-2. Download the checkpoint file from (https://drive.google.com/file/d/1xKH0tjYp77CAbEk711JmrPJHdAUCE6j8/view?usp=sharing)
+2. Download the checkpoint file from (https://drive.google.com/file/d/16VFvXVnbQh6B3ANVbX_XQHSgeBcvSd3q/view?usp=sharing)
 3. Add the checkpoint file to the directory REAVER/model_checkpoints
 4. Start the web application using Streamlit:
 
