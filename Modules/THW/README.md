@@ -21,8 +21,8 @@ Our model was instantiated as a service in cooperation with the German Federal A
 - Recommendations for Operations Planning to handle crises events
 
 ## Interface
-A short demo of the service can be viewed [here](https://www.youtube.com/watch?v=ohWVGATnjZM&t=1s) <br>
-A one pager with all important key information can be found [here](https://www.dfki.de/fileadmin/dfkimanager/projects/Project_1440/One_Pager_Operations_Planning.pdf) 
+A short demo of the service can be viewed [here](https://www.youtube.com/watch?v=ohWVGATnjZM&t=1s) .<br>
+A one pager with all important key information can be found [here](https://www.dfki.de/fileadmin/dfkimanager/projects/Project_1440/One_Pager_Operations_Planning.pdf) .<br>
 Please note: Since we are dealing with a German data set, generated recommendations (e.g. unit names, unit descriptions etc.) are also presented in German, respectively to the German knowledge base.
 
 ## Data
