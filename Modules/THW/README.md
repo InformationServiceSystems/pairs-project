@@ -1,10 +1,6 @@
-# ProPlan: Proactive Operation Planning in Civil Protection
+# Operations Planning in Civil Protection
 
-During occurring crisis events, time of response, allocation of equipment, tasks and personnel pose critical success factors to crisis operations conducted by responders (e.g., professional units and volunteers within civil protection and related domains). Respective operation plans are currently compiled manually by experienced planning officers or in combination with supporting systems, that either lack concrete planning recommendations, or focus on post-disaster recommendations for operation plans on-site of a crisis event. We present ProPlan, a model to support proactive operation planning by means of an early event prediction and semantically enhanced historical knowledge using operational scenario patterns. ProPlan was applied on data of a German organization within civil protection and predicts weather-based crisis events for the next 7 days in combination with automated planning recommendations. We plan to evaluate the effectiveness of the instantiated service within a qualitative study in the future.
-
-## ProPlan: Model overview
-
-![Screenshot 2023-08-01 at 23 43 22](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/cee41361-f87c-4937-a8b9-2ba81231b5c3)
+During occurring crisis events, time of response, allocation of equipment, tasks and personnel pose critical success factors to crisis operations conducted by responders (e.g., professional units and volunteers within civil protection and related domains). Respective operation plans are currently compiled manually by experienced planning officers or in combination with supporting systems, that either lack concrete planning recommendations, or focus on post-disaster recommendations for operation plans on-site of a crisis event. We present a service to support proactive operation planning by means of an early event prediction and semantically enhanced historical knowledge using operational scenario patterns. The model was applied on data of a German organization within civil protection and predicts weather-based crisis events for the next 7 days in combination with automated planning recommendations. We plan to evaluate the effectiveness of the instantiated service within am empirical user study.
 
 
 ## Operational Scenario Patterns
@@ -21,7 +17,13 @@ Our model was instantiated as a service in cooperation with the German Federal A
 ## Service Features
 - Explorable knowledge graph representation of historical datasets in the form of OSP
 - Crisis operation prediction for the next 7 days
+- Territorial map overview
 - Recommendations for Operations Planning to handle crises events
+
+## Interface
+A short demo of the service can be viewed [here](https://www.youtube.com/watch?v=ohWVGATnjZM&t=1s) <br>
+A one pager with all important key information can be found [here](https://www.dfki.de/fileadmin/dfkimanager/projects/Project_1440/One_Pager_Operations_Planning.pdf) 
+Please note: Since we are dealing with a German data set, generated recommendations (e.g. unit names, unit descriptions etc.) are also presented in German, respectively to the German knowledge base.
 
 ## Data
 Our service accepts CSV files as initial data input and is currently designed based on the structure given by the historical data provided by THW. The data contain the following features: 
@@ -34,7 +36,7 @@ Data on units: Unit name and abbreviation; unit descriptions; potential tasks; n
 
 ## Prediction of Crisis Operations
 
-To enable early planning of operations, we included a prediction of crisis operations focusing on weather-dependent events (e.g., rain, snow, landslides, wild fires), as these almost cover 24\% of the overall historical data set on THW operations. We adapted the approach used in [1,15] for our prediction, using [historical weather data](https://www.kaggle.com/datasets/noaa/gsod?select=gsod2019) and [current weather data](https://openweathermap.org/)(e.g., coordinates of weather station, temperature, wind speed, gust, precipitation). We calculated the coordinates of each historical operation location using the Geopy library, in order to map operations to the closest weather station using Euclidean distance. The event prediction was treated as a multi-class classification problem. The data set was divided into training, validation and test set with a ratio of 70:10:20. We experimented with different forecasting models, while XGBoost outperformed all other models in terms of overall accuracy (0.92) (see Table 1). 
+To enable early planning of operations, we included a prediction of crisis operations focusing on weather-dependent events (e.g., rain, snow, flood events), as these almost cover 24\% of the overall historical data set on THW operations. We adapted the approach used in [1,15] for our prediction, using [historical weather data](https://www.kaggle.com/datasets/noaa/gsod?select=gsod2019) and [current weather data](https://openweathermap.org/)(e.g., coordinates of weather station, temperature, wind speed, gust, precipitation). We calculated the coordinates of each historical operation location using the Geopy library, in order to map operations to the closest weather station using Euclidean distance. The event prediction was treated as a multi-class classification problem. The data set was divided into training, validation and test set with a ratio of 70:10:20. We experimented with different forecasting models, while XGBoost outperformed all other models in terms of overall accuracy (0.92) (see Table 1). 
 
 Table1: Comparison of achieved accuracy by diverse forecasting models
 <img width="650" alt="TableEventPred" src="https://github.com/InformationServiceSystems/pairs-project/assets/65232571/39719731-58c4-488d-8c40-9885c1170f04">
@@ -49,9 +51,6 @@ Based on selected location of the user, events are predicted for the next 7 days
 
 ![MicrosoftTeams-imagec97461883700fae13698badebbd06679cd13df90686356f9bde747b1dbd64983](https://github.com/InformationServiceSystems/pairs-project/assets/65232571/de1564d0-fbb5-402d-8fb5-fcd916f47847)
 
-## Screencast
-A screencast of the service (including event prediction and generated recommendations) can be viewed [here](\url) <br>
-Please note: Since we are dealing with a German data set, generated recommendation (e.g. unit names, unit descriptions etc.) are also presented in German, depending on the German knowledge base.
 
 ## References
 [1] S. Janzen, N. Gdanitz, L. Abdel Khaliq, T. Munir, C. Franzius, W. Maass. (2023). Anticipating Energy-driven Crises in Process Industry by AI-based Scenario Planning, HICSS (2023). <br>
