@@ -21,6 +21,12 @@ Our model was instantiated as a service in cooperation with the German Federal A
 - Recommendations for Operations Planning to handle crises events
 
 ## Interface
+First introductory information and statistics on the utilized database further background information on the knowledge graph are presented in the user interface. Additionally the UI consists of two main components: 
+![Prediction](Prediction.png)
+
+In the Event Prediction tab events like floods, heavy rain and snow are displayed in a forecasting graph after selecting the location of interest in Germany. Red dots indicate the respective prediction of the event. For predicted events, recommendations for action are generated in the Recommendations tab
+![Recommendations](Recommendations.png)
+
 A short demo of the service can be viewed [here](https://www.youtube.com/watch?v=ohWVGATnjZM&t=1s) .<br>
 A one pager with all important key information can be found [here](https://www.dfki.de/fileadmin/dfkimanager/projects/Project_1440/One_Pager_Operations_Planning.pdf) .<br>
 Please note: Since we are dealing with a German data set, generated recommendations (e.g. unit names, unit descriptions etc.) are also presented in German, respectively to the German knowledge base.
