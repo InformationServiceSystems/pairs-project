@@ -80,34 +80,29 @@ model = REAVER(phases="PSN", norm="std")
 model.load_state_dict(torch.load('../REAVER/model_checkpoints/checkpoint.pth', map_location='cpu'))
 model.double();
 model.eval();
-# Check if the inventory is already loaded
-if 'inventory' not in st.session_state:
-    # Read the inventory from the file only if it's not already loaded
-    st.session_state.inventory = read_inventory('inventory.xml')
 
 
 # Sidebar for input parameters
 st.sidebar.header('Input Parameters')
 
 # Extract networks and their codes
-networks = [net.code for net in st.session_state.inventory.networks]
+networks = ['1E']
 selected_network = st.sidebar.selectbox("Network", networks)
 
 # Find the selected network in the inventory
-network = st.session_state.inventory.select(network=selected_network)[0]
+network = '1E'
 
 # Extract stations and their codes from the selected network
-stations = {station.code: station for station in network}
-
+stations = ['BCH1B']
 # Use a selectbox to choose a station
-selected_station_code = st.sidebar.selectbox("Station", list(stations.keys()))
+selected_station_code = st.sidebar.selectbox("Station",stations)
 
 # Access the selected station object
-selected_station = stations[selected_station_code]
+selected_station = stations[0]
 
 # Access latitude and longitude of the selected station
-latitude = selected_station.latitude
-longitude = selected_station.longitude
+latitude = 55.83242
+longitude = -120.25889
 
 # You can print or display the location
 print(f"Location of station {selected_station_code}: Latitude {latitude}, Longitude {longitude}")
@@ -116,6 +111,7 @@ print(f"Location of station {selected_station_code}: Latitude {latitude}, Longit
 # If locations vary and you want to list them, you will need additional logic here
 selected_location = '*'
 start_button = st.sidebar.button('Start Monitoring')
+
 
 
 
@@ -134,7 +130,7 @@ if st.session_state.get('monitoring', False):
     st.subheader("Monitoring station {}, located at lat: {} and long: {}".format(selected_station_code, latitude, longitude))
     col1, col2 = st.columns([2, 1])
     with col2:
-        display_map(selected_station.latitude, selected_station.longitude, selected_station_code)
+        display_map(latitude, longitude, selected_station_code)
         text_placeholder = st.empty()
     with col1:
         plot_placeholder_2 = st.empty()

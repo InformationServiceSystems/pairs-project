@@ -1,4 +1,3 @@
-
 # REAVER
 
 We propose **REAVER**, a novel approach for real-time prediction of P- and S-waves of earthquakes using attention-based sliding-window spectrograms. REAVER leverages Mel-Spectrogram signal representations to effectively capture temporal frequency changes in seismic signals. By employing an encoder-decoder architecture with attention mechanisms, REAVER accurately predicts the onset of P- and S-waves moments when an earthquake occurs.
@@ -35,6 +34,28 @@ pip install -r requirements.txt
 
 3. Ensure you have Streamlit installed, as it is necessary for running the web application.
 
+
+## Running the Web Application
+
+To run the web application:
+
+
+1. Download the checkpoint file from (https://drive.google.com/file/d/16VFvXVnbQh6B3ANVbX_XQHSgeBcvSd3q/view?usp=sharing)
+2. Add the checkpoint file to the directory REAVER/REAVER/model_checkpoints
+3. Navigate to the `Web-App` directory within the project folder.
+
+```bash
+cd Web-App
+```
+
+4. Start the web application using Streamlit:
+
+```bash
+streamlit run REAVER.py
+```
+
+3. Open a web browser and go to the address provided by Streamlit to access the web application.
+
 ## Training the Model
 
 To train the model, follow these steps:
@@ -45,19 +66,3 @@ To train the model, follow these steps:
 ```bash
 python3 train.py
 ```
-
-## Running the Web Application
-
-To run the web application:
-
-1. Navigate to the `Web-App` directory within the project folder.
-2. Download the checkpoint file from (https://drive.google.com/file/d/16VFvXVnbQh6B3ANVbX_XQHSgeBcvSd3q/view?usp=sharing)
-3. Add the checkpoint file to the directory REAVER/model_checkpoints
-4. Start the web application using Streamlit:
-
-```bash
-cd Web-App/ && streamlit run REAVER.py
-```
-
-3. Open a web browser and go to the address provided by Streamlit to access the web application.
-
