@@ -1,0 +1,31 @@
+{% load static %}
+<script src="{% static 'opp/event_context.js' %}"></script>
+
+<div class="row border rounded p-3">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row">Event</th>
+                <td id="event_context-eventName" colspan="2">Please select input...</td>
+            </tr>
+            <tr>
+                <th scope="row">Hazard Type</th>
+                <td id="event_context-eventHazardType" colspan="2">Please select input...</td>
+            </tr>
+            <tr>
+                <th scope="row">Duration</th>
+                <td id="event_context-impactMean">Please select input...</td>
+                <td id="event_context-impactStdev">Please select input...</td>
+            </tr>
+            <tr>
+                <th scope="row">Number Helpers</th>
+                <td id="event_context-actorMeanHelpers" colspan="2">Please select input...</td>
+            </tr>
+            <tr>
+                <th scope="row">Work Hours</th>
+                <td id="event_context-actorMean">Please select input...</td>
+                <td id="event_context-actorStdev">Please select input...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,35 @@
+{% load static %}
+<script src="{% static 'opp/user_input.js' %}"></script>
+
+<div class="row border rounded p-2">
+    <div class="col">
+        <div class="p-3">
+            <label class="form-label">Location</label>
+            <input class="form-control" list="locationListOptions" id="locationList" placeholder="Type to search...">
+            <datalist id="locationListOptions">
+            </datalist>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3">
+            <label class="form-label">Event</label>
+            <input class="form-control" list="eventListOptions" id="eventList" placeholder="Type to search...">
+            <datalist id="eventListOptions">
+            </datalist>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3">
+            <label class="form-label">Action Type</label>
+            <input class="form-control" list="actionTypeListOptions" id="actionTypeList" placeholder="Type to search...">
+            <datalist id="actionTypeListOptions">
+            </datalist>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3">
+            <br>
+            <button type="button" class="btn btn-secondary" id="fetchResults">Fetch Results</button>
+        </div>
+    </div>
+</div>

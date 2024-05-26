@@ -13,7 +13,6 @@ matplotlib.use('Agg')  # Set the backend to 'Agg'
 import matplotlib.pyplot as plt
 
 from django.shortcuts import render
-from neo4j import GraphDatabase
 
 # GET DATA
 df = pd.read_excel("missiontask_with_units.xlsx")
@@ -46,7 +45,7 @@ def home_view(request, *args, **kwargs):
                                         'df_withonout_nan_custom':get_data(),
 
                                         # KNOWLADGE GRAPH
-                                        'graph_template': show_graph_database("Complete"),
+                                        # 'graph_template': show_graph_database("Complete"),
 
                                         # PLOTS for PREDICTIONS of FLOOD
                                         # 'plot_flood_prediction_goettingen': plot_flood_prediction_goettingen,
@@ -104,8 +103,8 @@ def home_view(request, *args, **kwargs):
                                         'get_weather_kiel': get_weather_kiel,
 
                                         #RECOMMENDATIONS
-                                        'graph_strong_rain': show_graph_database("Starkregen"),
-                                        'graph_flood': show_graph_database("Hochwasser"),
+                                        # 'graph_strong_rain': show_graph_database("Starkregen"),
+                                        # 'graph_flood': show_graph_database("Hochwasser"),
                                         'getFloodBekJson': getFloodBekJson(),
                                         'getStarkregenFuehrJson': getStarkregenFiehrJson(),
                                         'getFloodOrdJson': getFloodOrdJson(),
@@ -844,26 +843,26 @@ def others_predinction(predictions_others):
     return plot_other_prediction
 
 
-def show_graph_database(type):
-    driver = GraphDatabase.driver("bolt://localhost:7687/neo4j", auth=("neo4j", "password"))
-    with driver.session() as session:
-       # cypher_query = "MATCH (n:Event) RETURN n "
-        cypher_query = "MATCH (a)-[r]->(b) RETURN a, r, b  LIMIT 800"
-        if type == 'Starkregen':
-            cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Starkregen/Hagel' RETURN a,r,b"
-        elif type == 'Hochwasser':
-            cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Hochwasser' RETURN a,r,b"
-
-        result = session.run(cypher_query)
-        graph_data = result.data()
-        # print(graph_data)
-
-    context = {'graph_data': graph_data}
-    # Convert graph_data to JSON string
-    graph_json = json.dumps(context)
-    # print(graph_json)
-
-    return graph_json
+# def show_graph_database(type):
+#     driver = GraphDatabase.driver("bolt://localhost:7687/neo4j", auth=("neo4j", "password"))
+#     with driver.session() as session:
+#        # cypher_query = "MATCH (n:Event) RETURN n "
+#         cypher_query = "MATCH (a)-[r]->(b) RETURN a, r, b  LIMIT 800"
+#         if type == 'Starkregen':
+#             cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Starkregen/Hagel' RETURN a,r,b"
+#         elif type == 'Hochwasser':
+#             cypher_query = "MATCH (a:ScenarioPattern)-[r:hasContext]-> (b:Context) WHERE b.event = 'Hochwasser' RETURN a,r,b"
+#
+#         result = session.run(cypher_query)
+#         graph_data = result.data()
+#         # print(graph_data)
+#
+#     context = {'graph_data': graph_data}
+#     # Convert graph_data to JSON string
+#     graph_json = json.dumps(context)
+#     # print(graph_json)
+#
+#     return graph_json
 
 
 

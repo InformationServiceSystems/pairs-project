@@ -1,0 +1,19 @@
+{% load static %}
+<script src="{% static 'opp/graph.js' %}"></script>
+<link rel="stylesheet" href="{% static 'opp/style.css' %}">
+
+<div class="row border rounded p-3">
+    <div class="row">
+        <div class="col badge badge-location">Location</div>
+        <div class="col badge badge-subevent">Subevent</div>
+        <div class="col badge badge-actor">Actor</div>
+        <div class="col badge badge-impact">Impact</div>
+        <div class="col badge badge-reason">Reason</div>
+        <div class="col badge badge-provenance">Provenance</div>
+        <div class="col badge badge-context">Context</div>
+        <div class="col badge badge-scenariopattern">Scenario Pattern</div>
+    </div>
+    <div id="graph"  class="row graph vh-50 mt-5">
+        <h5>Please select input...</h5>
+    </div>
+</div>

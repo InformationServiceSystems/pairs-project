@@ -1,0 +1,35 @@
+.badge-location {
+   background-color: LightSeaGreen;
+}
+
+.badge-subevent {
+    background-color: Khaki
+}
+
+.badge-actor {
+    background-color: Lavender
+}
+
+.badge-impact {
+    background-color: DarkSalmon
+}
+
+.badge-reason {
+    background-color: LawnGreen
+}
+
+.badge-provenance {
+    background-color: SaddleBrown
+}
+
+.badge-context {
+    background-color: LightBlue
+}
+
+.badge-scenariopattern {
+    background-color: LightCoral
+}
+
+.vh-50 {
+  height: 50vh;
+}

@@ -80,19 +80,16 @@
             <div id="statements">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="data-visual-tab" data-bs-toggle="tab" data-bs-target="#data-visual" type="button" role="tab" aria-controls="data-visual" aria-selected="true">Overview</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="scenar-pattern-tab" data-bs-toggle="tab" data-bs-target="#scenar-pattern" type="button" role="tab" aria-controls="scenar-pattern" aria-selected="false">Scenario Patterns</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="knowledge-graph-tab" data-bs-toggle="tab" data-bs-target="#knowledge-graph" type="button" role="tab" aria-controls="knowledge-graph" aria-selected="false">Knowledge Graph</button>
+                        <button class="nav-link active" id="data-visual-tab" data-bs-toggle="tab" data-bs-target="#data-visual" type="button" role="tab" aria-controls="data-visual" aria-selected="true">Introduction & Historical data</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="event-pred-tab" data-bs-toggle="tab" data-bs-target="#event-pred" type="button" role="tab" aria-controls="event-pred" aria-selected="false">Event Prediction</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="plan-recom-tab" data-bs-toggle="tab" data-bs-target="#plan-recom" type="button" role="tab" aria-controls="plan-recom" aria-selected="false">Recommendation</button>
+                        <button class="nav-link" id="plan-recom-tab" data-bs-toggle="tab" data-bs-target="#plan-recom" type="button" role="tab" aria-controls="plan-recom" aria-selected="false">Recommendations</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="scenar-pattern-tab" data-bs-toggle="tab" data-bs-target="#scenar-pattern" type="button" role="tab" aria-controls="scenar-pattern" aria-selected="false">Background Information</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -102,16 +99,18 @@
 
                             <p class="inside-tab" style="font-weight:bold;">Operations Planning</p>
                             <p class="inside-tab" style=" padding-top:0px;">
-                                During occurring crisis events, time of response, allocation of resources, tasks and personnel pose critical success factors to crisis operations conducted by responders.
-                                Respective operation plans are currently compiled manually by planning officers based on their expertise.
+                                Civil protection units increasingly face the challenge of ad hoc large-scale, cross-regional disasters requiring effective plans for their operations.
+                                Variables like time of response, allocation of resources, tasks and personnel pose critical success factors to crisis operations and these operation plans.
+                                So far operations planning relies on manual processes and individual experience,
+                               neglecting collected historical knowledge, which leads to inefficient responses.
                                 In cooperation with the German Federal Agency for Technical Relief (German abbr. THW), we aim to support operation planning within the domain of civil defense to increase resource efficiency, save time and costs.
-                                Our module supports proactive operation planning by means of an early event prediction and semantically enhanced historical knowledge using so called operational scenario patterns (see Scenario Patterns tab).
+                                By using a forecasting model we predict crisis events and generate recommendations based on semantically enhanced historical knowledge (for more technical details see Background Information tab).
                             </p>
 
                             <p class="inside-tab" style="font-weight:bold;">Historical Operations Data</p>
                             <div class="col">
                                 <p class="inside-tab">Historical operation data collected by THW (2012-2021) serve as initial data basis and input for our service.
-                                    The dataset includes information about the requesting party of the operation, date, event type of the operation, concrete mission tasks and a description, number of deployed helpers and their conducted duty hours.
+                                    The dataset includes information about the requesting party of the operation, date, event type of the operation, concrete tasks and a description, number of deployed helpers and their conducted duty hours.
                                     The table serves as data sample. We further used similar datasets on helpers and personnel (including qualifications, location, gender, age), data on units  (name, abbreviation, strength, tasks, roles, qualifications, equipment) and data on operation options (event type, subevents, tasks).
                                 </p>
                                 <p  class="inside-tab">By analyzing the historical dataset valuable patterns, trends and insights can be derived to gain additional information on THW’s operations.
@@ -124,7 +123,7 @@
                                     <tr>
                                         <th>Requester</th>
                                         <th id="event-type-col">Event Type</th>
-                                        <th>Mission Task</th>
+                                        <th>Task</th>
                                         <th>Description</th>
                                         <th>Service Project</th>
 <!--                                        <th>Number of Helpers</th>
@@ -172,19 +171,19 @@
                             {% comment %} SLide 12  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;"
                                 >Figure 3  showcases the duty hours spent on different tasks. Infrastructure tasks (<i>Infrastruktur, Temporärer Aufbau</i>) required approximately 12000 duty hours.
-                                This visual depiction contributes to a deeper understanding of the allocation and distribution of work hours concerning different mission tasks.
+                                This visual depiction contributes to a deeper understanding of the allocation and distribution of work hours concerning different tasks.
                             </p>
 
                             <img id="plot_dutyHours_missionTask" alt="plot_dutyHours_missionTask" style="width: 50%;">
-                            <p class="inside-tab" id="caption">Figure 3. Relationship between duty hours and mission task.​​​</p>
+                            <p class="inside-tab" id="caption">Figure 3. Relationship between duty hours and task.​​​</p>
 
                             {% comment %} SLide 13  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Figure 4  showcases which mission tasks required the highest numbers of helpers. Technical help (<i>Technische Hilfe im Rahmen sonstiger Hilfeleistungen</i>) requires 90 helpers on average.
+                                Figure 4  showcases which tasks required the highest numbers of helpers. Technical help (<i>Technische Hilfe im Rahmen sonstiger Hilfeleistungen</i>) requires 90 helpers on average.
                             </p>
 
                             <img id="plot_helpers_missionTask" alt="plot_helpers_missionTask" style="width: 50%;">
-                            <p class="inside-tab" id="caption">Figure 4. Relationship between number of helpers and mission task.​​​​</p>
+                            <p class="inside-tab" id="caption">Figure 4. Relationship between number of helpers and task.​​​​</p>
 
                             {% comment %} SLide 14  {% endcomment %}
                             <p class="inside-tab" style=" padding-top:0px;">
@@ -256,12 +255,8 @@
                             <div id="graph-container"></div>
                             <div id="graph-container-popup" style="position: relative; top: -190px; left: 930px;"></div>
 
-                            <script>
-                                var graphData = {{ graph_template | safe }}
-                            </script>
                             <!--Generate Graph-->
                             {% comment %} <script src="{% static 'js/knowladge-graph-tab.js'%}"></script> {% endcomment %}
-                            <script src="{% static 'js/knowGraphTab.js'%}"></script>
 
                         </div>
                     </div>
@@ -272,176 +267,12 @@
                             <p class="inside-tab" style="font-weight:bold;">Description</p>
 
                             <p class="inside-tab" style=" padding-top:0px;">
-                                Using predictive analytic methods on the historical data in combination with additional historical weather data, we trained our forecasting model in order to predict potential future operations. To increase the quality of our prediction, the operations were categorized into weather-based categories (flood events, rain events, snow events and others).
-                                The following map provides an overview of current weather data and predicted events per location within Germany. The following graphs provide a prediction for each weather-based event type for a selected city.
+                                Using predictive analytical methods on the historical operation data in combination with additional historical weather data, we trained our forecasting model in order to predict potential future operations. To increase the quality of our prediction, individual operations of the data set were clustered into weather-based categories (flood events, rain events, snow events and others).
+The following graphs provide a prediction for each category for a selected city.
+                                Predicted events are highlighted (red nodes), as well as the prediction that an event will not happen (green nodes). The threshold (orange line) marks the confidence of the forecasting model in the prediction (probability of occurrence). The map below provides additional weather information per location and predicted event.
                             </p>
 
-                            <div class="mapContainer">
-                                <div id="map" style="width: 97%;height: 65vh;position: relative;margin-left: 40px;">
 
-                                </div>
-                            </div>
-
-                            <script>
-                                $('button[ data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
-                                    if (e.target.id === "event-pred-tab") {
-                                        initMap();
-                                    }
-                                });
-
-                                function initMap() {
-
-                                    map = L.map('map', {
-                                        center: [50.841755, 9.575857],
-                                        zoom: 6
-                                    });
-
-                                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                        maxZoom: 19,
-                                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                    }).addTo(map);
-
-                                    var Aachen = [50.770182, 6.089658]
-                                    var Augsburg = [48.3668041, 10.8986971]
-                                    var Trier = [49.7596208, 6.6441878]
-                                    var Biberach = [48.339971, 8.032849]
-                                    var Göttingen = [51.5328328, 9.9351811]
-                                    var Regensburg = [49.0195333, 12.0974869]
-                                    var Chemnitz = [50.8322608 , 12.9252977]
-                                    var Neubrandenburg = [53.5574458, 13.2602781]
-                                    var Schwerin = [53.6288297, 11.4148038]
-                                    var Kiel = [54.3227085, 10.135555]
-                                    //
-                                    var Bengel = [50.016564, 7.064047]
-                                    var Cochem = [50.147709, 7.170171]
-                                    var Bernkastel_Kues = [49.919602, 7.068205]
-                                    var Muelheim = [49.912942, 7.010353]
-                                    var Zell = [50.036760, 7.177282]
-
-                                    //1
-                                    var dataWeatherGöttingen = {{get_weather_goettingen  | safe}}
-                                    popupContentGöttingen = generateTableRows(dataWeatherGöttingen, "Göttingen (Niedersachsen)")
-                                    //2
-                                    var dataWeatherTrier = {{get_weather_trier  | safe}}
-                                    popupContentTrier = generateTableRows(dataWeatherTrier, "Trier (Rheinland-Pfalz)")
-                                    //3
-                                    var dataWeatherAugsburg = {{get_weather_augsburg  | safe}}
-                                    popupContentAugsburg = generateTableRows(dataWeatherAugsburg, "Augsburg(Bavaria)")
-                                    //4
-                                    var dataWeatherBiberach = {{get_weather_biberach  | safe}}
-                                    popupContentBiberach = generateTableRows(dataWeatherBiberach, "Biberach (Baden-Württemberg)")
-
-                                    //5 Constant values
-                                    popupContentAachen = generateTableRows("hardcoded", "Aachen (Nordrhein-Westfalen)")
-                                    //6
-                                    var dataWeatherRegensburg = {{get_weather_regensburg  | safe}}
-                                    popupContentRegensburg = generateTableRows(dataWeatherRegensburg, "Regensburg (Bavaria)")
-                                    //7
-                                    var dataWeatherChemnitz = {{get_weather_chemnitz  | safe}}
-                                    popupContentChemnitz = generateTableRows(dataWeatherChemnitz, "Chemnitz (Sachsen)")
-                                    //8
-                                    var dataWeatherNeubrandenburg = {{get_weather_neubrandenburg  | safe}}
-                                    popupContentNeubrandenburg = generateTableRows(dataWeatherNeubrandenburg, "Neubrandenburg (Mecklenburg-Vorpommern)")
-                                    //9Kiel
-                                    var dataWeatherSchwerin = {{get_weather_schwerin  | safe}}
-                                    popupContentSchwerin = generateTableRows(dataWeatherSchwerin, "Schwerin (Mecklenburg-Vorpommern)")
-                                    //10
-                                    var dataWeatherKiel = {{get_weather_kiel  | safe}}
-                                    popupContentKiel = generateTableRows(dataWeatherKiel, "Kiel (Schleswig-Holstein)")
-                                    //11
-                                    //var dataWeatherBengel = {{get_weather_bengel | safe}}
-                                    popupContentBengel = generateTableRows("hardcoded", "Bengel (Rheinland-Pfalz)")
-                                    //12 Cochem
-                                    popupContentCochem = generateTableRows("hardcoded", "Cochem (Rheinland-Pfalz)")
-                                    //13 Bernkastel_Kues
-                                    popupContentBernkastel_Kues = generateTableRows("hardcoded", "Bernkastel-Kues (Rheinland-Pfalz)")
-                                    //14 Muelheim
-                                    popupContentMuelheim = generateTableRows("hardcoded", "Mülheim (Rheinland-Pfalz)")
-                                    //15
-                                    popupContentZell = generateTableRows("hardcoded", "Zell (Rheinland-Pfalz)")
-
-                                    //Add Markers to the map
-                                    L.Icon.Default.prototype.options.popupAnchor = [0, -65];
-
-                                     /*//1
-                                    L.marker(Biberach).addTo(map).bindPopup(popupContentBiberach, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //2
-                                    L.marker(Göttingen).addTo(map).bindPopup(popupContentGöttingen, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //3
-                                    L.marker(Aachen).addTo(map).bindPopup(popupContentAachen, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //4
-                                    L.marker(Trier).addTo(map).bindPopup(popupContentTrier, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //5
-                                    L.marker(Augsburg).addTo(map).bindPopup(popupContentAugsburg, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //6
-                                    L.marker(Regensburg).addTo(map).bindPopup(popupContentRegensburg, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //7
-                                    L.marker(Chemnitz).addTo(map).bindPopup(popupContentChemnitz, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-
-                                    //8
-                                    L.marker(Neubrandenburg).addTo(map).bindPopup(popupContentNeubrandenburg, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //9
-                                    L.marker(Schwerin).addTo(map).bindPopup(popupContentSchwerin, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //10
-                                    L.marker(Kiel).addTo(map).bindPopup(popupContentKiel, {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });*/
-
-                                    //11
-                                    L.marker(Bengel).addTo(map).bindPopup(popupContentBengel , {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //12 Cochem
-                                    L.marker(Cochem).addTo(map).bindPopup(popupContentCochem , {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //13
-                                    L.marker(Bernkastel_Kues).addTo(map).bindPopup(popupContentBernkastel_Kues , {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //14
-                                    L.marker(Muelheim).addTo(map).bindPopup(popupContentMuelheim , {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                    //15
-                                    L.marker(Zell).addTo(map).bindPopup(popupContentZell , {
-                                        className: 'custom-popup',
-                                        maxWidth: 'auto'
-                                    });
-                                }
-                            </script>
 
                             <div id="flood-prediction" style="border: 1px solid #000;border-radius: 5px; margin: 50px;width: 96%;height: 1300px">
                                 <div style="background: white; position: relative; top: -16px; width: 76px; padding: 2px;">Prediction</div>
@@ -450,7 +281,24 @@
                                     <div class="col">
                                         {% comment %} 1 raw {% endcomment %}
                                         <div class="row" style="display: flex; justify-content: center;margin: 40px 0px;">
-                                            <select id="city-dropdown" style="width: 350px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; background-color: #f5f5f5;">
+                                            <select id="city-dropdown" onChange="jsFunction()" style="width: 350px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; background-color: #f5f5f5;">
+
+                                              <script>
+                                              function jsFunction(){
+                                                var myselect = document.getElementById("city-dropdown");
+                                                var value = '';
+                                                if (myselect.value == "muelheim") {
+                                                  value = "mühlheim";
+                                                }
+                                                else if (myselect.value == "bernkastel_kues") {
+                                                  value = "bernkastel";
+                                                }
+                                                else {
+                                                  value = myselect.value;
+                                                }
+                                                document.getElementById("locationList").value = value;
+                                              }
+                                              </script>
 
                                                 <option value="" disabled selected>City</option>
 <!--                                                <option value="goettingen">Göttingen (Niedersachsen)</option>
@@ -737,7 +585,7 @@
                                             $('#starkregen-prediction-image').attr('city', 'bernkastel_kues');
                                             $('#warning_pred_2').css('display', 'none');
                                             //Other
-                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_prediction_cochem.svg" %}`);
+                                            $('#others-prediction-image').attr('src', `{% static "img/plot_other_bernkastel_kues.svg" %}`);
                                             $('#others-prediction-image').attr('city', 'bernkastel_kues');
                                             $('#warning_pred_3').css('display', 'none');
                                             //Snow
@@ -786,130 +634,204 @@
                                     });
                                 });
                             </script>
+
+
+
+
+                            <div class="mapContainer">
+                                <div id="map" style="width: 97%;height: 65vh;position: relative;margin-left: 40px;">
+
+                                </div>
+                            </div>
+
+                            <script>
+                                $('button[ data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
+                                    if (e.target.id === "event-pred-tab") {
+                                        initMap();
+                                    }
+                                });
+
+                                function initMap() {
+
+                                    map = L.map('map', {
+                                        center: [50.841755, 9.575857],
+                                        zoom: 6
+                                    });
+
+                                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                        maxZoom: 19,
+                                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                    }).addTo(map);
+
+                                    var Aachen = [50.770182, 6.089658]
+                                    var Augsburg = [48.3668041, 10.8986971]
+                                    var Trier = [49.7596208, 6.6441878]
+                                    var Biberach = [48.339971, 8.032849]
+                                    var Göttingen = [51.5328328, 9.9351811]
+                                    var Regensburg = [49.0195333, 12.0974869]
+                                    var Chemnitz = [50.8322608 , 12.9252977]
+                                    var Neubrandenburg = [53.5574458, 13.2602781]
+                                    var Schwerin = [53.6288297, 11.4148038]
+                                    var Kiel = [54.3227085, 10.135555]
+                                    //
+                                    var Bengel = [50.016564, 7.064047]
+                                    var Cochem = [50.147709, 7.170171]
+                                    var Bernkastel_Kues = [49.919602, 7.068205]
+                                    var Muelheim = [49.912942, 7.010353]
+                                    var Zell = [50.036760, 7.177282]
+
+                                    //1
+                                    var dataWeatherGöttingen = {{get_weather_goettingen  | safe}}
+                                    popupContentGöttingen = generateTableRows(dataWeatherGöttingen, "Göttingen (Niedersachsen)")
+                                    //2
+                                    var dataWeatherTrier = {{get_weather_trier  | safe}}
+                                    popupContentTrier = generateTableRows(dataWeatherTrier, "Trier (Rheinland-Pfalz)")
+                                    //3
+                                    var dataWeatherAugsburg = {{get_weather_augsburg  | safe}}
+                                    popupContentAugsburg = generateTableRows(dataWeatherAugsburg, "Augsburg(Bavaria)")
+                                    //4
+                                    var dataWeatherBiberach = {{get_weather_biberach  | safe}}
+                                    popupContentBiberach = generateTableRows(dataWeatherBiberach, "Biberach (Baden-Württemberg)")
+
+                                    //5 Constant values
+                                    popupContentAachen = generateTableRows("hardcoded", "Aachen (Nordrhein-Westfalen)")
+                                    //6
+                                    var dataWeatherRegensburg = {{get_weather_regensburg  | safe}}
+                                    popupContentRegensburg = generateTableRows(dataWeatherRegensburg, "Regensburg (Bavaria)")
+                                    //7
+                                    var dataWeatherChemnitz = {{get_weather_chemnitz  | safe}}
+                                    popupContentChemnitz = generateTableRows(dataWeatherChemnitz, "Chemnitz (Sachsen)")
+                                    //8
+                                    var dataWeatherNeubrandenburg = {{get_weather_neubrandenburg  | safe}}
+                                    popupContentNeubrandenburg = generateTableRows(dataWeatherNeubrandenburg, "Neubrandenburg (Mecklenburg-Vorpommern)")
+                                    //9Kiel
+                                    var dataWeatherSchwerin = {{get_weather_schwerin  | safe}}
+                                    popupContentSchwerin = generateTableRows(dataWeatherSchwerin, "Schwerin (Mecklenburg-Vorpommern)")
+                                    //10
+                                    var dataWeatherKiel = {{get_weather_kiel  | safe}}
+                                    popupContentKiel = generateTableRows(dataWeatherKiel, "Kiel (Schleswig-Holstein)")
+                                    //11
+                                    //var dataWeatherBengel = {{get_weather_bengel | safe}}
+                                    popupContentBengel = generateTableRows("hardcoded", "Bengel (Rheinland-Pfalz)")
+                                    //12 Cochem
+                                    popupContentCochem = generateTableRows("hardcoded", "Cochem (Rheinland-Pfalz)")
+                                    //13 Bernkastel_Kues
+                                    popupContentBernkastel_Kues = generateTableRows("hardcoded", "Bernkastel-Kues (Rheinland-Pfalz)")
+                                    //14 Muelheim
+                                    popupContentMuelheim = generateTableRows("hardcoded", "Mülheim (Rheinland-Pfalz)")
+                                    //15
+                                    popupContentZell = generateTableRows("hardcoded", "Zell (Rheinland-Pfalz)")
+
+                                    //Add Markers to the map
+                                    L.Icon.Default.prototype.options.popupAnchor = [0, -65];
+
+                                     /*//1
+                                    L.marker(Biberach).addTo(map).bindPopup(popupContentBiberach, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //2
+                                    L.marker(Göttingen).addTo(map).bindPopup(popupContentGöttingen, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //3
+                                    L.marker(Aachen).addTo(map).bindPopup(popupContentAachen, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //4
+                                    L.marker(Trier).addTo(map).bindPopup(popupContentTrier, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //5
+                                    L.marker(Augsburg).addTo(map).bindPopup(popupContentAugsburg, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //6
+                                    L.marker(Regensburg).addTo(map).bindPopup(popupContentRegensburg, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //7
+                                    L.marker(Chemnitz).addTo(map).bindPopup(popupContentChemnitz, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+
+                                    //8
+                                    L.marker(Neubrandenburg).addTo(map).bindPopup(popupContentNeubrandenburg, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //9
+                                    L.marker(Schwerin).addTo(map).bindPopup(popupContentSchwerin, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //10
+                                    L.marker(Kiel).addTo(map).bindPopup(popupContentKiel, {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });*/
+
+                                    //11
+                                    L.marker(Bengel).addTo(map).bindPopup(popupContentBengel , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //12 Cochem
+                                    L.marker(Cochem).addTo(map).bindPopup(popupContentCochem , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //13
+                                    L.marker(Bernkastel_Kues).addTo(map).bindPopup(popupContentBernkastel_Kues , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //14
+                                    L.marker(Muelheim).addTo(map).bindPopup(popupContentMuelheim , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                    //15
+                                    L.marker(Zell).addTo(map).bindPopup(popupContentZell , {
+                                        className: 'custom-popup',
+                                        maxWidth: 'auto'
+                                    });
+                                }
+                            </script>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="plan-recom" role="tabpanel" aria-labelledby="plan-recom-tab">
-                        <div class="row">
-                            <div class="col" style="margin-left: 40px;">
-                                <div class="row" style="position:relative;top:20px; margin-bottom:30px;display: flex;justify-content: center;">
-                                    <div class="col-2">
-                                        <select id="city-dropdown-r">
-                                            <option value="" disabled selected>City</option>
-                                           <!-- <option value="goettingen">Göttingen (Niedersachsen)</option>
-                                            <option value="biberach">Biberach (Baden-Württemberg)</option>-->
-<!--                                            <option value="xxx">XXX</option>-->
-                                            <option value="zell">Zell (Rheinland-Pfalz)</option>
-                                            <option value="muelheim">Mülheim (Rheinland-Pfalz)</option>
-                                            <option value="cochem">Cochem (Rheinland-Pfalz)</option>
-                                            <option value="bengel">Bengel (Rheinland-Pfalz)</option>
-                                            <option value="bernkastel_kues">Bernkastel-Kues (Rheinland-Pfalz)</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="col-2">
-                                        <select id="events-dropdown">
-                                            <option value="" disabled selected>Events</option>
-                                            <option value="Hochwasser">Hochwasser</option>
-                                            <option value="Starkregen">Starkregen</option>
-                                            <!-- <option value="yyy">YYY</option>-->
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <select id="actions-dropdown">
-                                            <option value="" disabled selected>Actions</option>
-                                            <option value="Ortungs-, Rettungs-, Bergungsmaßnahmen" disabled>Ortungs-, Rettungs-, Bergungsmaßnahmen</option>
-                                            <option value="Prävention Unterstützung" disabled>Prävention Unterstützung</option>
-                                            <option value="Bekämpfung von Überschwemmungen/Überflutungen" disabled>Bekämpfung von Überschwemmungen/Überflutungen</option>
-                                            <option value="Damm Deichsicherung" disabled>Damm Deichsicherung</option>
-                                            <option value="Gebäude Bauwerksschäden" disabled>Gebäude Bauwerksschäden</option>
-                                            <option value="Sicherungs und Räumaufgaben" disabled>Sicherungs und Räumaufgaben</option>
-                                            <option value="Infrastruktur Maßnahmen" disabled>Infrastruktur Maßnahmen</option>
-                                            <option value="Sicherung von Verkehrswegen" disabled>Sicherung von Verkehrswegen</option>
-                                            <option value="Logistik" disabled>Logistik</option>
-                                            <option value="Führung, Führungsunterstützung und Verbindung" disabled>Führung, Führungsunterstützung und Verbindung</option>
-                                            <!-- <option value="zzz" disabled>ZZZ</option>-->
-                                        </select>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <button  id="generate_btn"  onclick="generateView(event)">Generate Recommendation</button>
-                                    </div>
-                                </div>
-
-                                <script src="{% static 'js/recommendation-tab.js'%}"></script>
-
-                            </div>
-                        </div>
                         <!--json-->
-                        <div class="row">
-                            <div class="col-6">
-                                <div  style="border: 1px solid #000;border-radius: 5px; height: 350px;width: 96%;margin-top: 20px;">
-                                    <div id="title-operation-plan">Recommendation</div>
-                                    <div class="json-container">
-                                        <div id="buttons_block">
-                                            <button id="button_op_json">JSON</button>
-                                            <button id="button_op_table">Table</button>
-                                        </div>
+                        <div class="mt-5 row">
+                          {% load static %}
+                          <script src="{% static 'opp/main.js' %}"></script>
+                          <script src="{% static 'opp/query.js' %}"></script>
 
-                                        <p id="warning_text_json" style="text-align: center;margin-top:30px;">
-                                            Please select Event and Action.
-                                        </p>
+                          <p>To generate planning recommendations, please select the desired input information. </p>
+                          {% include "opp/user_input.html" %}
 
-                                        {% comment %} <p> JSON Output is shown here</p> {% endcomment %}
-                                        <pre id="json-data-flood-bek" style="display: none;">{{ getFloodBekJson|safe }}</pre>
-                                        <pre id="json-data-starkregen-fuehr" style="display: none;">{{ getStarkregenFuehrJson|safe }}</pre>
-                                        <pre id="json-data-flood-ord" style="display: none;">{{ getFloodOrdJson|safe }}</pre>
-                                        <pre id="json-data-starkregen-bek" style="display: none;">{{ getStarkregenBekJson|safe }}</pre>
+                          <br>
+                          <h5>Event Context</h5>
+                          {% include "opp/event_context.html" %}
 
-                                       <!-- <pre id="json-data-flood-b" style="display: none;">{{ getFloodBJson|safe }}</pre>
-                                        <pre id="json-data-flood-bort" style="display: none;">{{ getFloodBOrtJson|safe }}</pre>
-                                        <pre id="json-data-flood-bub" style="display: none;">{{ getFloodBUbJson|safe }}</pre>
-                                        <pre id="json-data-flood-bern" style="display: none;">{{ getFloodBernJson|safe }}</pre>
-                                        <pre id="json-data-flood-bernort" style="display: none;">{{ getFloodBernOrtJson|safe }}</pre>
-                                        <pre id="json-data-flood-bernub" style="display: none;">{{ getFloodBernUbJson|safe }}</pre>
-                                        <pre id="json-data-flood-m" style="display: none;">{{ getFloodMJson|safe }}</pre>
-                                        <pre id="json-data-flood-mort" style="display: none;">{{ getFloodMOrtJson|safe }}</pre>
-                                        <pre id="json-data-flood-mub" style="display: none;">{{ getFloodMUbJson|safe }}</pre>
-                                        <pre id="json-data-flood-z" style="display: none;">{{ getFloodZJson|safe }}</pre>
-                                        <pre id="json-data-flood-zort" style="display: none;">{{ getFloodZOrtJson|safe }}</pre>
-                                        <pre id="json-data-flood-zub" style="display: none;">{{ getFloodZUbJson|safe }}</pre>
-                                        <pre id="json-data-flood-c" style="display: none;">{{ getFloodCJson|safe }}</pre>
-                                        <pre id="json-data-flood-cort" style="display: none;">{{ getFloodCOrtJson|safe }}</pre>
-                                        <pre id="json-data-flood-cub" style="display: none;">{{ getFloodCUbJson|safe }}</pre>
-                                        <pre id="json-data-rain-b" style="display: none;">{{ getRainBJson|safe }}</pre>
-                                        <pre id="json-data-rain-m" style="display: none;">{{ getRainMJson|safe }}</pre>
-                                        <pre id="json-data-rain-z" style="display: none;">{{ getRainZJson|safe }}</pre>
-                                        <pre id="json-data-rain-c" style="display: none;">{{ getRainCJson|safe }}</pre>
-                                        <pre id="json-data-rain-bern" style="display: none;">{{ getRainBernJson|safe }}</pre>
-                                        <pre id="json-data-rain-bernfue" style="display: none;">{{ getRainBernFueJson|safe }}</pre>-->
+                          <h5>Historical Events</h5>
+                          <p> Specifics of the found historical events can be viewed in the graph visualization. Hover over the nodes to see details.</p>
+                          {% include "opp/graph.html" %}
 
+                          <br>
+                          <h5>Tasks</h5>
+                          {% include "opp/task_context.html" %}
 
-                                        <code class="prettyprint" id="json-renderer"></code>
-                                        <div id="table_operation_plan"></div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div  style="border: 1px solid #000;border-radius: 5px; height: 350px;width: 100%;margin-top: 20px;">
-                                    <div id="title-recommendation">Recommendation Graph
-                                    </div>
-                                    <!--neo4j-->
-                                    <div id="graph-container2" style="height: 320px;margin-top: -20;">
-
-                                        <p id="warning_text2" style="text-align: center;">
-                                            Please, select Event and Action.
-                                        </p>
-
-                                        <script src="{% static 'js/visGraph.js'%}"></script>
-
-                                    </div>
-
-                                    {% comment %} <script src="{% static 'js/recommendation-graph.js'%}"></script> {% endcomment %}
-
-                                </div>
-                            </div>
+                          <br>
+                          <h5>Units & Personnel</h5>
+                          {% include "opp/unit_context.html" %}
 
                         </div>
                     </div>

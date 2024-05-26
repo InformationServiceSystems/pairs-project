@@ -99,65 +99,65 @@ function generateTableRows(dataWeather, location) {
     case "Bengel (Rheinland-Pfalz)":
       tableRows += `
         <tr>
-            <td>15/11/2023</td>
-            <td>5.49</td>
+            <td>13/05/2024</td>
+            <td>25.49</td>
             <td>3.09</td>
             <td>9.98</td>
             <td>Yes</td>
-            <td>Yes</td>
-            <td>Heavy Rain</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>16/11/2023</td>
-            <td>11.51</td>
+            <td>14/05/2024</td>
+            <td>21.51</td>
             <td>2.46</td>
             <td>9.60</td>
-            <td>Yes</td>
             <td>No</td>
-            <td>Flood</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>17/11/2023</td>
-            <td>10.18</td>
+            <td>15/05/2024</td>
+            <td>20.18</td>
             <td>1.49</td>
             <td>6.73</td>
-            <td>No</td>
             <td>Yes</td>
+            <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>18/11/2023</td>
-            <td>9.62</td>
+            <td>16/05/2024</td>
+            <td>19.62</td>
             <td>1.08</td>
             <td>4.50</td>
-            <td>No</td>
             <td>Yes</td>
+            <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>19/11/2023</td>
-            <td>9.86</td>
+            <td>17/05/2024</td>
+            <td>19.86</td>
             <td>3.68</td>
             <td>5.00</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>20/11/2023</td>
-            <td>5.56</td>
+            <td>18/05/2024</td>
+            <td>25.56</td>
             <td>1.71</td>
             <td>7.59</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>21/11/2023</td>
-            <td>6.26</td>
+            <td>19/05/2024</td>
+            <td>26.26</td>
             <td>2.14</td>
             <td>5.62</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
@@ -166,65 +166,65 @@ function generateTableRows(dataWeather, location) {
     case "Cochem (Rheinland-Pfalz)":
       tableRows += `
         <tr>
-            <td>15/11/2023</td>
-            <td>5.79</td>
+            <td>13/05/2024</td>
+            <td>25.79</td>
             <td>3.05</td>
             <td>9.98</td>
             <td>Yes</td>
             <td>No</td>
-            <td>Heavy Rain</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>16/11/2023</td>
-            <td>12.11</td>
+            <td>14/05/2024</td>
+            <td>22.11</td>
             <td>4.06</td>
             <td>9.60</td>
             <td>Yes</td>
-            <td>Yes</td>
-            <td>Flood</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>17/11/2023</td>
-            <td>9.18</td>
+            <td>15/05/2024</td>
+            <td>29.18</td>
             <td>3.49</td>
             <td>8.73</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>18/11/2023</td>
-            <td>9.62</td>
+            <td>16/05/2024</td>
+            <td>29.62</td>
             <td>2.08</td>
             <td>4.50</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>19/11/2023</td>
-            <td>7.86</td>
+            <td>17/05/2024</td>
+            <td>27.86</td>
             <td>3.68</td>
             <td>5.00</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>20/11/2023</td>
-            <td>1.56</td>
+            <td>18/05/2024</td>
+            <td>21.56</td>
             <td>2.01</td>
             <td>7.59</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>21/11/2023</td>
-            <td>4.26</td>
+            <td>19/05/2024</td>
+            <td>24.26</td>
             <td>2.14</td>
             <td>5.62</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
@@ -233,65 +233,65 @@ function generateTableRows(dataWeather, location) {
     case "Bernkastel-Kues (Rheinland-Pfalz)":
       tableRows += `
         <tr>
-            <td>15/11/2023</td>
-            <td>6.79</td>
+            <td>13/05/2024</td>
+            <td>26.79</td>
             <td>3.75</td>
             <td>7.98</td>
             <td>Yes</td>
-            <td>Yes</td>
-            <td>Heavy Rain</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>16/11/2023</td>
-            <td>11.11</td>
+            <td>14/05/2024</td>
+            <td>21.11</td>
             <td>2.06</td>
             <td>9.60</td>
             <td>Yes</td>
-            <td>Yes</td>
-            <td>Flood</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>17/11/2023</td>
-            <td>10.18</td>
+            <td>15/05/2024</td>
+            <td>20.18</td>
             <td>3.43</td>
             <td>4.73</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>18/11/2023</td>
-            <td>10.62</td>
+            <td>16/05/2024</td>
+            <td>20.62</td>
             <td>2.42</td>
             <td>9.50</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>19/11/2023</td>
-            <td>8.21</td>
+            <td>17/05/2024</td>
+            <td>28.21</td>
             <td>2.48</td>
             <td>6.02</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>20/11/2023</td>
-            <td>1.56</td>
+            <td>18/05/2024</td>
+            <td>21.56</td>
             <td>2.01</td>
             <td>3.59</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>21/11/2023</td>
-            <td>4.26</td>
+            <td>19/05/2024</td>
+            <td>24.26</td>
             <td>2.14</td>
             <td>8.62</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
@@ -300,26 +300,26 @@ function generateTableRows(dataWeather, location) {
     case "Mülheim (Rheinland-Pfalz)":
       tableRows += `
         <tr>
-            <td>15/11/2023</td>
-            <td>6.19</td>
+            <td>13/05/2024</td>
+            <td>26.19</td>
             <td>2.87</td>
             <td>4.98</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Heavy Rain</td>
+            <td>No</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>16/11/2023</td>
-            <td>8.11</td>
+            <td>14/05/2024</td>
+            <td>28.11</td>
             <td>2.06</td>
             <td>9.60</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Flood</td>
+            <td>No</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>17/11/2023</td>
-            <td>10.18</td>
+            <td>15/05/2024</td>
+            <td>20.18</td>
             <td>2.12</td>
             <td>6.73</td>
             <td>No</td>
@@ -327,8 +327,8 @@ function generateTableRows(dataWeather, location) {
             <td>-</td>
         </tr>
         <tr>
-            <td>18/11/2023</td>
-            <td>9.62</td>
+            <td>16/05/2024</td>
+            <td>29.62</td>
             <td>1.42</td>
             <td>9.50</td>
             <td>No</td>
@@ -336,8 +336,8 @@ function generateTableRows(dataWeather, location) {
             <td>-</td>
         </tr>
         <tr>
-            <td>19/11/2023</td>
-            <td>8.21</td>
+            <td>17/05/2024</td>
+            <td>28.21</td>
             <td>2.18</td>
             <td>6.62</td>
             <td>No</td>
@@ -345,8 +345,8 @@ function generateTableRows(dataWeather, location) {
             <td>-</td>
         </tr>
         <tr>
-            <td>20/11/2023</td>
-            <td>3.16</td>
+            <td>18/05/2024</td>
+            <td>23.16</td>
             <td>2.01</td>
             <td>3.59</td>
             <td>Yes</td>
@@ -354,11 +354,11 @@ function generateTableRows(dataWeather, location) {
             <td>-</td>
         </tr>
         <tr>
-            <td>21/11/2023</td>
-            <td>4.26</td>
+            <td>19/05/2024</td>
+            <td>24.26</td>
             <td>3.14</td>
             <td>5.62</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
@@ -367,53 +367,53 @@ function generateTableRows(dataWeather, location) {
     case "Zell (Rheinland-Pfalz)":
       tableRows += `
         <tr>
-            <td>15/11/2023</td>
-            <td>6.52</td>
+            <td>13/05/2024</td>
+            <td>26.52</td>
             <td>4.17</td>
             <td>4.18</td>
             <td>Yes</td>
-            <td>Yes</td>
-            <td>Heavy Rain</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>16/11/2023</td>
-            <td>10.52</td>
+            <td>14/05/2024</td>
+            <td>20.52</td>
             <td>2.06</td>
             <td>7.60</td>
-            <td>Yes</td>
             <td>No</td>
-            <td>Flood</td>
+            <td>No</td>
+            <td>-</td>
         </tr>
         <tr>
-            <td>17/11/2023</td>
-            <td>10.31</td>
+            <td>15/05/2024</td>
+            <td>20.31</td>
             <td>2.12</td>
             <td>6.73</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>18/11/2023</td>
-            <td>10.12</td>
+            <td>16/05/2024</td>
+            <td>20.12</td>
             <td>2.12</td>
             <td>8.23</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>19/11/2023</td>
-            <td>9.81</td>
+            <td>17/05/2024</td>
+            <td>29.81</td>
             <td>2.58</td>
             <td>7.62</td>
-            <td>No</td>
+            <td>Yes</td>
             <td>No</td>
             <td>-</td>
         </tr>
         <tr>
-            <td>20/11/2023</td>
-            <td>4.16</td>
+            <td>18/05/2024</td>
+            <td>24.16</td>
             <td>2.41</td>
             <td>6.59</td>
             <td>Yes</td>
@@ -421,8 +421,8 @@ function generateTableRows(dataWeather, location) {
             <td>-</td>
         </tr>
         <tr>
-            <td>21/11/2023</td>
-            <td>5.22</td>
+            <td>19/05/2024</td>
+            <td>25.22</td>
             <td>2.34</td>
             <td>6.62</td>
             <td>No</td>
@@ -459,7 +459,7 @@ function generateTableRows(dataWeather, location) {
           <th></th>
           <th>Temperature, C&deg;</th>
           <th>Windspeed, m/s</th>
-          <th>Visibility, km</th>
+          <th>Visibility</th>
           <th>Drizzle</th>
           <th>Thunder</th>
           <th>Event</th>
