@@ -164,7 +164,7 @@ def alert_classification(news_article_df):
     return alert_dict
 #%%
 
-def full_pipeline(query, start_date, end_date, country, language, openai_api_key='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'):
+def full_pipeline(query, start_date, end_date, country, language, openai_api_key='ADD key'):
     # Step 1: Get News Articles
     news_articles_df = analyze_news_articles(query, start_date, end_date, country, language, openai_api_key)
 
